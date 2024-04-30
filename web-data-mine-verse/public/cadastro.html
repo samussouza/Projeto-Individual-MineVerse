@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="css\cadastro.css">
+
+</head>
+
+<body>
+    <a href="login.html" class="loginBotao">Já tem cadastro?</a>
+
+    <div class="container">
+        <h2>Cadastro</h2>
+
+        <!--Tag formulario-->
+        <form id="formularioCadastro">
+
+            Nome:
+            <input type="text" id="input_nome">
+
+            CPF:
+            <input type="text" id="input_cpf">
+
+            Email:
+            <input type="text" id="input_email">
+
+            Senha:
+            <input type="text" id="input_senha">
+
+            Confirmar senha:
+            <input type="text" id="input_confirmar_senha">
+
+            <button onclick="cadastrar()">Cadastrar</button>
+
+        </form>
+
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    // function verSenha() {
+    //     let CampoSenha = input_senha.value;
+
+    //     if (CampoSenha.type === 'password') {
+    //         CampoSenha.type = 'text'
+    //     } else {
+    //         CampoSenha.type = 'password'
+    //     }
+    // }
+    function cadastrar() {
+        var CampoSenha = input_senha.value;
+        var CampoNome = input_nome.value;
+        var CampoCPF = input_cpf.value;
+        var CampoConfirmarSenha = input_confirmar_senha.value;
+        var CampoEmail = input_email.value;
+
+        if (CampoCPF == "" || CampoNome == "" || CampoEmail == "" || CampoSenha == "" || CampoConfirmarSenha == "") {
+
+            alert("Erro ! Cerfitique-se que todos os campos estão preenchidos.")
+            return
+        }
+
+        else if (CampoCPF.length < 11) {
+            alert("CPF inválido ! O CPF deve conter 11 digítos.")
+            return
+        }
+        else if (CampoEmail.indexOf("@") < 0 && CampoEmail.indexOf(".com") < 0) {
+            alert("Email inválido! O email deve conter '@' e '.com'")
+            return
+
+        }
+        else if (CampoConfirmarSenha !== CampoSenha) {
+            alert("Senha inválida ! Cerfique-se que os valores informados são iguais.")
+            return
+        }
+        else if ((CampoSenha.length < 8) && (CampoSenha.indexOf("@") < 0 || CampoSenha.indexOf("#") < 0) && (CampoSenha.indexOf('1') < 0 ||
+            CampoSenha.indexOf('2') < 0 ||
+            CampoSenha.indexOf('3') < 0 ||
+            CampoSenha.indexOf('4') < 0 ||
+            CampoSenha.indexOf('5') < 0 ||
+            CampoSenha.indexOf('6') < 0 ||
+            CampoSenha.indexOf('7') < 0 ||
+            CampoSenha.indexOf('8') < 0 ||
+            CampoSenha.indexOf('9') < 0)) {
+            alert("Senha inválida ! A senha deve conter pelo menos 8 digítos, pelos menos um caractere numérico e um caractere especial '@' ou '#'.")
+            return
+
+        }
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: CampoNome,
+                emailServer: CampoEmail,
+                senhaServer: CampoSenha,
+                cpfServer: CampoCPF,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    alert("Cadastro realizado com sucesso!");
+                    
+                    let redirecionarLogin = "login.html";
+                    window.location.href = redirecionarLogin;
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (erro) {
+                console.log(`#ERRO: ${erro}`);
+                alert("Ocorreu um erro ao enviar as informações. Por favor, tente novamente mais tarde.");
+            });
+        return false;
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

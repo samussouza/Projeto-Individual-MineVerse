@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    
+    <span class="esqueceuSenha">
+        <a href="">Esqueceu senha?</a>
+    </span>
+    <span class="possuiCad">
+        <a href="cadastro.html">Cadastre-se aqui</a>
+    </span>
+    <div class="container">
+        <div class="login">
+            <form>
+                <h1>Login</h1>
+                Email:
+                <input type="text" id="input_email"><br>
+                Senha:
+                <input type="password" id="input_senha">
+                <p>
+                    <button onclick="validarLogin()">Login</button>
+
+                </p>
+                <div class="exibir">
+                    
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function validarLogin() {
+        var email = input_email.value;
+        var senha = input_senha.value;
+
+        if ((email == "") || (senha == "")) {
+            alert("Erro ! Cerfitique-se que todos os campos estão preenchidos.")
+            return false 
+        }
+        // if (email.indexOf("@") < 0 && email.indexOf(".com") < 0) {
+        //     return false;
+        //     alert("Email inválido! O email deve conter '@' e '.com'")
+        // }
+        // if ((CampoSenha.length < 8) && (CampoSenha.indexOf("@") < 0 || CampoSenha.indexOf("#") < 0) && (CampoSenha.indexOf('1') < 0 ||
+        //     CampoSenha.indexOf('2') < 0 ||
+        //     CampoSenha.indexOf('3') < 0 ||
+        //     CampoSenha.indexOf('4') < 0 ||
+        //     CampoSenha.indexOf('5') < 0 ||
+        //     CampoSenha.indexOf('6') < 0 ||
+        //     CampoSenha.indexOf('7') < 0 ||
+        //     CampoSenha.indexOf('8') < 0 ||
+        //     CampoSenha.indexOf('9') < 0)) {
+        //     alert("Senha inválida ! A senha deve conter pelo menos 8 digítos, pelos menos um caractere numérico e um caractere especial '@' ou '#'.")
+        //     return false
+        // }
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                   
+                });
+                
+                  
+                let redirecionarQuiz = "quiz.html";
+                    window.location.href = redirecionarQuiz;
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+               
+
+            }
+
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+        
+    }
+
+
+
+</script>

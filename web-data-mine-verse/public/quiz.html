@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./css/quiz.css">
+</head>
+
+<body>
+    <div class="quiz-container">
+        <div class="div-quiz">
+            <h2>Pergunta 1:</h2>
+            <p>Qual é a capital do Brasil?</p>
+
+            <input type="radio" name="resposta1" value="Rio de Janeiro"> Rio de Janeiro
+            <br>
+            <input type="radio" name="resposta1" value="São Paulo"> São Paulo
+            <br>
+            <input type="radio" name="resposta1" value="Brasília"> Brasília
+
+        </div>
+
+
+        <div class="divQuiz" style="display: none;">
+            <h2>Pergunta 2:</h2>
+            <p>Quem escreveu "Dom Quixote"?</p>
+
+            <input type="radio" name="resposta2" value="Miguel de Cervantes"> Miguel de Cervantes
+            <br>
+            <input type="radio" name="resposta2" value="William Shakespeare"> William Shakespeare
+            <br>
+            <input type="radio" name="resposta2" value="Friedrich Nietzsche"> Friedrich Nietzsche
+
+        </div>
+
+        <div class="divQuiz" style="display: none;">
+            <h2>Pergunta 3:</h2>
+            <p>Quem escreveu "A Origem das Espécies"?</p>
+            <input type="radio" name="resposta3" value="Charles Darwin"> Charles Darwin
+            <br>
+            <input type="radio" name="resposta3" value="Isaac Newton"> Isaac Newton7
+            <br>
+            <input type="radio" name="resposta3" value="Albert Einstein"> Albert Einstein
+            <br>
+            <p>
+                <button onclick="enviarRespostas()">Enviar</button>
+            </p>
+        </div>
+
+        <p>
+            <button onclick="nextPergunta()">Avançar</button>
+        </p>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+
+var indexPerguntaAtual = 0;
+    
+        
+    function enviarRespostas() {
+        /*const para validarem se foi selecionado um input por name*/
+        const valid1 = document.querySelector('input[name="resposta1"]:checked');
+        const valid2 = document.querySelector('input[name="resposta2"]:checked');
+        const valid3 = document.querySelector('input[name="resposta3"]:checked');
+
+        /*const que verifica o value selecionado*/
+        const resposta1 = document.querySelector('input[name="resposta1"]:checked').value;
+        const resposta2 = document.querySelector('input[name="resposta2"]:checked').value;
+        const resposta3 = document.querySelector('input[name="resposta3"]:checked').value;
+
+        // Verifica se alguma resposta não foi selecionada
+        if (!valid1 || !valid2 || !valid3) {
+            alert("Por favor, selecione uma resposta para cada pergunta.");
+            return; //impede o envio*/
+        } 
+
+            console.log(resposta1);
+            console.log(resposta2);
+            console.log(resposta3);
+
+            fetch("/quiz/cadastrarRespostas", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    resposta1Server: resposta1,
+                    resposta2Server: resposta2,
+                    resposta3Server: resposta3
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("Resposta do servidor: ", resposta);
+
+                    if (resposta.ok) {
+                        alert("Respostas enviadas com sucesso!");
+
+                        let redirecionarDash = "./dashboard/dashboard.html";
+                        window.location.href = redirecionarDash;
+
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (erro) {
+                    console.log(`#ERRO: ${erro}`);
+                    alert("Ocorreu um erro ao enviar as respostas. Por favor, tente novamente mais tarde.");
+                });
+            return false;
+        }
+    
+
+</script>
