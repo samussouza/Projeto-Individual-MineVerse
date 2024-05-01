@@ -10,18 +10,18 @@
 
 body {
     background-color: #2d2d2d;
+    
 }
 
 .navigation {
     margin-bottom: 50px;
     position: relative;
-    height: 690px;
+    height: 695px;
     background: #424242;
     box-shadow: 10px 0 0 #099c22;
     width: 260px;
     border-left: 10px solid #424242;
     overflow: hidden;
-    /* transition: width 0.5s; Corrigindo transição */
 }
 
 
@@ -31,10 +31,10 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding-left: 5px;
+    padding-left: 15px;
     padding-top: 40px;
-    display: flex; /* Alteração para display flex */
-    flex-direction: column; /* Alteração para empilhar os itens */
+    display: flex; 
+    flex-direction: column; 
 }
 
 .navigation ul li {
@@ -45,21 +45,48 @@ body {
     display: flex;
     text-decoration: none;
     color: #fff;
-    align-items: center; /* Centralizando verticalmente */
-    padding: 10px; /* Espaçamento interno */
+    align-items: center; 
+    padding: 10px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
 
 .navigation ul li a .icon {
     font-size: 1.5rem;
-    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+    margin-right: 10px; 
 }
 
 .navigation ul li a:hover {
-    background-color: #099c22; /* Cor de fundo no hover */
+    background-color: #099c22; 
 }
 
 .navigation ul li a:hover .title {
-    font-weight: bold; /* Deixa o texto em negrito no hover */
+    font-weight: bold;
 }
+/*seção destinada para as tags no menu lataral*/
+.sectionsMenus {
+    display: flex;
+    max-height: 695px;
+}
+/*seção para conter as divs dos menus*/
+.containerRef {
+    margin-left: 30px;
+    width: 1230px;
+    height: 695px;
+    background-color: #fff;
+    display: flex;
+
+}
+
+.perfil {
+    width: 1230px;
+    height: 695px;
+    background-color: rgb(168, 110, 41);
+}
+
+.dashboard {
+    width: 1230px;
+    height: 695px;
+    background-color: rgb(62, 41, 168);
+}
+
