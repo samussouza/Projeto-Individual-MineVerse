@@ -1,39 +1,28 @@
 
 var database = require("../database/config")
 
-async function instrucaoSql2(email) {
-    var instrucaoSql = `
-        SELECT id FROM usuario WHERE email = '${email}';
-    `;
+function buscarId(email) {
+    var instrucaoSql = `SELECT id FROM usuario WHERE email = '${email}';`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
 
-    try {
-        const [rows] = await database.executar(instrucaoSql);
-        if (rows.length > 0) {
-            // Retorna o ID do usuário encontrado
-            return rows[0].id;
-        } else {
-            // Retorna null se nenhum usuário for encontrado
-            return null;
-        }
-    } catch (error) {
-        console.error("Erro ao executar a instrução SQL:", error);
-        throw error;
-    }
+    // Execute a instrução SQL e retorne a Promise resultante
+    return database.executar(instrucaoSql);
 }
-  
+
 function autenticar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucaoSql = `
         SELECT id, nome, email FROM usuario WHERE email = '${email}' AND senha = '${senha}';`
-        
+
     
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-  
-    return database.executar(instrucaoSql);
-    
-}
+
+            console.log("Executando a instrução SQL de inserção: \n" + instrucaoSql);
+            
+            // Executa a inserção na tabela quiz_resultado
+            return database.executar(instrucaoSql);
+        }
+
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
 function cadastrar(nome, email, senha, cpf) {
@@ -44,7 +33,7 @@ function cadastrar(nome, email, senha, cpf) {
     var instrucaoSql = `
         INSERT INTO usuario (nome, email, senha, cpf) VALUES ('${nome}', '${email}', '${senha}', '${cpf}');
     `;
-    
+
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -53,5 +42,6 @@ function cadastrar(nome, email, senha, cpf) {
 module.exports = {
     autenticar,
     cadastrar,
-    instrucaoSql2
+    buscarId
+   
 };

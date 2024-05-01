@@ -64,34 +64,35 @@
 
             alert("Erro ! Cerfitique-se que todos os campos estão preenchidos.")
             return
+        } else {
+
+            if (CampoCPF.length <= 10 || CampoCPF.length >= 12) {
+                alert("CPF inválido ! O CPF deve conter 11 digítos.")
+                return
+            }
+            else if (CampoEmail.indexOf("@") < 0 && CampoEmail.indexOf(".com") < 0) {
+                alert("Email inválido! O email deve conter '@' e '.com'")
+                return
+
+            }
+            else if (CampoConfirmarSenha !== CampoSenha) {
+                alert("Senha inválida ! Cerfique-se que os valores informados são iguais.")
+                return
+            }
+            else if (CampoSenha.length < 8 && (CampoSenha.indexOf("@") < 0 || CampoSenha.indexOf("#") < 0) && (CampoSenha.indexOf('1') < 0 ||
+                CampoSenha.indexOf('2') < 0 ||
+                CampoSenha.indexOf('3') < 0 ||
+                CampoSenha.indexOf('4') < 0 ||
+                CampoSenha.indexOf('5') < 0 ||
+                CampoSenha.indexOf('6') < 0 ||
+                CampoSenha.indexOf('7') < 0 ||
+                CampoSenha.indexOf('8') < 0 ||
+                CampoSenha.indexOf('9') < 0)) {
+                alert("Senha inválida ! A senha deve conter pelo menos 8 digítos, pelos menos um caractere numérico e um caractere especial '@' ou '#'.")
+                return
+            }
         }
 
-        else if (CampoCPF.length < 11) {
-            alert("CPF inválido ! O CPF deve conter 11 digítos.")
-            return
-        }
-        else if (CampoEmail.indexOf("@") < 0 && CampoEmail.indexOf(".com") < 0) {
-            alert("Email inválido! O email deve conter '@' e '.com'")
-            return
-
-        }
-        else if (CampoConfirmarSenha !== CampoSenha) {
-            alert("Senha inválida ! Cerfique-se que os valores informados são iguais.")
-            return
-        }
-        else if ((CampoSenha.length < 8) && (CampoSenha.indexOf("@") < 0 || CampoSenha.indexOf("#") < 0) && (CampoSenha.indexOf('1') < 0 ||
-            CampoSenha.indexOf('2') < 0 ||
-            CampoSenha.indexOf('3') < 0 ||
-            CampoSenha.indexOf('4') < 0 ||
-            CampoSenha.indexOf('5') < 0 ||
-            CampoSenha.indexOf('6') < 0 ||
-            CampoSenha.indexOf('7') < 0 ||
-            CampoSenha.indexOf('8') < 0 ||
-            CampoSenha.indexOf('9') < 0)) {
-            alert("Senha inválida ! A senha deve conter pelo menos 8 digítos, pelos menos um caractere numérico e um caractere especial '@' ou '#'.")
-            return
-
-        }
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -111,7 +112,7 @@
 
                 if (resposta.ok) {
                     alert("Cadastro realizado com sucesso!");
-                    
+
                     let redirecionarLogin = "login.html";
                     window.location.href = redirecionarLogin;
 
@@ -125,8 +126,8 @@
             });
         return false;
 
-
     }
+
 
 
 

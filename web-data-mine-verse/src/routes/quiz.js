@@ -7,5 +7,6 @@ router.post("/cadastrarRespostas", function (req, res){
     quizController.cadastrarRespostas(req, res);
 });
 
+
 module.exports = router;
 

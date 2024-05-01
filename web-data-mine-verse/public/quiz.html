@@ -23,7 +23,7 @@
         </div>
 
 
-        <div class="divQuiz" style="display: none;">
+        <div class="divQuiz" style="display: block;">
             <h2>Pergunta 2:</h2>
             <p>Quem escreveu "Dom Quixote"?</p>
 
@@ -35,7 +35,7 @@
 
         </div>
 
-        <div class="divQuiz" style="display: none;">
+        <div class="divQuiz" style="display: block;">
             <h2>Pergunta 3:</h2>
             <p>Quem escreveu "A Origem das Espécies"?</p>
             <input type="radio" name="resposta3" value="Charles Darwin"> Charles Darwin
@@ -73,7 +73,8 @@ var indexPerguntaAtual = 0;
         const resposta1 = document.querySelector('input[name="resposta1"]:checked').value;
         const resposta2 = document.querySelector('input[name="resposta2"]:checked').value;
         const resposta3 = document.querySelector('input[name="resposta3"]:checked').value;
-
+        const idUsuario = sessionStorage.ID_USUARIO;
+console.log(idUsuario)
         // Verifica se alguma resposta não foi selecionada
         if (!valid1 || !valid2 || !valid3) {
             alert("Por favor, selecione uma resposta para cada pergunta.");
@@ -92,7 +93,8 @@ var indexPerguntaAtual = 0;
                 body: JSON.stringify({
                     resposta1Server: resposta1,
                     resposta2Server: resposta2,
-                    resposta3Server: resposta3
+                    resposta3Server: resposta3,
+                    id: idUsuario
                 }),
             })
                 .then(function (resposta) {
