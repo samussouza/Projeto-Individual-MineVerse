@@ -6,11 +6,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    /* outline: none;
+    border: none;
+    text-decoration: none; */
 }
 
 body {
     background-color: #2d2d2d;
-    
+    /* body {
+        background: #dfe9f5;
+    } */
 }
 
 .navigation {
@@ -73,9 +78,6 @@ body {
     margin-left: 30px;
     width: 1230px;
     height: 695px;
-    background-color: #fff;
-    display: flex;
-
 }
 
 .perfil {
@@ -89,4 +91,54 @@ body {
     height: 695px;
     background-color: rgb(62, 41, 168);
 }
+/*Aqui começa a dash*/
 
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.cardKPIs {
+    width: 25%;
+    height: 150px;
+    margin: 10px;
+    background: #fff;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+
+.containerChartJs {
+    width: 100%;
+    height: 400px;
+    padding: 10px 10px 30px 10px;
+    margin-top: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+
+.containerChartJs .divGraficos {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cardGrafico {
+    width: 33%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background: rgb(235, 233, 233);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.cardGrafico p {
+    font-size: 12px;
+    margin-top: 5px;
+}

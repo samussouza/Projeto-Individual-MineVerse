@@ -34,7 +34,7 @@ function cadastrarRespostas(req, res) {
 }
 
 
-
 module.exports = {
-    cadastrarRespostas
+    cadastrarRespostas,
+ 
 };

@@ -23,9 +23,10 @@ CREATE TABLE quiz_resultado (
     data_hora DATETIME
 );
 
+
+
 INSERT INTO usuario (nome, email, senha, cpf) 
 VALUES ('Samuel Sales', 'samuel@gmail.com', '12345', '12345678901');
-
 
 select * from quiz_resultado;
 select * from usuario;

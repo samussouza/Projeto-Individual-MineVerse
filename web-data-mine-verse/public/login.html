@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <span class="esqueceuSenha">
         <a href="">Esqueceu senha?</a>
     </span>
@@ -29,7 +29,7 @@
 
                 </p>
                 <div class="exibir">
-                    
+
                 </div>
             </form>
 
@@ -46,9 +46,9 @@
         var email = input_email.value;
         var senha = input_senha.value;
 
-        if (email == "" || senha == ""){
+        if (email == "" || senha == "") {
             alert("Erro ! Cerfitique-se que todos os campos estão preenchidos.")
-            return false 
+            return false
         }
         // if (email.indexOf("@") < 0 && email.indexOf(".com") < 0) {
         //     return false;
@@ -66,7 +66,7 @@
         //     alert("Senha inválida ! A senha deve conter pelo menos 8 digítos, pelos menos um caractere numérico e um caractere especial '@' ou '#'.")
         //     return false
         // }
-    
+
         fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
@@ -88,12 +88,12 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    var usuario = JSON.parse(sessionStorage.ID_USUARIO);
-                window.location = "quiz.html";
+
+                    window.location = "quiz.html";
                 });
                 window.location = "quiz.html";
-               
-            } 
+
+            }
             else {
                 console.log("Houve um erro ao tentar realizar o login!");
 
@@ -103,13 +103,10 @@
         }).catch(function (erro) {
             console.log(erro);
             alert("Ocorreu um erro ao tentar fazer login. Por favor, tente novamente mais tarde.");
-            
+
         })
 
         return false;
-        }
-    
-
-
+    }
 
 </script>

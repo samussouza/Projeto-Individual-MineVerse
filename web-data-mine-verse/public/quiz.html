@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <video autoplay muted loop id="video-bg">
+        <source src="BackgroundVideoMine.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos HTML5.
+    </video>
     <div class="quiz-container">
 
         <div class="div-quiz">
@@ -27,6 +31,7 @@
             <label for="opcao1c">Rasmus Lerdorf</label><br>
 
             <button style="margin-left: 420px;" onclick="proximaPergunta(2)">Next</button>
+
         </div>
 
 
@@ -44,7 +49,8 @@
             <input type="radio" id="opcao2c" name="resposta2" value="MineBlocks">
             <label for="opcao2c">MineBlocks</label><br>
 
-            <button style="margin-left: 420px;" onclick="proximaPergunta(3)">Next</button>
+            <button style="margin-left: 420px;" onclick="proximaPergunta(3)">Avançar</button>
+            <button style="margin-left: 20px;" onclick="perguntaAnterior(2)">Voltar</button>
         </div>
 
 
@@ -63,6 +69,7 @@
                 <label for="opcao3c">The Void, The Nether, Overworld</label><br>
 
                 <button style="margin-left: 420px;" onclick="proximaPergunta(4)">Next</button>
+                <button style="margin-left: 20px;" onclick="perguntaAnterior(2)">Voltar</button>
         </div>
 
         <div class="div-quiz" style="display: none;">
@@ -80,6 +87,7 @@
                 <label for="opcao4c">Wither</label><br>
 
                 <button style="margin-left: 420px;" onclick="proximaPergunta(5)">Next</button>
+                <button style="margin-left: 20px;" onclick="perguntaAnterior(3)">Voltar</button>
         </div>
 
         <div class="div-quiz" style="display: none;">
@@ -94,8 +102,9 @@
                 <label for="opcao5b">Enderlord</label><br>
 
                 <input type="radio" id="opcao5c" name="resposta5" value="Dragão das Sombras">
-                <label for="opcao5c">Dragão das Sombras</label><br>
 
+                <label for="opcao5c">Dragão das Sombras</label><br>
+                <button style="margin-left: 20px;" onclick="perguntaAnterior(4)">Voltar</button>
                 <button style="margin-left: 420px;" onclick="proximaPergunta(6)">Next</button>
         </div>
         <!--Rever-->
@@ -112,7 +121,7 @@
 
                 <input type="radio" id="opcao6c" name="resposta6" value="Ghast Tear">
                 <label for="opcao6c">Ghast Tear</label><br>
-
+                <button style="margin-left: 20px;" onclick="perguntaAnterior(5)">Voltar</button>
                 <button style="margin-left: 420px;" onclick="proximaPergunta(7)">Next</button>
         </div>
 
@@ -129,7 +138,7 @@
 
                 <input type="radio" id="opcao7c" name="resposta7" value="TNT">
                 <label for="opcao7c">TNT</label><br>
-
+                <button style="margin-left: 20px;" onclick="perguntaAnterior(6)">Voltar</button>
                 <button style="margin-left: 420px;" onclick="proximaPergunta(8)">Next</button>
         </div>
 
@@ -146,7 +155,7 @@
 
                 <input type="radio" id="opcao8c" name="resposta8" value="Cenoura dourada">
                 <label for="opcao8c">Cenoura dourada</label><br>
-
+                <button style="margin-left: 20px;" onclick="perguntaAnterior(7)">Voltar</button>
                 <button style="margin-left: 420px;" onclick="proximaPergunta(9)">Next</button>
         </div>
 
@@ -163,7 +172,7 @@
 
             <input type="radio" id="opcao9c" name="resposta9" value="Pico de Diamante com Toque de Seda">
             <label for="opcao9c">Pico de Diamante com Toque de Seda</label><br>
-
+            <button style="margin-left: 20px;" onclick="perguntaAnterior(8)">Voltar</button>
             <button style="margin-left: 420px;" onclick="proximaPergunta(10)">Next</button>
         </div>
 
@@ -172,17 +181,18 @@
             <h2 style="font-family: Arial, sans-serif; font-weight: 900;">CraftQuiz</h2>
             <hr>
             <p>10. Qual é a relação entre a altura do Nether e do Overworld em Minecraft?</p>
-        
+
             <input type="radio" id="opcao10a" name="resposta10" value="A altura do Nether é a mesma do Overworld">
             <label for="opcao10a">Nether é igual ao Overworld</label><br>
-        
+
             <input type="radio" id="opcao10b" name="resposta10" value="O Nether é duas vezes mais alto que o Overworld">
             <label for="opcao10b">Nether é duas vezes mais alto que o Overworld</label><br>
-        
-            <input type="radio" id="opcao10c" name="resposta10" value="8 blocos Nether equivalem a 64 blocoss no Overworld">
+
+            <input type="radio" id="opcao10c" name="resposta10"
+                value="8 blocos Nether equivalem a 64 blocoss no Overworld">
             <label for="opcao10c">8 blocos Nether equivalem a 64 blocoss no Overworld</label><br>
-     
-                <button style="margin-left: 420px;" onclick="enviarRespostas()">Enviar</button>
+            <button style="margin-left: 20px;" onclick="perguntaAnterior(9)">Voltar</button>
+            <button style="margin-left: 420px;" onclick="enviarRespostas()">Enviar</button>
         </div>
     </div>
 
@@ -193,9 +203,33 @@
 
 
 <script>
-   
+    function validarRespostas() {
+        var perguntas = document.querySelectorAll('.div-quiz');
 
+        for (var validacao = 0; validacao < perguntas.length; validacao++) {
+            /*verifica se tem pelo menos um input selecionda por div*/
+            var inputs = perguntas[validacao].querySelectorAll('input[type="radio"]:checked');
+            if (inputs.length == 0) {
+                alert("Por favor, responda todas as perguntas antes de prosseguir.");
+                return false;
+            }
+        }
+
+        return true;
+    }
     /*utilizei o metodo de argumento na funcao vinda do onclick*/
+    function perguntaAnterior(atual) {
+        var perguntas = document.querySelectorAll('.div-quiz');
+
+        for (var contador = 0; contador < perguntas.length; contador++) {
+            if (contador === atual - 2) {
+                perguntas[contador].style.display = 'block';
+            } else {
+                perguntas[contador].style.display = 'none';
+            }
+        }
+    }
+
 
     function proximaPergunta(proxima) {
         var perguntas = document.querySelectorAll('.div-quiz');
@@ -210,29 +244,13 @@
 
     }
 
-    var indexPerguntaAtual = 0;
 
     function enviarRespostas() {
-        /*const para validarem se foi selecionado um input por name*/
-        const valid1 = document.querySelector('input[name="resposta1"]:checked');
-        const valid2 = document.querySelector('input[name="resposta2"]:checked');
-        const valid3 = document.querySelector('input[name="resposta3"]:checked');
-        const valid4 = document.querySelector('input[name="resposta4"]:checked');
-        const valid5 = document.querySelector('input[name="resposta5"]:checked');
-        const valid6 = document.querySelector('input[name="resposta6"]:checked');
-        const valid7 = document.querySelector('input[name="resposta7"]:checked');
-        const valid8 = document.querySelector('input[name="resposta8"]:checked');
-        const valid9 = document.querySelector('input[name="resposta9"]:checked');
-        const valid10 = document.querySelector('input[name="resposta10"]:checked');
 
-        // if ((valid1 == null) || (!valid2) || (!valid3) || (!valid4) || (!valid5) || (!valid6) || (!valid7) || (!valid8) || (!valid9) || (valid10)) {
-
-        //     alert("Por favor, selecione uma resposta para cada pergunta.");
-        //     return;
-        // }
-
-        
-        /*const que verifica o value selecionado*/
+        if (!validarRespostas()) {
+            return;
+        }
+        /*Obtem os valores selecionados, que serão enviados para o banco*/
         const resposta1 = document.querySelector('input[name="resposta1"]:checked').value;
         const resposta2 = document.querySelector('input[name="resposta2"]:checked').value;
         const resposta3 = document.querySelector('input[name="resposta3"]:checked').value;
@@ -245,8 +263,7 @@
         const resposta10 = document.querySelector('input[name="resposta10"]:checked').value;
 
         console.log(resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10)
-
-        var usuario = JSON.parse(sessionStorage.ID_USUARIO);
+        calcularKPIs()
 
         fetch("/quiz/cadastrarRespostas", {
             method: "POST",
@@ -263,10 +280,7 @@
                 resposta7Server: resposta7,
                 resposta8Server: resposta8,
                 resposta9Server: resposta9,
-                resposta10Server: resposta10,
-                usuario
-
-                
+                resposta10Server: resposta10
             }),
         })
             .then(function (resposta) {
@@ -274,8 +288,8 @@
 
                 if (resposta.ok) {
                     alert("Respostas enviadas com sucesso!");
-
-                    let redirecionarDash = "./public/dashboard/dashboard.html";
+                    calcularKPIs()
+                    let redirecionarDash = "./dashboard/dashboard.html";
                     window.location.href = redirecionarDash;
 
                 } else {
@@ -287,6 +301,36 @@
                 alert("Ocorreu um erro ao enviar as respostas. Por favor, tente novamente mais tarde.");
             });
         return false;
+
+
+
+    }
+
+    function calcularKPIs() {
+
+        // Array contendo as respostas corretas para cada pergunta
+        const respostasCorretas = ["Markus Persson", "Cave Game", "The End, The Nether, Overworld", "Enderman", "Enderdragon", "Obsidiana", "Creeper", "Pó de blaze", "Pico de Diamante com Toque de Seda", "8 blocos Nether equivalem a 64 blocoss no Overworld"];
+        let pontuacaoTotal = 0;
+        let respostasCorretasPlayer = 0;
+
+        /*For que intera um valor para cada pergunta*/
+        for (let contador = 0; contador <= 9; contador++) {
+
+            let resposta = document.querySelector('input[name="resposta' + (contador + 1) + '"]:checked');
+            // Verificar se uma resposta foi selecionada e em seguida pega o valor
+            if (resposta) {
+                resposta = resposta.value;
+
+                if (resposta == respostasCorretas[contador]) {
+                    pontuacaoTotal += 10;
+                    respostasCorretasPlayer++;
+                }
+            }
+        }
+
+        console.log('Pontuação Total:' + pontuacaoTotal);
+        console.log('Total de Acertos:' + respostasCorretasPlayer);
+
     }
 
 
