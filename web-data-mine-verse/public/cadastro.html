@@ -44,15 +44,7 @@
 </html>
 
 <script>
-    // function verSenha() {
-    //     let CampoSenha = input_senha.value;
-
-    //     if (CampoSenha.type === 'password') {
-    //         CampoSenha.type = 'text'
-    //     } else {
-    //         CampoSenha.type = 'password'
-    //     }
-    // }
+ 
     function cadastrar() {
         var CampoSenha = input_senha.value;
         var CampoNome = input_nome.value;
@@ -63,35 +55,39 @@
         if (CampoCPF == "" || CampoNome == "" || CampoEmail == "" || CampoSenha == "" || CampoConfirmarSenha == "") {
 
             alert("Erro ! Cerfitique-se que todos os campos estão preenchidos.")
-            return
+            return false
         } else {
 
             if (CampoCPF.length <= 10 || CampoCPF.length >= 12) {
                 alert("CPF inválido ! O CPF deve conter 11 digítos.")
-                return
+                return false;
             }
-            else if (CampoEmail.indexOf("@") < 0 && CampoEmail.indexOf(".com") < 0) {
-                alert("Email inválido! O email deve conter '@' e '.com'")
+            else if (CampoEmail.indexOf("@") < 0 && CampoEmail.indexOf(".") < 0) {
+                alert("Email inválido! O email deve conter '@' e '.'")
                 return
 
+            }else if (CampoSenha.length < 8){
+                alert("Senha inválida ! A senha deve conter pelo menos 8 digítos")
+                return false;
+            }
+            else if (!/[A-Z]/.test(CampoSenha)){
+                alert("Senha inválida! A senha deve cConter pelo menos uma letra MAIÚSCULA.");
+                return false;
+            }
+            else if (!/[0-9]/.test(CampoSenha)) {
+                alert("Senha inválida! A senha deve conter pelo menos um número de 0 a 9.");
+                return false;
+            }
+            else if (!/[@#]/.test(CampoSenha)){
+                alert("Senha inválida! A senha deve conter pelo menos um caractere especial '@' ou '#'.");
+                return false;
             }
             else if (CampoConfirmarSenha !== CampoSenha) {
-                alert("Senha inválida ! Cerfique-se que os valores informados são iguais.")
+                alert("Senha Inválida ! Cerfique-se que as senhas informadas são IGUAIS.")
                 return
             }
-            else if (CampoSenha.length < 8 && (CampoSenha.indexOf("@") < 0 || CampoSenha.indexOf("#") < 0) && (CampoSenha.indexOf('1') < 0 ||
-                CampoSenha.indexOf('2') < 0 ||
-                CampoSenha.indexOf('3') < 0 ||
-                CampoSenha.indexOf('4') < 0 ||
-                CampoSenha.indexOf('5') < 0 ||
-                CampoSenha.indexOf('6') < 0 ||
-                CampoSenha.indexOf('7') < 0 ||
-                CampoSenha.indexOf('8') < 0 ||
-                CampoSenha.indexOf('9') < 0)) {
-                alert("Senha inválida ! A senha deve conter pelo menos 8 digítos, pelos menos um caractere numérico e um caractere especial '@' ou '#'.")
-                return
-            }
-        }
+           
+        
 
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -112,7 +108,11 @@
 
                 if (resposta.ok) {
                     alert("Cadastro realizado com sucesso!");
-
+                    sessionStorage.EMAIL_USUARIO = CampoEmail;
+                    sessionStorage.SENHA_USUARIO = CampoSenha;
+                    sessionStorage.CPF_USUARIO = CampoCPF;
+                    sessionStorage.EMAIL_USUARIO = CampoEmail;
+                    
                     let redirecionarLogin = "login.html";
                     window.location.href = redirecionarLogin;
 
@@ -125,7 +125,7 @@
                 alert("Ocorreu um erro ao enviar as informações. Por favor, tente novamente mais tarde.");
             });
         return false;
-
+        }
     }
 
 

@@ -10,6 +10,7 @@ CREATE TABLE usuario (
 ); 
 CREATE TABLE quiz_resultado (
     idTentativa INT PRIMARY KEY AUTO_INCREMENT,
+    fk_user int,
     quest1 VARCHAR(50),
     quest2 VARCHAR(50),
     quest3 VARCHAR(50),
@@ -20,10 +21,9 @@ CREATE TABLE quiz_resultado (
     quest8 VARCHAR(50),
     quest9 VARCHAR(50),
     quest10 VARCHAR(60),
-    data_hora DATETIME
+    data_hora DATETIME,
+    foreign key (fk_user) references usuario (id)
 );
-
-
 
 INSERT INTO usuario (nome, email, senha, cpf) 
 VALUES ('Samuel Sales', 'samuel@gmail.com', '12345', '12345678901');

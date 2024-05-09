@@ -1,95 +1,5 @@
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #277847;
-    margin: 0;
-    padding: 0;
-    background-position: center;
-    background-size: cover;
-    background-image: url("../assets/imgs/fundoCad.png");
-    overflow: hidden;
-}
 
-.container{
-    margin-top: 40px;
-    width: 80%;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    margin-left: 500px;
-    
-}
-.login {
-    border-radius: 30px;
-    background-color: rgba(0, 0, 0, 0.8);;
-    width: 42%;
-    height: 415px;
-    color: white;
-}
-form {
-    margin-left: 35px;
-    display: flex;
-    flex-direction: column;  
-    font-size: 18px;
-}
-form h1 {
-    font-size: 32px;
-    margin-bottom: 40px;
-    margin-left: 175px;
-}
-.esqueceuSenha{
-    position: relative;
-    top: 360px;
-    left: 536px;
-}
-.possuiCad{
-    position: relative;
-    top: 445px;
-    left: 587px;
-}
-.possuiCad a {
-    text-decoration: none;
-    font-size: 11px;
-    color: rgb(74, 144, 241);
-}
-
-.esqueceuSenha a{
-    text-decoration: none;
-    font-size: 13px;
-    color: rgb(74, 144, 241);
-}
-
-
-input[type="text"],
-input[type="password"]{
-    padding: 10px;
-    margin-bottom: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
-    color: #fff;
-    margin-top: 3px;
-    width: 415px;
-    height: 20px;
-
-}
-button {
-    margin-top: 27px;
-    margin-left: 67px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #277847;
-    color: #fff;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 18px;
-    width: 300px;
-}
-button:hover {
-    background-color: #1e5332;
-}
- */
-
+ @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
  body {
     font-family: Arial, sans-serif;
     /* background-color: #000; */
@@ -99,17 +9,24 @@ button:hover {
     background-position: center;
     background-size: cover;
     background-image: url("../assets/imgs/fundoCad.png");
+    box-sizing: border-box;
+    overflow: hidden;
+    
 }
 
 .container {
+    margin: auto;
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+    height: 280px;
     max-width: 400px;
-    margin: 50px auto;
+    /* margin: 50px auto; */
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+   
 }
-
 h1 {
     text-align: center;
 }
@@ -130,7 +47,9 @@ input[type="password"] {
     margin-top: 3px;
 }
 
+
 button {
+  margin-left: 37px;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -139,22 +58,30 @@ button {
     cursor: pointer;
     font-weight: bold;
     font-size: 18px;
+    width: 330px;
 }
 
 button:hover {
-    background-color: #1e5332;
+    background-color: #419551;
 }
 
-.esqueceuSenha,
-.possuiCad {
+.esqueceuSenha {
     display: block;
-    text-align: center;
-    margin-top: 20px;
+   position: relative;
+   top: 327px;
+   left: 570px;
+   font-size: 11px;
 }
-
+.possuiCad{
+    display: block;
+    position: relative;
+    top: 390px;
+    left: 728px;
+    font-size: 11px;
+}
 .esqueceuSenha a,
 .possuiCad a {
-    color: #fff;
+    color: #1a78a4;
     text-decoration: none;
 }
 

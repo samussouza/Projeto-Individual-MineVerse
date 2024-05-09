@@ -7,103 +7,191 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../quiz.js"></script>
 </head>
 
-<body> 
+<body>
     <section class="sectionsMenus">
-    <div class="navigation">
-        <ul>
-            <li class="list active">
-                <a href="#">
-                    <span class="icon"><ion-icon name="home"></ion-icon></span>
-                    <span class="title">Home</span>
-                </a>
-            </li>
-            <br>
-            <li class="list">
-                <a href="#" onclick="ativarPerfil()">
-                    <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    <span class="title">Perfil</span>
-                </a>
-            </li>
-            <br>
-            <li class="list">
-                <a href="#" onclick="ativarDashboard()">
-                    <span class="icon"><ion-icon name="analytics"></ion-icon></span>
-                    <span class="title">Dashboard</span>
-                </a>
-            </li>
-            <br>
-            <li class="list">
-                <a href="#">
-                    <span class="icon"><ion-icon name="chatboxes"></ion-icon></span>
-                    <span class="title">Anotações</span>
-                </a>
-            </li>
-            <br>
-            <li class="list">
-                <a href="#">
-                    <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
-                    <span class="title">Ajuda</span>
-                </a>
-            </li>
-            <br>
-            <li class="list" style="margin-top: 170px;">
-                <a href="#">
-                    <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    <span class="title">Sair</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="containerRef">
-        
-        <div class="container">
-            <div class="cardKPIs">
-                <h1>Pontos</h1>
-               
-            </div>
-            <div class="cardKPIs">
-                <h1>Tempo médio</h1>
-               </div>
-            <div class="cardKPIs">
-                <h1>KPI</h1>
-                </div>
-           
+        <div class="navigation">
+            <ul>
+                <li class="list active">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="home"></ion-icon></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <br>
+                <li class="list">
+                    <a href="./perfil/perfil.html" onclick="ativarPerfil()">
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <span class="title">Perfil</span>
+                    </a>
+                </li>
+                <br>
+                <li class="list">
+                    <a href="./dashboard.html" >
+                        <span class="icon"><ion-icon name="analytics"></ion-icon></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <br>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="chatboxes"></ion-icon></span>
+                        <span class="title">Anotações</span>
+                    </a>
+                </li>
+                <br>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                        <span class="title">Ajuda</span>
+                    </a>
+                </li>
+                <br>
+                <li class="list" style="margin-top: 170px;">
+                    <a href="#">
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <span class="title">Sair</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-    
-        <div class="containerChartJs">
-           
-            <div class="divGraficos">
-                <div class="cardGrafico">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos laboriosam provident, quos tempore facere quo omnis natus doloribus earum quod et, iusto cum iste? Laborum veniam voluptatibus assumenda laudantium facere.
+
+        <div class="containerRef">
+
+            <div class="container">
+                <div class="cardKPIs">
+                    <h1>Acertos</h1>
+                    <p id="totalAcertos"></p>
+                    <div class="color-box"></div>
                 </div>
-                <div class="cardGrafico">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos laboriosam provident, quos tempore facere quo omnis natus doloribus earum quod et, iusto cum iste? Laborum veniam voluptatibus assumenda laudantium facere.
+                <div class="cardKPIs">
+                    <div class="divCor"></div>
+                    <h1>Desacertos</h1>
+                    <p id="desacertos"></p>
+                    <div class="color-box"></div>
                 </div>
                
+                <div class="cardKPIs">
+                    <div class="divCor"></div>
+                    <h1>Aproveitamento</h1>
+                    <p id="aproveitamento"></p>
+                    <div class="color-box"></div>
+                </div>
+                <div class="cardKPIs">
+                    <div class="divCor"></div>
+                    <h1>KPI</h1>
+                    <p id="totalPontos"></p>
+                    <div class="color-box"></div>
+                </div>
+               
+            </div>
+
+            <div class="containerChartJs">
+
+                <div class="divGraficos">
+                    <div class="cardGrafico" >
+                       <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="cardGrafico">
+                        <canvas id="myChart2"></canvas>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
 
-   
-   
+
+
 
     </section>
 
 
-    
+
 </body>
 
 </html>
-
-
 <script>
+   
+
     function ativarPerfil() {
         perfil.style.display = "block"
     }
     function ativarDashboard() {
         dashboard.style.display = "block"
     }
+
+    function controleCoresBox (){
+        const divAcerto = document.getElementById('')
+
+        if (acertos < 5){
+
+        }else {
+
+        }
+       
+    }
+
+    function exibirValoresKPIs() {
+        console.log('Certas:', sessionStorage.RESPOSTA_CORRETA);
+        console.log('Total:',sessionStorage.PONTUACAO_TOTAL);
+        console.log('Erros:', sessionStorage.DESACERTOS)
+        console.log('Aproveitamento:', sessionStorage.APROVEITAMENTO)
+         
+        totalAcertos.innerHTML = '<strong>' + sessionStorage.RESPOSTA_CORRETA + '<span style="font-size: 20px;"> questões</span></strong>';
+        // totalPontos.innerHTML = '<strong>' + sessionStorage.PONTUACAO_TOTAL + '<span style="font-size: 20px;"> pontos</span></strong>';
+        desacertos.innerHTML = '<strong>' + sessionStorage.DESACERTOS + '<span style="font-size: 20px;"> questões</span></strong>';
+        aproveitamento.innerHTML = '<strong>' + sessionStorage.APROVEITAMENTO + '<span style="font-size: 28px;">%</span></strong>';
+        
+   
+        
+    }
+
+    
+    exibirValoresKPIs();
+
+    const ctx = document.getElementById('myChart');
+    const ctx2 = document.getElementById('myChart2');
+    
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'Tempo médio por questão',
+                data: [30, 29, 28, 25, 22, 23],
+                borderWidth: 1,
+                borderColor: "#FF4500",
+                backgroundColor: "#FF4500"
+            }]},
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+   
+   new Chart(ctx, {
+       type: 'bar',
+       data: {
+           labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+           datasets: [{
+               label: 'Tempo médio por questão',
+               data: [1.5 , 24, 27, 23, 20, 18,28 ],
+               borderWidth: 1
+           
+           }]
+                  },
+       options: {
+           scales: {
+               y: {
+                   beginAtZero: true
+               }
+           }
+       }
+   });
 </script>
