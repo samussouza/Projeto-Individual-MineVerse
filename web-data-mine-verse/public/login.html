@@ -20,7 +20,7 @@
     <div class="container">
         <div class="login">
 
-            <form>
+            <div class="form">
                 <h1>Login</h1>
 
                 <input type="text" id="input_email" placeholder="Email">
@@ -33,7 +33,7 @@
                 <div class="exibir">
 
                 </div>
-            </form>
+            </div>
 
 
         </div>
@@ -61,7 +61,7 @@
             else if (senha.length < 8) {
                 alert("Senha inválida ! A senha deve conter pelo menos 8 digítos")
                 return false;
-            }else if (!/[A-Z]/.test(senha)){
+            } else if (!/[A-Z]/.test(senha)) {
                 alert("Senha inválida! A senha deve conter pelo menos uma letra MAIÚSCULA.");
                 return false;
             }
@@ -69,54 +69,57 @@
                 alert("Senha inválida! A senha deve conter pelo menos um número de 0 a 9.");
                 return false;
             }
-            else if (!/[@#]/.test(senha)){
+            else if (!/[@#]/.test(senha)) {
                 alert("Senha inválida! A senha deve conter pelo menos um caractere especial '@' ou '#'.");
                 return false;
             }
+            sessionStorage.EMAIL_USUARIO = email;
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: email,
+                    senhaServer: senha
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    var quiz = "quiz.html"
+                    window.location.href = quiz;
+
+                    
+
+                    // resposta.json().then(json => {
+                    //     console.log(json);
+                    //     console.log(JSON.stringify(json));
+                    //     sessionStorage.EMAIL_USUARIO = json.email;
+                    //     sessionStorage.NOME_USUARIO = json.nome;
+                    //     sessionStorage.ID_USUARIO = json.id;
+
+                    alert("ok")
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+                    alert ("Houve um erro ao tentar realizar o login!");
+                   
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+                return false;
+            });
+
+            return false;
 
         }
-    
-        sessionStorage.EMAIL_USUARIO = email;
 
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: email,
-                senhaServer: senha
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
 
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                });
-
-                window.location = "quiz.html";
-
-            }
-            else {
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                alert("Erro ao tentar realizar o login. Por favor, verifique suas credenciais.");
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-            alert("Ocorreu um erro ao tentar fazer login. Por favor, tente novamente mais tarde.");
-
-        })
-        return false;
     }
-    
+
 
 </script>

@@ -14,10 +14,11 @@ function cadastrarRespostas(req, res) {
     var quest9 = req.body.resposta9Server;
     var quest10 = req.body.resposta10Server;
     var email = req.body.emailUsuarioServer;
+    var tempoTotal = req.body.tempoTotalServer;
 
     // Faça as validações dos valores
 
-    quizModel.cadastrarRespostas(quest1, quest2, quest3, quest4, quest5, quest6, quest7, quest8, quest9, quest10, email).then(
+    quizModel.cadastrarRespostas(quest1, quest2, quest3, quest4, quest5, quest6, quest7, quest8, quest9, quest10, email, tempoTotal).then(
         function (resultado) {
             res.json(resultado);
         }
