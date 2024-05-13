@@ -1,3 +1,7 @@
+
+const video = document.getElementById('video-bg');
+video.playbackRate = 0.3; // Altere a velocidade do video
+
 function validarRespostas() {
     var perguntas = document.querySelectorAll('.div-quiz');
 

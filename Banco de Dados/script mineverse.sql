@@ -26,12 +26,8 @@ CREATE TABLE quiz_resultado (
     foreign key (fk_user) references usuario (id)
 );
 
-INSERT INTO usuario (nome, email, senha, cpf) 
-VALUES ('Samuel Sales', 'samuel@gmail.com', '12345', '12345678901');
-INSERT INTO usuario (nome, email, senha, cpf) 
-VALUES ('Samuel Souza', 'samuel18@gmail.com', 'Sada1613@', '12345672301');
+
 select * from quiz_resultado;
 select * from usuario;
-
 
 

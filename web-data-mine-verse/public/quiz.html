@@ -12,10 +12,16 @@
 </head>
 
 <body onload="iniciarCronometro()">
-    <!-- <video autoplay muted loop id="video-bg">
-        <source src="./assets/1070388340-preview (1).mp4" type="video/mp4">
-        Seu navegador não suporta vídeos HTML5.
-    </video> -->
+    <div class="video-container">
+        <div class="desfoque">
+            <video autoplay muted loop id="video-bg">
+                <source src="./assets/1070388340-preview (1).mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+        </div>
+    </div>
+
+    <div class="desfoque"></div>
     <div class="topoQuiz">
         <div class="logo">
             <h2>CraftQuiz</h2>
@@ -39,7 +45,7 @@
             <input type="radio" id="opcao1c" name="resposta1" value="0">
             <label for="opcao1c">Rasmus Lerdorf</label><br>
 
-            <button style="margin-left: 420px;" onclick="proximaPergunta(2)"><i class="bi bi-arrow-left"></i></button>
+            <button style="margin-left: 402px;" onclick="proximaPergunta(2)">Next</button>
 
         </div>
 
