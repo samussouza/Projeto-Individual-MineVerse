@@ -1,6 +1,25 @@
 
-const video = document.getElementById('video-bg');
-video.playbackRate = 0.3; // Altere a velocidade do video
+// const video = document.getElementById('video-bg');
+// video.playbackRate = 0.3; // Altere a velocidade do video
+let tempoInicialPagina;
+let tempoInicialEnvio;
+
+window.onload = function() {
+    tempoInicialPagina = new Date(); 
+}
+
+function calcularTempoGasto(tempoInicial, tempoFinal) {
+    const tempoGastoMs = tempoFinal - tempoInicial;
+    const segundosGastos = Math.floor(tempoGastoMs / 1000);
+    const minutosGastos = Math.floor(segundosGastos / 60);
+    const horasGastas = Math.floor(minutosGastos / 60);
+
+    const tempoGastoFormatado = `${horasGastas}:${minutosGastos % 60}:${segundosGastos % 60}`;
+
+    return tempoGastoFormatado;
+}
+
+
 
 function validarRespostas() {
     var perguntas = document.querySelectorAll('.div-quiz');
@@ -21,7 +40,7 @@ function perguntaAnterior(atual) {
     var perguntas = document.querySelectorAll('.div-quiz');
 
     for (var contador = 0; contador < perguntas.length; contador++) {
-        if (contador === atual - 2) {
+        if (contador == atual - 2) {
             perguntas[contador].style.display = 'block';
         } else {
             perguntas[contador].style.display = 'none';
@@ -34,13 +53,14 @@ function proximaPergunta(proxima) {
     var perguntas = document.querySelectorAll('.div-quiz');
 
     for (var contador = 0; contador < perguntas.length; contador++) {
+
         if (contador + 1 == proxima) {
             perguntas[contador].style.display = 'block';
         } else {
             perguntas[contador].style.display = 'none';
         }
     }
-
+   
 }
 
 
@@ -71,9 +91,13 @@ function enviarRespostas() {
 
     console.log(resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10)
     calcularKPIs()
-
-    var emailUsuario = sessionStorage.EMAIL_USUARIO;
-    console.log('Email do usuário:', emailUsuario);
+    tempoInicialEnvio = new Date();
+    const tempoGasto = calcularTempoGasto(tempoInicialPagina, tempoInicialEnvio);
+    console.log('Tempo gasto:', tempoGasto); 
+    // const tempoTotal = calcularTempoTotal()
+    // console.log('Acertos feth:',  tempoTotal)
+    
+    console.log('Email do usuário:', sessionStorage.EMAIL_USUARIO);
 
     fetch("/quiz/cadastrarRespostas", {
         method: "POST",
@@ -91,8 +115,10 @@ function enviarRespostas() {
             resposta8Server: resposta8,
             resposta9Server: resposta9,
             resposta10Server: resposta10,
-            tempoTotalServer: tempoTotal,
-            emailUsuarioServer: emailUsuario
+            acertosServer: sessionStorage.RESPOSTA_CORRETA,
+            emailUsuarioServer: sessionStorage.EMAIL_USUARIO2,
+            tempoGastoServer: tempoGasto,
+            pontuacaoTotalServer: sessionStorage.PONTUACAO_TOTAL
         }),
     })
         .then(function (resposta) {
@@ -101,7 +127,7 @@ function enviarRespostas() {
             if (resposta.ok) {
                 alert("Respostas enviadas com sucesso!");
                 calcularKPIs()
-                let redirecionarDash = "./dashboard/dashboard.html";
+                let redirecionarDash = "../dashboard/dashboard.html";
                 window.location.href = redirecionarDash;
 
             } else {
@@ -130,7 +156,7 @@ function calcularKPIs() {
             resposta = resposta.value;
 
             if (resposta == "1") {
-                pontuacaoTotal += 10;
+                pontuacaoTotal += 3;
              respostasCorretasPlayer++;
             }
         }
@@ -147,44 +173,3 @@ function calcularKPIs() {
 
 }
 
-let segundos = 0;
-let minutos = 0;
-let horas = 0;
-let intervalo;
-
-/*função que atualiza o cronômetro a cada segundo*/
-function atualizarCronometro() {
-    segundos++;
-    /*verifica se os segundos já atingiu um minuto*/
-    if (segundos >= 60) {
-        segundos = 0;
-        minutos++;
-
-          /*verifica se os minutos já atingiu um hora*/
-        if (minutos >= 60) {
-            minutos = 0;
-            horas++;
-        }
-    }
-    /*formata o tempo em hh:mm:ss*/
-    const tempo = formatarNumero(horas) + ":" + formatarNumero(minutos) + ":" + formatarNumero(segundos);
-
-    /*atualiza o elemento associado ao id*/
-    document.getElementById("cronometro").innerText = tempo;
-}
-
-function iniciarCronometro() {
-    intervalo = setInterval(atualizarCronometro, 1000);
-}
-
-function pararCronometro() {
-    clearInterval(intervalo);
-}
-
-/*formata o número <10 com zero à esqueda*/
-function formatarNumero(numero) {
-    if (numero < 10) {
-        return "0" + numero;
-    }
-    return numero;
-}

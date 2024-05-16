@@ -9,12 +9,13 @@ body {
 }
 
 .divEntrdas {
-    padding: 8px;
-
-    height: 20px;
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: flex-end; */
+    position: relative;
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    height: 23px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 
 }
 
@@ -27,33 +28,30 @@ body {
 }
 
 
-/* 
 nav {
-    height: 65px;
-    background-color: rgb(45, 42, 42);
-    display: flex;
-  
-} */
-
-nav {
-    display: flex;
+    position: absolute;
+    margin-top: 43px;
     background-color: rgba(0, 0, 0, 0.667);
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    z-index: 1000; /*indice de empilhamento para elementos que nao sao padroes(static)*/
     backdrop-filter: blur(2px);
-}
-
-nav.scrolled {
-    background-color: rgb(0, 0, 0);
 }
 
 nav .title {
     margin: auto;
     margin-left: 550px;
+}
+
+.nav-fixed {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+}
+
+.nav.scrolled {
+    background-color: rgb(0, 0, 0);
 }
 
 .sectionHome {
@@ -98,9 +96,6 @@ nav .title {
 .cardHome {
     background: transparent;
 }
-
-
-
 
 section.sobre {
     height: 700px;
@@ -208,8 +203,8 @@ section.sobre .flex {
     width: 450px;
     margin-right: 150px;
     font-size: 20px;
-   text-align: justify;
-   line-height: 1.6em;
+    text-align: justify;
+    line-height: 1.6em;
 }
 
 .card {
@@ -300,7 +295,7 @@ section.sobre .flex {
 }
 
 .card .arrow {
-  
+
     padding: 15px;
     transform: rotate(-180deg);
     transition: all .5s;
@@ -313,12 +308,14 @@ section.sobre .flex {
 .card .arrow span {
     font-size: 24px;
 }
+
 /*AQUI COMEÇA SECTION ODS*/
 
-.sectionODS{
+.sectionODS {
     height: 600px;
     background-color: rgb(33, 32, 32);
 }
+
 .container {
     display: flex;
     width: 100%;
@@ -329,14 +326,15 @@ section.sobre .flex {
 
 .div-1 {
     width: 50%;
-  margin-top: 20px;
+    margin-top: 20px;
     padding: 20px;
     box-sizing: border-box;
     color: white;
     font-size: 18px;
     line-height: 1.3em;
 }
-.div-1 h2{
+
+.div-1 h2 {
     margin-bottom: 30px;
     font-size: 25px;
 }
@@ -348,4 +346,3 @@ section.sobre .flex {
     color: white;
     font-size: 12px;
 }
-

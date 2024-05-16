@@ -16,18 +16,18 @@
 
 <body>
 
+    <div class="divEntrdas">
+        <span style="margin-right: 40px;">
+            <a href="login.html">Login</a>
+        </span>
+        <span style="margin-right: 30px;">
+            <a href="cadastro.html">Cadastro</a>
+        </span>
 
+    </div>
     <nav>
         <span class="title"><img style="height: 67px; margin-top: 8px;" ; src="./assets/imgs/title.png" alt=""></span>
-        <div class="divEntrdas">
-            <span style="margin-right: 40px;">
-                <a href="login.html">Login</a>
-            </span>
-            <span style="margin-right: 30px;">
-                <a href="cadastro.html">Cadastro</a>
-            </span>
-
-        </div>
+     
     </nav>
     <div class="sectionHome">
         <div class="fundoImg">
@@ -160,8 +160,27 @@
                 <h2>Confira também:</h2>
                 <p>  <iframe  width="560" height="280" src="https://www.youtube-nocookie.com/embed/o5dk49EfV7Y?si=isNKgoLDNtgVpjce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
             </div>
-        </div>
+        </div>''
         </section>
 
         <div class="footer" style="background-color: black; height: 100px;"></div>
 </html>
+<script>
+    /*evento para fixação da barra de navegação ao rolar a pagina*/
+    window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    const divEntradas = document.querySelector('.divEntrdas');
+    /*verifica altura total do elemento divEntradas*/
+    const divEntradasHeight = divEntradas.offsetHeight;
+    // Verifica se a quantidade de rolagem vertical é maior que a altura do elemento divEntrdas
+
+    //se for adicona as classes 'nav-fixed' e 'scrolled' à barra de navegação
+    if (window.scrollY > divEntradasHeight) {
+        nav.classList.add('nav-fixed');
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('nav-fixed');
+        nav.classList.remove('scrolled');
+    }
+});
+</script>

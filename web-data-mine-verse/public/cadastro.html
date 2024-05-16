@@ -3,96 +3,107 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
   <title>Cadastro</title>
-  <link rel="stylesheet" href="css\cadastro.css">
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="./css/login-cadastro.css">
+  
 
 </head>
 
-<body>
-  <a href="login.html" class="loginBotao">Já tem cadastro?</a>
+<body style="background-image: url(./assets/imgs/fundoCad.png); background-size: cover; background-position: center;">
+ 
 
-  <div class="container">
-    <h2>Cadastro</h2>
+  <div class="login">
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card card-cadastro">
+        <h2>Seja Bem-vindo!</h2>
+        <div class="formulario">
+       
+          <div class="campo">
+            <span>Nome:</span>
+            <input id="nome_input" type="text" placeholder="Seu nome" />
+          </div>
+          <div class="campo">
+            <span>E-mail:</span>
+            <input id="email_input" type="text" placeholder="email@email.com" />
+          </div>
+          <div class="campo">
+            <span>Há quanto tempo você joga Minecraft?</span>
+           <select id="select_tempo_jogador">
+            <option value="#">selecione/option>
+            <option value="menos_de_um_ano">Menos de 1 ano</option>
+            <option value="um_a_dois_anos">De 1 ano a 2 anos</option>
+            <option value="dois_a_quatro_anos">De 2 a 4 anos</option>
+            <option value="quatro_a_seis_anos">De 4 a 6 anos</option>
+            <option value="mais_de_seis_anos">Mais de 6 anos</option>
+            
+           </select>
+          </div>
+          <div class="campo">
+            <span>Senha:</span>
+            <input id="senha_input" type="password" placeholder="******" />
+          </div>
+          <div class="campo">
+            <span>Confirnar senha:</span>
+            <input id="confirmacao_senha_input" type="password" placeholder="******" />
+          </div>
+          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+        </div>
+        <div id="div_aguardar" class="loading-div">
+          <img src="./assets/circle-loading.gif" id="loading-gif" />
+        </div>
 
-    <!--Tag formulario-->
-    <form id="formularioCadastro">
-
-      Nome:
-      <input type="text" id="input_nome">
-
-      CPF:
-      <input type="text" id="input_cpf">
-
-      Email:
-      <input type="text" id="input_email">
-
-      Senha:
-      <input type="text" id="input_senha">
-
-      Confirmar senha:
-      <input type="text" id="input_confirmar_senha">
-
-      <button onclick="cadastrar()">Cadastrar</button>
-
-      <p id="exibir">
-        <span id="mensagem"></span>
-      </p>
-
-    </form>
-
-
+        <div id="div_erros_login"></div>
+      </div>
+    </div>
   </div>
+
+
 </body>
 
 </html>
 
 <script>
-
   function cadastrar() {
-    var CampoSenha = input_senha.value;
-    var CampoNome = input_nome.value;
-    var CampoCPF = input_cpf.value;
-    var CampoConfirmarSenha = input_confirmar_senha.value;
-    var CampoEmail = input_email.value;
+    aguardar();
 
-    if (CampoCPF == "" || CampoNome == "" || CampoEmail == "" || CampoSenha == "" || CampoConfirmarSenha == "") {
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    let nomeVar = nome_input.value;
+    let emailVar = email_input.value;
+    let senhaVar = senha_input.value;
+    let confirmacaoSenhaVar = confirmacao_senha_input.value;
+    let tempoQueJoga = select_tempo_jogador.value;
+    let naoSelecionouSelect = tempoQueJoga == "#" || tempoQueJoga == "";
+ 
+    if (    
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      naoSelecionouSelect
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Preencha e selecione todos os campos!)";
 
-      alert("Erro ! Cerfitique-se que todos os campos estão preenchidos.")
-      return false
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
     }
 
-    // else if (CampoCPF.length <= 10 || CampoCPF.length >= 12) {
-    //     alert("CPF inválido ! O CPF deve conter 11 digítos.")
-    //     return false;
-    // }
-    // else if (CampoEmail.indexOf("@") < 0 && CampoEmail.indexOf(".") < 0) {
-    //     alert("Email inválido! O email deve conter '@' e '.'")
-    //     return
-
-    // } else if (CampoSenha.length < 8) {
-    //     alert("Senha inválida ! A senha deve conter pelo menos 8 digítos")
-    //     return false;
-    // }
-    // else if (!/[A-Z]/.test(CampoSenha)) {
-    //     alert("Senha inválida! A senha deve cConter pelo menos uma letra MAIÚSCULA.");
-    //     return false;
-    // }
-    // else if (!/[0-9]/.test(CampoSenha)) {
-    //     alert("Senha inválida! A senha deve conter pelo menos um número de 0 a 9.");
-    //     return false;
-    // }
-    // else if (!/[@#]/.test(CampoSenha)) {
-    //     alert("Senha inválida! A senha deve conter pelo menos um caractere especial '@' ou '#'.");
-    //     return false;
-    // }
-    // else if (CampoConfirmarSenha !== CampoSenha) {
-    //     alert("Senha Inválida ! Cerfique-se que as senhas informadas são IGUAIS.")
-    //     return
-    // }
-
-
-
+    // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
@@ -101,54 +112,40 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        nomeServer: CampoNome,
-        emailServer: CampoEmail,
-        senhaServer: CampoSenha,
-        cpfServer: CampoCPF,
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          var exibir = document.getElementById("exibir");
-          exibir.style.display = "block";
+          cardErro.style.display = "block";
 
-          var mensagem = document.getElementById("mensagem");
-          mensagem.innerHTML =
+          mensagem_erro.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
-            window.location = "./login.html";
-          }, 5000);
+            window.location = "login.html";
+          }, "2000");
 
-
+          limparFormulario();
+          finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-
+        finalizarAguardar();
       });
 
     return false;
-
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
 </script>
