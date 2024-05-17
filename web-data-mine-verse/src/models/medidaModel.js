@@ -15,6 +15,18 @@ function ranking() {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function mediaAcertos() {
+
+    var instrucaoSql = `SELECT 
+    AVG(CAST(qtd_acertos AS DECIMAL(4,2))) AS media_acertos_total, 
+    AVG(CAST( pontuacao_total AS DECIMAL(4,2))) AS media_pontuacao_total,
+    AVG(TIME_TO_SEC(tempo_gasto)) AS media_tempo_gasto
+FROM 
+    quiz_resultado;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 function buscarUltimasMedidas(email, limite_linhas) {
 
@@ -26,5 +38,6 @@ function buscarUltimasMedidas(email, limite_linhas) {
 
 module.exports = {
     buscarUltimasMedidas,
-    ranking
+    ranking,
+    mediaAcertos
 }

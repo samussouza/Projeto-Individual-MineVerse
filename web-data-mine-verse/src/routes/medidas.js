@@ -10,6 +10,9 @@ router.get("/ultimas", function (req, res) {
 router.get("/ranking", function (req, res) {
     medidaController.ranking(req, res);
 });
+router.get("/mediaAcertos", function (req, res) {
+    medidaController.mediaAcertos(req, res);
+});
 
 
 

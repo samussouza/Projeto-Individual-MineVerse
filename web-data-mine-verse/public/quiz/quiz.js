@@ -7,12 +7,13 @@ let tempoInicialEnvio;
 window.onload = function() {
     tempoInicialPagina = new Date(); 
 }
-
+/*o tempo vem em milissegundos*/
 function calcularTempoGasto(tempoInicial, tempoFinal) {
     const tempoGastoMs = tempoFinal - tempoInicial;
     const segundosGastos = Math.floor(tempoGastoMs / 1000);
     const minutosGastos = Math.floor(segundosGastos / 60);
     const horasGastas = Math.floor(minutosGastos / 60);
+    /*formata e usa % para pegar o restp dos minutos e segundos*/
 
     const tempoGastoFormatado = `${horasGastas}:${minutosGastos % 60}:${segundosGastos % 60}`;
 
@@ -97,7 +98,7 @@ function enviarRespostas() {
     // const tempoTotal = calcularTempoTotal()
     // console.log('Acertos feth:',  tempoTotal)
     
-    console.log('Email do usuário:', sessionStorage.EMAIL_USUARIO);
+    console.log('Email do usuário:', sessionStorage.EMAIL_USUARIO2);
 
     fetch("/quiz/cadastrarRespostas", {
         method: "POST",
@@ -117,7 +118,7 @@ function enviarRespostas() {
             resposta10Server: resposta10,
             acertosServer: sessionStorage.RESPOSTA_CORRETA,
             emailUsuarioServer: sessionStorage.EMAIL_USUARIO2,
-            tempoGastoServer: tempoGasto,
+            tempoGastoServer: tempoGasto,   
             pontuacaoTotalServer: sessionStorage.PONTUACAO_TOTAL
         }),
     })

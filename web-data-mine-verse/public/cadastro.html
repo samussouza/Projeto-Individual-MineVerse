@@ -40,7 +40,7 @@
           <div class="campo">
             <span>Há quanto tempo você joga Minecraft?</span>
            <select id="select_tempo_jogador">
-            <option value="#">selecione/option>
+            <option value="#"></option>
             <option value="menos_de_um_ano">Menos de 1 ano</option>
             <option value="um_a_dois_anos">De 1 ano a 2 anos</option>
             <option value="dois_a_quatro_anos">De 2 a 4 anos</option>
@@ -114,7 +114,8 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar
+        senhaServer: senhaVar,
+        tempoDeJogadorServer: tempoQueJoga
       }),
     })
       .then(function (resposta) {

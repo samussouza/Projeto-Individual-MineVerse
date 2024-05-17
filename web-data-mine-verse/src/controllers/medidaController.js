@@ -12,7 +12,18 @@ function ranking(req, res) {
             res.status(500).json({ error: "Erro ao obter dados de ranking" });
         });
 }
-
+function mediaAcertos(req, res) {
+    medidaModel.mediaAcertos()
+        .then((resultado) => {
+            console.log(`\nResultados encontrados: ${resultado.length}`);
+            console.log(`Resultados: ${JSON.stringify(resultado)}`);
+            res.status(200).json(resultado);
+        })
+        .catch((error) => {
+            console.error("Erro ao obter dados de ranking:", error);
+            res.status(500).json({ error: "Erro ao obter dados de ranking" });
+        });
+}
 function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 4;
@@ -35,5 +46,6 @@ function buscarUltimasMedidas(req, res) {
 
 module.exports = {
     buscarUltimasMedidas,
-    ranking
+    ranking, 
+    mediaAcertos
 }
