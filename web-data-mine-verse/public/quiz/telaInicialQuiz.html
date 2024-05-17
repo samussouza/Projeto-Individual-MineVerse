@@ -8,6 +8,10 @@
     <script src="../js/sessao.js"></script>
 </head>
 <style>
+    @import url('https://fonts.cdnfonts.com/css/minecraft-4');
+
+    @import url('https://fonts.cdnfonts.com/css/minercraftory');
+
     body {
         background-image: url(../assets/imgs/fundoQuiz.jpg);
         background-size: cover;
@@ -44,14 +48,15 @@
         cursor: pointer;
         transition: background-color 0.3s;
     }
-    button:hover{
+
+    button:hover {
         color: white;
         font-weight: bold;
         background-color: rgb(79, 79, 79);
     }
 
     .steve {
-      
+
         position: absolute;
         top: 300px;
         left: 1200px;
@@ -59,9 +64,10 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-       
+
     }
-    .nameUser{
+
+    .nameUser {
         background-color: rgba(240, 248, 255, 0.274);
         color: white;
         font-family: Verdana, sans-serif;
@@ -69,32 +75,81 @@
         padding: 5px;
     }
 
-    .sair button{
+    .sair button {
         margin: 5px;
         width: 100px;
-       position: relative;
-       top: 615px;
-       
+        position: relative;
+        top: 615px;
+
     }
-    a{
+
+    a {
         text-decoration: none;
         color: black;
     }
-</style>
 
-<body onload="validarSessao()">
+    .mensagem-escondido {
+        background-color: rgba(50, 53, 56, 0.79);
+        width: 30%;
+        height: 40%;
+        position: absolute;
+        top: 60px;
+        left: 25px;
+        text-align: center;
+        border-radius: 20px;
+        display: none;
+
+    }
+
+    h1 {
+        color: rgb(117, 196, 38);
+        margin-bottom: 30px;
+        font-family: 'Minecraft', sans-serif;
+        font-size: 34px;
+    }
+
+    .mensagem-escondido {
+        color: rgb(254, 255, 254);
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    h3 {
+        color: rgb(117, 196, 38);
+        margin-bottom: 30px;
+        font-family: 'Minecraft', sans-serif;
+        font-size: 34px;
+    }
+</style>
+<!-- onload="validarSessao()" -->
+
+<body>
     <div class="fundo-desfocado"></div>
+    <div id="mensagem-jogo" class="mensagem-escondido">
+        <h1>Importante !</h1>
+        <p>
+            <span id="resultadosObtidos">
+                Quantidade de questões: 10
+                <br>
+                Duração máxima permitida: 10 minutos
+                <br>
+                Tentativas permitidas: 1
+            </span>
+        <h3>Boa sorte!</h3>
+        </p>
+    </div>
     <span class="steve">
         <h3 class="nameUser">Olá, <span id="b_usuario">usuário</span>!</h3>
-      
+
         <img src="../assets/imgs/steveQuiz2.png" alt="">
     </span>
 
-   <div class="sair"><button onclick="window.open('./index.html', '_self')">Sair</button></div>
+    <div class="sair"><button onclick="window.open('./index.html', '_self')">Sair</button></div>
     <div class="container">
         <div class="title"><img style="width: 550px; margin-bottom: 50px;" src="../assets/imgs/title.png" alt=""></div>
 
-        <button onclick="window.open('./quiz.html', '_self')">Jogar</button>
+        <button id="botao-jogar" onclick="jogar()">Jogar</button>
         <button>Conta</button>
         <button>Ajuda</button>
 
@@ -107,9 +162,32 @@
 </html>
 
 <script>
-    function carregarNome(){
+    function carregarNome() {
         var nome = sessionStorage.NOME_USUARIO;
 
-        b_usuario.innerHTML = `${nome}` 
+        b_usuario.innerHTML = `${nome}`
     }
+    const mensagemJogo = document.getElementById('mensagem-jogo');
+    const botaoJogar = document.getElementById('botao-jogar');
+   
+    function mostrarMensagem() {
+        mensagemJogo.style.display = 'block'; 
+        }
+
+        function ocultarMensagem() {
+            mensagemJogo.style.display = 'none'; 
+        }
+     
+            botaoJogar.addEventListener('click', () => {
+            mostrarMensagem();
+
+            setTimeout(() => {
+                ocultarMensagem();
+                window.location.href = 'quiz.html'; 
+            }, 5000);
+        });
+    
+        
+    
+
 </script>

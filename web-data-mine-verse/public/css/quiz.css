@@ -11,15 +11,37 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background-color: #f3f3f3;
+    background-image: url(https://images.hdqwalls.com/download/minecraft-dungeons-jungle-awakens-hero-dx-3840x2160.jpg);
+    background-size: cover;
     /* background-color: rgb(40, 40, 40); */
-   
+
+}
+/*nav*/
+
+
+
+nav {
+    background-color: rgba(0, 0, 0, 0.667);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /*indice de empilhamento para elementos que nao sao padroes(static)*/
+    backdrop-filter: blur(2px);
+    margin-bottom: 80px;
 }
 
+nav .title {
+    margin: auto;
+    margin-left: 550px;
+}
+
+
+/*fim nav*/
 .topoQuiz {
     display: flex;
     justify-content: space-between;
 }
+
 .logo {
     padding: 10px 20px;
     font-family: 'Minercraftory', sans-serif;
@@ -40,51 +62,25 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.video-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-#video-bg {
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    background-size: cover;
-}
-
-.desfoque {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    filter: blur(5px); 
-}
-
-
-
-
 
 
 .quiz-container {
-    margin: auto;                                         
+    
+    margin: auto;
     border-radius: 5px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(5px);
     max-width: 500px;
     width: 100%;
-    background-color: #FFDEAD; 
+    background-color: #FFDEAD;
     border: 10px solid saddlebrown;
-    box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.5); 
+    box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .div-quiz {
     margin-bottom: 20px;
+    
 }
 
 
@@ -107,7 +103,11 @@ body {
     padding: 10px 10px;
     background-color: #4e7b40;
 }
-
+.button1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 /* Estilização dos inputs como botões */
 input[type="radio"] {
     display: none;
@@ -134,8 +134,8 @@ input[type="radio"]:checked+label {
     color: #fff;
 }
 
-button {
-   
+.quiz-container button {
+
     margin-top: 10px;
     border: none;
     background-color: #393939;
@@ -145,6 +145,49 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+.quiz-container button:hover {
     background-color: #426138;
+}
+
+
+/*section saida quiz*/
+
+.divResultados {
+    background-color: #606060;
+    margin: auto;
+    text-align: center;
+    border: 2px solid black;
+    width: 550px;
+    height: 300px;
+    padding-top: 50px;
+    border-radius: 20px;
+}
+
+.divResultados h2 {
+    color: black;
+    margin-bottom: 30px;
+    font-family: 'Minecraft', sans-serif;
+    font-size: 34px;
+}
+
+.divResultados span {
+    color: rgb(117, 196, 38);
+    font-size: 18px;
+    font-family: Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+.divResultados a {
+    border: none;
+    padding: 7px 60px;
+    color: #4e7b40;
+    font-weight: bold;
+    background: #2e2f2e;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.divResultados button:hover {
+    background: #60aa47;
 }

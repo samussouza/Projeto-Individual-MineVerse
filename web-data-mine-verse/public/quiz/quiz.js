@@ -1,6 +1,12 @@
 
 // const video = document.getElementById('video-bg');
 // video.playbackRate = 0.3; // Altere a velocidade do video
+
+function infoQuiz(){
+    alert("oi")
+}
+
+
 let tempoInicialPagina;
 let tempoInicialEnvio;
 
@@ -128,9 +134,19 @@ function enviarRespostas() {
             if (resposta.ok) {
                 alert("Respostas enviadas com sucesso!");
                 calcularKPIs()
-                let redirecionarDash = "../dashboard/dashboard.html";
-                window.location.href = redirecionarDash;
+                // let redirecionarDash = "../dashboard/dashboard.html";
+                // window.location.href = redirecionarDash;
+                const section_saida = document.getElementById('section_saida')
+                const section_quiz = document.getElementById('section_quiz')
+                
+                section_saida.style.display = "block";
+                section_quiz.style.display = "none";
 
+                resultadosQuiz.innerHTML = `
+                Quantidade acertos: ${sessionStorage.RESPOSTA_CORRETA} <br>
+                Tempo de duração: ${tempoGasto}<br>
+                Você também pode conferir sua classificação em nosso ranking de respostas, clique no botão abaixo:<br>
+                `
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
