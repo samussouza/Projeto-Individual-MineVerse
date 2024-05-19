@@ -1,0 +1,99 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/minecraft-4');
+
+body{
+    margin: 0;
+    padding: o;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+
+nav {
+   
+    background-color: rgb(35, 34, 34);
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    /*indice de empilhamento para elementos que nao sao padroes(static)*/
+    backdrop-filter: blur(2px);
+}
+
+nav .title {
+    margin: auto;
+    margin-left: 550px;
+}
+
+section.sobre {
+    height: 700px;
+    padding: 40px 4%;
+    background-color: #000000;
+    font-family: "Poppins", sans-serif;
+}
+
+.txt-sobre {
+    color: #fff;
+}
+
+.txt-sobre p {
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: justify;
+}
+
+section.sobre .flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.img-sobre img {
+    width: 400px;
+}
+
+.txt-sobre h2 {
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+
+}
+
+.txt-sobre h2 span {
+    color: #00FF08;
+    display: block;
+
+}
+
+.btn-social button {
+    background-color: #00FF08;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.btn-social button:hover {
+    box-shadow: 0px 0px 8px #00FF08;
+    transform: scale(1.05);
+    transition: .2s;
+}
+
+.img-sobre img {
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px #00FF08;
+
+}
+
+.title-sobreMim {
+   
+    text-align: center;
+    font-family: 'Minecraft', sans-serif;
+    color: #ffffff;
+    font-size: 32px;
+
+}

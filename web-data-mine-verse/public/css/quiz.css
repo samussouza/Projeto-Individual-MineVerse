@@ -11,9 +11,9 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background-image: url(../assets/imgs/fundoQuiz.jpg);
+    background-image: url(../assets/imgs/fundoQuizOficial.jpg);
     background-size: cover;
-    /* background-color: rgb(40, 40, 40); */
+    /* background-color: rgb(40, 40, 40); */    
 
 }
 /*nav*/

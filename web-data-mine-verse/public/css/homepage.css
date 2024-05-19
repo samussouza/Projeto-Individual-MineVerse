@@ -99,9 +99,9 @@ nav .title {
 }
 
 section.sobre {
-    height: 700px;
+    height: 600px;
     padding: 40px 4%;
-    background-color: #424242;
+    background: #212020;
     font-family: "Poppins", sans-serif;
 }
 
@@ -314,8 +314,6 @@ section.sobre .flex {
 .sectionEducation {
     height: 550px;
     display: flex;
-
-    
 }
 .containerEducation{
     display: flex;
@@ -336,7 +334,6 @@ section.sobre .flex {
     color: #00FF08;
 }
 .divEducation p{
-
     font-family: Arial, sans-serif;
     color: #FFF;
     margin: 20px;
@@ -358,15 +355,14 @@ section.sobre .flex {
 /*AQUI COMEÇA SECTION ODS*/
 
 .sectionODS {
-    height: 600px;
-    background-color: rgb(130, 126, 126);
+    height: 500px;
 }
 
 .container {
     display: flex;
     width: 100%;
     font-family: Arial, sans-serif;
-    background-color: #424242;
+    background-color: #a13939;
     height: 100%;
 }
 
@@ -392,4 +388,171 @@ section.sobre .flex {
     box-sizing: border-box;
     color: white;
     font-size: 12px;
+}
+
+/*AQUI COMEÇA SECTION APRESENTAÇÃO*/
+.apresentacaoSlides{
+    padding-top: 30px;
+    background-color: #2d2e2d;
+ 
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin: 70px;
+}
+
+.divTextoProjetos{
+
+    width: 40%;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    margin: 30px;
+}
+.divTextoProjetos h1{
+    font-size: 30px;
+    font-family: "Minecraft", sans-serif;
+    color: #00FF08;
+  
+}
+.divApresentacao{
+    width: 60%;
+    margin: 30px;
+}
+
+.slider{
+    margin: 0 auto; 
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+  }
+  .slides{
+    width: 400%;
+    height: 400px;
+    display: flex;
+  }
+  .slides input{
+    display: none;
+  }
+  .slide {
+    width: 25%;
+    /* position: relative; */
+  }
+  .slide img{
+   
+    border-bottom-left-radius:5px ;
+    width: 800px;
+  }
+  .manual-navegaiton{
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+  }
+  .manual-btn{
+    border: 2px solid white;
+    padding:5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 1s;
+  }
+  /*menos no ultimo item, nos outros eu aplico o margin*/
+  .manual-btn:not(:last-child){
+    margin-right: 40px;
+  }
+  .manual-btn:hover{
+    background-color: aliceblue;
+  }
+  /*se tiver ativo e for o primeiro slide*/
+  #radio1:checked ~ .first{
+    margin-left: 0;
+  }
+  #radio2:checked ~ .first{
+    margin-left: -25%;
+  }
+  #radio3:checked ~ .first{
+    margin-left: -50%;
+  }
+  #radio4:checked ~ .first{
+    margin-left: -75%;
+  }
+  #radio5:checked ~ .first{
+    margin-left: -100%;
+  }
+  #radio6:checked ~ .first{
+    margin-left: -125%;
+  }
+  .navegation-auto div{
+    border: 2px solid #20a6ff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 1s;
+  }
+  .navegation-auto{
+    position: absolute;
+    width: 800px;
+    margin-top: 360px;
+    display: flex;
+    justify-content: center;
+  }
+  .navegation-auto div:not(:last-child){
+    margin-right: 40px;
+  } 
+  #radio1:checked ~ .navegation-auto .auto-btn1{
+    background-color: rgb(255, 255, 255);
+  }
+  #radio2:checked ~ .navegation-auto .auto-btn2{
+    background-color: rgb(255, 255, 255);
+  }
+  #radio3:checked ~ .navegation-auto .auto-btn3{
+    background-color: rgb(255, 255, 255);
+  }
+  #radio4:checked ~ .navegation-auto .auto-btn4{
+    background-color: rgb(255, 255, 255);
+  }
+  #radio5:checked ~ .navegation-auto .auto-btn5{
+    background-color: rgb(255, 255, 255);
+  }
+  #radio6:checked ~ .navegation-auto .auto-btn6{
+    background-color: rgb(255, 255, 255);
+  }
+
+  /*AQUI COMEÇA SECTION VIDEO*/
+  
+  .sectionVideo {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(270deg, #004d00, #003300, #002200, #001100);
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.video-frame {
+    display: inline-block;
+    padding: 10px;
+    border: 5px solid #000;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-frame video {
+    display: block;
+    max-width: 100%;
+    border-radius: 10px;
 }
