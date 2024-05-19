@@ -22,24 +22,11 @@
                     </a>
                 </li>
                 <br>
-                <!-- <li class="list">
-                    <a href="./perfil/perfil.html" onclick="ativarPerfil()">
-                        <span class="icon"><ion-icon name="person"></ion-icon></span>
-                        <span class="title">Perfil</span>
-                    </a>
-                </li>
-                <br> -->
+            
                 <li class="list">
                     <a href="./dashboard.html">
                         <span class="icon"><ion-icon name="analytics"></ion-icon></span>
                         <span class="title">Dashboard</span>
-                    </a>
-                </li>
-                <br>
-                <li class="list">
-                    <a href="#">
-                        <span class="icon"><ion-icon name="analytics"></ion-icon></span>
-                        <span class="title">Ranking</span>
                     </a>
                 </li>
                 <br>
@@ -57,7 +44,7 @@
                     </a>
                 </li>
                 <br>
-                <li class="list" style="margin-top: 150px;">
+                <li class="list" style="margin-top: 250px;">
                     <a href="#">
                         <span class="icon"><ion-icon name="person"></ion-icon></span>
                         <span class="title">Sair</span>
@@ -65,14 +52,15 @@
                 </li>
             </ul>
         </div>
-     
+        <h1 style="position: absolute; margin-left: 250px; padding: 15px; font-size: 32px; color: rgb(20, 221, 87);"
+            class="titleMetrica">Métricas Gerais</h1>
         <div class="containerRef">
-           <span class="titleDash">Métricas Gerais</span>
+
             <div class="container">
                 <div class="cardKPIs">
                     <h1>Média Acertos</h1>
                     <p id="divMediaAcertos"></p>
-                
+
                 </div>
                 <div class="cardKPIs">
                     <h1>Pontuação Média</h1>
@@ -80,24 +68,24 @@
                     <div class="color-box"></div>
                 </div>
 
-                <div class="cardKPIs">
+                <div class="cardKPIs" style="margin-right: 400px;">
                     <h1>Tempo médio</h1>
                     <p id="divTempo"></p>
                     <div class="color-box"></div>
                 </div>
-                <div class="cardKPIs" style="background-color: rgba(0, 0, 0, 0);">
-                    <!-- <div class="divCor"></div>
-                    <h1>KPI</h1>
-                    <p id="totalPontos"></p>
-                    <div class="color-box"></div> -->
+                <div    
+                    style="position: absolute; left: 1080px; width:400px;height: 270px; padding: 20px; top: 30px; color: rgb(255, 255, 255); border-radius: 10px; background-color: #35393e;  color: rgb(20, 221, 87);">
+                    <h3>Usuários por Faixa de pontos </h3>
+                </div>
 
+                <div class="graficoPizza">
+
+                    <canvas style=" width: 700px; height: 300px; " id="myChartCanvas"></canvas>
                 </div>
             </div>
-            <div class="cardPizza">
-          
-                <canvas id="myPieChart"></canvas>
-            </div>
+
             <div class="containerChartJs">
+
                 <h2>Quiz Ranking</h2>
                 <div id="tabelaRanking" class="tabela">
                     <div class="cabecalho">
@@ -106,9 +94,11 @@
                         <div class="cabecalho-item">Pontuação</div>
                         <div class="cabecalho-item">Tempo Total</div>
                     </div>
-                    <div id="corpoTabela" class="corpo"></div>
+                    <div class="corpo-scroll">
+                        <div id="corpoTabela" class="corpo"></div>
+                      </div>
                 </div>
-
+            </div>
 
     </section>
 
@@ -117,13 +107,16 @@
 </html>
 <script>
 
-window.addEventListener('load', function() {
-    listar();
-    mediaAcertos();
-});
+    window.addEventListener('load', function () {
+        obterDadosGrafico()
+        listar();
+        mediaAcertos();
+    });
+       // Atualiza os valores a cada 1 minutos
+    setInterval(listar, 60000)
+    setInterval(mediaAcertos, 60000); 
+
     const ranking = [];
-
-
     function listar() {
         fetch("/medidas/ranking", {
             method: "GET",
@@ -137,8 +130,6 @@ window.addEventListener('load', function() {
             .then((ranking) => {
                 console.log('Dados do ranking recebidos com sucesso:', ranking);
                 preencherRanking(ranking);
-
-
             })
             .catch(function (erro) {
                 console.error(`#ERRO: ${erro.message}`);
@@ -166,16 +157,11 @@ window.addEventListener('load', function() {
         });
     }
 
-   
-    // setInterval(listar, 120000)
-
     function exibirValoresKPIs() {
-
         console.log('Certas:', sessionStorage.RESPOSTA_CORRETA);
         console.log('Total:', sessionStorage.PONTUACAO_TOTAL);
         console.log('Erros:', sessionStorage.DESACERTOS)
         console.log('Aproveitamento:', sessionStorage.APROVEITAMENTO)
-
     }
 
 
@@ -193,53 +179,135 @@ window.addEventListener('load', function() {
                 let mediaAcertosTotal = "Média não disponível";
                 let mediaPontuacaoTotal = "Média não disponível";
                 let mediaTempoTotal = "Média não disponível";
-                
-        if (mediaAcertos.length > 0) {
-            const media = parseFloat(mediaAcertos[0].media_acertos_total);
-            const media2 = parseFloat(mediaAcertos[0].media_pontuacao_total);
-            const media3 = parseFloat(mediaAcertos[0].media_tempo_gasto);
 
-            if (!isNaN(media)) {
-                mediaAcertosTotal = Math.ceil(media);
-                mediaPontuacaoTotal = Math.ceil(media2);
-                mediaTempoTotal = Math.ceil(media3);
-            }
-        }
-        
-        document.getElementById('divMediaAcertos').innerHTML = `${mediaAcertosTotal}<strong><span style="font-size: 20px;"> questões</span></strong>`;
-        document.getElementById('divPontuacao').innerHTML = `${mediaPontuacaoTotal}<strong><span style="font-size: 20px;"> pontos</span></strong>`;
-        document.getElementById('divTempo').innerHTML = `${mediaTempoTotal}<strong><span style="font-size: 20px;">segundos</span></strong>`;
+                if (mediaAcertos.length > 0) {
+                    const media = parseFloat(mediaAcertos[0].media_acertos_total);
+                    const media2 = parseFloat(mediaAcertos[0].media_pontuacao_total);
+                    const media3 = parseFloat(mediaAcertos[0].media_tempo_gasto);
+
+                    if (!isNaN(media)) {
+                        mediaAcertosTotal = Math.ceil(media);
+                        mediaPontuacaoTotal = Math.ceil(media2);
+                        mediaTempoTotal = Math.ceil(media3);
+                    }
+                }
+
+                document.getElementById('divMediaAcertos').innerHTML = `${mediaAcertosTotal}<strong><span style="font-size: 20px;"> questões</span></strong>`;
+                document.getElementById('divPontuacao').innerHTML = `${mediaPontuacaoTotal}<strong><span style="font-size: 20px;"> pontos</span></strong>`;
+                document.getElementById('divTempo').innerHTML = `${mediaTempoTotal}<strong><span style="font-size: 20px;">segundos</span></strong>`;
             })
             .catch(function (erro) {
                 console.error(`#ERRO: ${erro.message}`);
-        document.getElementById('divMediaAcertos').innerText = "Erro ao obter a média";
+                document.getElementById('divMediaAcertos').innerText = "Erro ao obter a média";
             });
-
     }
-    
-   
-
-    // Atualiza os valores a cada 2 minutos
-    // setInterval(mediaAcertos, 120000); // 120000 milissegundos = 2 minutos
 
     function preencherMediaAcertos(mediaAcertos) {
-    const divMediaAcertos = document.getElementById('divMediaAcertos');
-    if (divMediaAcertos) {
-        divMediaAcertos.style.display = "block";
-        if (mediaAcertos.length > 0) {
-            const media = mediaAcertos[0].media_acertos_total;
-            if (media !== undefined) {
-                divMediaAcertos.innerText = `Média: ${media}`;
+        const divMediaAcertos = document.getElementById('divMediaAcertos');
+        if (divMediaAcertos) {
+            divMediaAcertos.style.display = "block";
+            if (mediaAcertos.length > 0) {
+                const media = mediaAcertos[0].media_acertos_total;
+                if (media !== undefined) {
+                    divMediaAcertos.innerText = `Média: ${media}`;
+                } else {
+                    divMediaAcertos.innerText = "Média não disponível.";
+                }
             } else {
-                divMediaAcertos.innerText = "Média não disponível.";
+                divMediaAcertos.innerText = "Nenhum dado disponível.";
             }
         } else {
-            divMediaAcertos.innerText = "Nenhum dado disponível.";
+            console.error("Div não encontrada para preencher a média de acertos.");
         }
-    } else {
-        console.error("Div não encontrada para preencher a média de acertos.");
     }
-}
+
+    function obterDadosGrafico() {
+
+        fetch(`/medidas/graficoPizza`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    
+    function plotarGrafico(resposta) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Usuários',
+                data: [],
+                fill: false,
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(0, 128, 128)'
+                ],
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.faixa);
+            dados.datasets[0].data.push(registro.total_usuarios);
 
 
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'pie',
+            data: dados,
+            responsive: true,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                }
+            },
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChartCanvas`),
+            config
+        );
+        
+        setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+    }
 </script>

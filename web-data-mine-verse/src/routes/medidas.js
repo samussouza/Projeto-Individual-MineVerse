@@ -13,6 +13,9 @@ router.get("/ranking", function (req, res) {
 router.get("/mediaAcertos", function (req, res) {
     medidaController.mediaAcertos(req, res);
 });
+router.get("/graficoPizza", function (req, res) {
+    medidaController.graficoPizza(req, res);
+});
 
 
 

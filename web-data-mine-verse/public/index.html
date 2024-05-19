@@ -18,6 +18,9 @@
 
     <div class="divEntrdas">
         <span style="margin-right: 40px;">
+            <a href="#  ">Sobre Mim</a>
+        </span>
+        <span style="margin-right: 40px;">
             <a href="login.html">Login</a>
         </span>
         <span style="margin-right: 30px;">
@@ -27,7 +30,7 @@
     </div>
     <nav>
         <span class="title"><img style="height: 67px; margin-top: 8px;" ; src="./assets/imgs/title.png" alt=""></span>
-     
+
     </nav>
     <div class="sectionHome">
         <div class="fundoImg">
@@ -87,17 +90,12 @@
         </section>
 
 
-
-
         <section class="sectionPerson">
             <span class="title-personagem">
-                <h1 >PERSONAGENS</h1>
+                <h1>PERSONAGENS PRINCIPAIS</h1>
             </span>
-           
+
             <div class="containerPerson">
-
-
-
                 <p class="txt-person">
                     Conheça Steve e Alex, os heróis de Minecraft! Steve é o aventureiro corajoso e Alex é sua parceira
                     destemida. Juntos, eles exploram um mundo cheio de blocos, construindo, lutando contra monstros e
@@ -126,8 +124,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="img"
-                        style="background-image: url(./assets/icon/1715568128486.png);">
+                    <div class="img" style="background-image: url(./assets/imgs/alexCorrigida.png);">
                         <span style="color: rgb(255, 255, 255); font-weight: bold; font-size: 24px;">Alex</span>
                     </div>
 
@@ -145,40 +142,69 @@
                     </div>
                 </div>
         </section>
+        
+        
+        <section class="sectionEducation">
+            
+            <div class="containerEducation">
+
+            <div class="divEducation">
+                <h1>Titulo</h1>
+                <p> O Minecraft Education é uma ferramenta incrível que torna a aprendizagem uma aventura
+                    emocionante. Sua importância está em como ele torna a educação mais acessível e interessante
+                    para todos. Isso se alinha perfeitamente com a ambição global da ODS de garantir que todos
+                    tenham acesso a uma educação de qualidade. Com o Minecraft, podemos aprender de forma
+                    colaborativa, desenvolvendo habilidades valiosas enquanto nos divertimos. Aqui no nosso site,
+                    estamos comprometidos em utilizar essa ferramenta para promover uma educação mais envolvente e
+                    justa.</p>
+            </div>
+            <div class="divImgEducation"></div>
+        </div>
+        </section>
 
         <section class="sectionODS">
-   
-        <div class="title"><img src="./assets/imgs/odsFundo.png" alt=""></div>
-        <div class="container">
-            <div class="div-1">
-                <h2 style="color: rgb(93, 165, 42);">Minecraft Education: Uma resposta inteligente á ONU</h2>
-                <p> O Minecraft Education é uma ferramenta incrível que torna a aprendizagem uma aventura emocionante. Sua importância está em como ele torna a educação mais acessível e interessante para todos. Isso se alinha perfeitamente com a ambição global da ODS de garantir que todos tenham acesso a uma educação de qualidade. Com o Minecraft, podemos aprender de forma colaborativa, desenvolvendo habilidades valiosas enquanto nos divertimos. Aqui no nosso site, estamos comprometidos em utilizar essa ferramenta para promover uma educação mais envolvente e justa. </p>
-            </div>
-            <div class="div-2">
-                <h2>Confira também:</h2>
-                <p>  <iframe  width="560" height="280" src="https://www.youtube-nocookie.com/embed/o5dk49EfV7Y?si=isNKgoLDNtgVpjce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
-            </div>
-        </div>''
+            <!-- <div class="title"><img src="./assets/imgs/odsFundo.png" alt=""></div> -->
+            <div class="container">
+                <div class="div-1">
+                    <h2 style="color: rgb(93, 165, 42);">Minecraft Education: Uma resposta inteligente á ONU</h2>
+                    <p> O Minecraft Education é uma ferramenta incrível que torna a aprendizagem uma aventura
+                        emocionante. Sua importância está em como ele torna a educação mais acessível e interessante
+                        para todos. Isso se alinha perfeitamente com a ambição global da ODS de garantir que todos
+                        tenham acesso a uma educação de qualidade. Com o Minecraft, podemos aprender de forma
+                        colaborativa, desenvolvendo habilidades valiosas enquanto nos divertimos. Aqui no nosso site,
+                        estamos comprometidos em utilizar essa ferramenta para promover uma educação mais envolvente e
+                        justa.</p>
+                </div>
+                <div class="div-2">
+                    <h2>Confira também:</h2>
+                    <p> <iframe width="560" height="280"
+                            src="https://www.youtube-nocookie.com/embed/o5dk49EfV7Y?si=isNKgoLDNtgVpjce"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+                </div>
+            </div>''
         </section>
 
         <div class="footer" style="background-color: black; height: 100px;"></div>
+
 </html>
 <script>
     /*evento para fixação da barra de navegação ao rolar a pagina*/
-    window.addEventListener('scroll', function() {
-    const nav = document.querySelector('nav');
-    const divEntradas = document.querySelector('.divEntrdas');
-    /*verifica altura total do elemento divEntradas*/
-    const divEntradasHeight = divEntradas.offsetHeight;
-    // Verifica se a quantidade de rolagem vertical é maior que a altura do elemento divEntrdas
+    window.addEventListener('scroll', function () {
+        const nav = document.querySelector('nav');
+        const divEntradas = document.querySelector('.divEntrdas');
+        /*verifica altura total do elemento divEntradas*/
+        const divEntradasHeight = divEntradas.offsetHeight;
+        // Verifica se a quantidade de rolagem vertical é maior que a altura do elemento divEntrdas
 
-    //se for adicona as classes 'nav-fixed' e 'scrolled' à barra de navegação
-    if (window.scrollY > divEntradasHeight) {
-        nav.classList.add('nav-fixed');
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('nav-fixed');
-        nav.classList.remove('scrolled');
-    }
-});
+        //se for adicona as classes 'nav-fixed' e 'scrolled' à barra de navegação
+        if (window.scrollY > divEntradasHeight) {
+            nav.classList.add('nav-fixed');
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('nav-fixed');
+            nav.classList.remove('scrolled');
+        }
+    });
 </script>

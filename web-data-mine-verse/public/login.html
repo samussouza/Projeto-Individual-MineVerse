@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <div class="login">
         <div class="alerta_erro">
             <div class="card_erro" id="cardErro">
@@ -37,12 +36,10 @@
                 <div id="div_aguardar" class="loading-div">
                     <img src="./assets/circle-loading.gif" id="loading-gif">
                 </div>
-
                 <div id="div_erros_login"></div>
             </div>
         </div>
     </div>
-
 
 
 </body>
@@ -51,13 +48,16 @@
 
 <script>
 
-
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-
+        let emailVar = email_input.value;
+        let senhaVar = senha_input.value;
+        let validacaoEmail = emailVar.indexOf('@') !== -1 && emailVar.indexOf('.com')
+        let senhalength = senhaVar.length >= 8;
+        let senhaMaiusculo = /[A-Z]/.test(senhaVar);
+        let senhaNum = /[0-9]/.test(senhaVar);
+        let senhaEspecial = /[!@#.#]/.test(senhaVar)
 
 
         if (emailVar == "" || senhaVar == "") {
@@ -65,8 +65,21 @@
             mensagem_erro.innerHTML = "Preencha e selecione todos os campos!";
             finalizarAguardar();
             return false;
-        }
-        else {
+        } else if (!validacaoEmail) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Email inválido !";
+
+            finalizarAguardar();
+            return false;
+        } else if (!senhalength || !senhaMaiusculo || !senhaNum || !senhaEspecial) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Senha Inválida !";
+
+            finalizarAguardar();
+            return false;
+        } else {
             setInterval(sumirMensagem, 5000)
         }
         sessionStorage.EMAIL_USUARIO2 = emailVar;
@@ -95,7 +108,7 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-
+                    sessionStorage.NOME_USUARIO2 = resposta.nome;
                     sessionStorage.EMAIL_USUARIO2
                     setTimeout(function () {
                         window.location = "./quiz/telaInicialQuiz.html";
