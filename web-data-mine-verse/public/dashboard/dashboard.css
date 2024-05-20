@@ -200,6 +200,9 @@ body {overflow: hidden;
 #totalPontos {
     display: none;
 }
+.nameGrafico{
+    position: absolute; left: 1080px; width:400px;height: 270px; padding: 20px; top: 30px; color: rgb(255, 255, 255); border-radius: 10px; background-color: #35393e;  color: rgb(20, 221, 87);
+}
 
 /*ranking */
 .tabela {

@@ -34,7 +34,19 @@ nav .title {
     margin: auto;
     margin-left: 550px;
 }
-
+/*img de acerto e erro*/
+.imgAcertoErro{
+    z-index: 1000   ;
+    position: absolute;
+    width: 500px;
+    height: 400px;
+     display: none;
+     left: 50px;
+    
+}
+.exibirImagem{
+    margin-left: 30px;
+}
 
 /*fim nav*/
 .topoQuiz {
@@ -49,17 +61,22 @@ nav .title {
     align-items: center;
 }
 
-.tempo {
-    margin-right: 10px;
-}
 
 #cronometro {
+    position: absolute;
+
+ top: -2px;
+    width: 200px;
+    text-align: center;
+    height: 60px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 3rem;
+    font-size: 32px;
+    font-weight: bold;
     padding: 10px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #60eb32;
+  margin-left: 1300px;
+  
+ 
 }
 
 
@@ -71,8 +88,8 @@ nav .title {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(5px);
-    max-width: 500px;
-    width: 100%;
+    width: 520px;
+    height: 315px;
     background-color: #FFDEAD;
     border: 10px solid saddlebrown;
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.5);
@@ -80,9 +97,12 @@ nav .title {
 
 .div-quiz {
     margin-bottom: 20px;
+    /* padding: 10px; */
     
 }
-
+.divQuiz span{
+ border-radius: 10px;
+}
 
 .logo h2 {
     margin-right: 10px;
@@ -119,7 +139,7 @@ label {
     padding: 10px 20px;
     margin-bottom: 10px;
     border-radius: 5px;
-    margin-left: 50px;
+    margin-left: 57px;
     width: 350px;
     text-align: center;
     background-color: #282828;
@@ -133,20 +153,22 @@ input[type="radio"]:checked+label {
     background-color: #60aa47;
     color: #fff;
 }
-
 .quiz-container button {
-
-    margin-top: 10px;
+    background: transparent;
     border: none;
-    background-color: #393939;
-    color: #fff;
-    /* border-radius: 5px; */
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
-
-.quiz-container button:hover {
-    background-color: #426138;
+.quiz-container .button {
+background: transparent;
+    border: none;
+    background-color: #282927;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.7s;
+}
+.quiz-container .button:hover{
+    background-color: #579744;
 }
 
 

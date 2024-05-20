@@ -1,17 +1,43 @@
 
-// const video = document.getElementById('video-bg');
-// video.playbackRate = 0.3; // Altere a velocidade do video
+// // Definir o tempo inicial em segundos (10 minutos)
+// let time = 0.8 * 60;
 
-function infoQuiz(){
-    alert("oi")
-}
+// // Função para atualizar o cronômetro
+// function updateTimer() {
+//     const minutes = Math.floor(time / 60);
+//     const seconds = time % 60;
+
+//     // Exibir o tempo restante no formato MM:SS
+//     document.getElementById('timer').textContent =
+//         `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+//     // Verificar se o tempo acabou
+//     if (time <= 0) {
+//         acabouTempo.style.display = "block"
+//         setTimeout(() => {
+//             acabouTempo.style.display = "none"
+//             window.location.href = "telainicialQuiz.html"
+//         }, 4000);
+
+
+//         return false;
+//     } else {
+//         time--;
+//     }
+// }
+
+// // Atualizar o cronômetro a cada segundo
+// setInterval(updateTimer, 1000);
+
+// // Iniciar a contagem imediatamente
+// updateTimer();
 
 
 let tempoInicialPagina;
 let tempoInicialEnvio;
 
-window.onload = function() {
-    tempoInicialPagina = new Date(); 
+window.onload = function () {
+    tempoInicialPagina = new Date();
 }
 /*o tempo vem em milissegundos*/
 function calcularTempoGasto(tempoInicial, tempoFinal) {
@@ -56,19 +82,47 @@ function perguntaAnterior(atual) {
 }
 
 
+// function proximaPergunta(proxima) {
+//     var perguntas = document.querySelectorAll('.div-quiz');
+
+//     for (var contador = 0; contador < perguntas.length; contador++) {
+//         var input = document.querySelector(`input[name="resposta${contador+1}"]:checked`);
+//         if (input) {
+//             const validar = input.value;
+//             if (validar == "1") {
+//                 alert("ok");
+//             }
+//             else{
+//                 alert("errou")
+//             }
+//         }
+
+//         if (contador + 1 == proxima) {
+//             perguntas[contador].style.display = 'block';
+//         } else {
+//             perguntas[contador].style.display = 'none';
+//         }
+//     }
+// }
+let respostas = [];
 function proximaPergunta(proxima) {
     var perguntas = document.querySelectorAll('.div-quiz');
-
+    
     for (var contador = 0; contador < perguntas.length; contador++) {
-
+       
         if (contador + 1 == proxima) {
             perguntas[contador].style.display = 'block';
+
         } else {
             perguntas[contador].style.display = 'none';
         }
+
     }
-   
+
 }
+
+
+
 
 
 function enviarRespostas() {
@@ -76,6 +130,8 @@ function enviarRespostas() {
     if (!validarRespostas()) {
         return;
     }
+
+    
     /*Aqui eu chamo a função paraCronometro, que contém um clar
     pararCronometro();
     const tempoTotalHoras = horas;
@@ -95,15 +151,18 @@ function enviarRespostas() {
     const resposta8 = document.querySelector('input[name="resposta8"]:checked').value;
     const resposta9 = document.querySelector('input[name="resposta9"]:checked').value;
     const resposta10 = document.querySelector('input[name="resposta10"]:checked').value;
+    // armazenando para exibir as respostas 
+    let respostasRespondidas = [resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10];
+    sessionStorage.QUESTOES_RESPONDIDAS = respostasRespondidas
 
     console.log(resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10)
     calcularKPIs()
     tempoInicialEnvio = new Date();
     const tempoGasto = calcularTempoGasto(tempoInicialPagina, tempoInicialEnvio);
-    console.log('Tempo gasto:', tempoGasto); 
+    console.log('Tempo gasto:', tempoGasto);
     // const tempoTotal = calcularTempoTotal()
     // console.log('Acertos feth:',  tempoTotal)
-    
+
     console.log('Email do usuário:', sessionStorage.EMAIL_USUARIO2);
 
     fetch("/quiz/cadastrarRespostas", {
@@ -124,7 +183,7 @@ function enviarRespostas() {
             resposta10Server: resposta10,
             acertosServer: sessionStorage.RESPOSTA_CORRETA,
             emailUsuarioServer: sessionStorage.EMAIL_USUARIO2,
-            tempoGastoServer: tempoGasto,   
+            tempoGastoServer: tempoGasto,
             pontuacaoTotalServer: sessionStorage.PONTUACAO_TOTAL
         }),
     })
@@ -132,13 +191,13 @@ function enviarRespostas() {
             console.log("Resposta do servidor: ", resposta);
 
             if (resposta.ok) {
-                alert("Respostas enviadas com sucesso!");
+                // alert("Respostas enviadas com sucesso!");
                 calcularKPIs()
                 // let redirecionarDash = "../dashboard/dashboard.html";
                 // window.location.href = redirecionarDash;
                 const section_saida = document.getElementById('section_saida')
                 const section_quiz = document.getElementById('section_quiz')
-                
+
                 section_saida.style.display = "block";
                 section_quiz.style.display = "none";
 
@@ -147,6 +206,7 @@ function enviarRespostas() {
                 Pontuação: <b>${sessionStorage.PONTUACAO_TOTAL}/30 </b><br>
                 Tempo de duração: <b>${tempoGasto}</b><br>
                 Você também pode conferir sua classificação em nosso ranking clicando no botão abaixo:<br>
+               
                 `
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
@@ -175,7 +235,7 @@ function calcularKPIs() {
 
             if (resposta == "1") {
                 pontuacaoTotal += 3;
-             respostasCorretasPlayer++;
+                respostasCorretasPlayer++;
             }
         }
     }

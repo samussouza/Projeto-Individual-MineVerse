@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <br>
-            
+
                 <li class="list">
                     <a href="./dashboard.html">
                         <span class="icon"><ion-icon name="analytics"></ion-icon></span>
@@ -31,9 +31,9 @@
                 </li>
                 <br>
                 <li class="list">
-                    <a href="#">
+                    <a href="./perfil/perfil.html">
                         <span class="icon"><ion-icon name="chatboxes"></ion-icon></span>
-                        <span class="title">Anotações</span>
+                        <span class="title">Histórico</span>
                     </a>
                 </li>
                 <br>
@@ -73,8 +73,7 @@
                     <p id="divTempo"></p>
                     <div class="color-box"></div>
                 </div>
-                <div    
-                    style="position: absolute; left: 1080px; width:400px;height: 270px; padding: 20px; top: 30px; color: rgb(255, 255, 255); border-radius: 10px; background-color: #35393e;  color: rgb(20, 221, 87);">
+                <div class="nameGrafico">
                     <h3>Usuários por Faixa de pontos </h3>
                 </div>
 
@@ -96,7 +95,7 @@
                     </div>
                     <div class="corpo-scroll">
                         <div id="corpoTabela" class="corpo"></div>
-                      </div>
+                    </div>
                 </div>
             </div>
 
@@ -112,9 +111,9 @@
         listar();
         mediaAcertos();
     });
-       // Atualiza os valores a cada 1 minutos
+    // Atualiza os valores a cada 1 minutos
     setInterval(listar, 60000)
-    setInterval(mediaAcertos, 60000); 
+    setInterval(mediaAcertos, 60000);
 
     const ranking = [];
     function listar() {
@@ -241,7 +240,7 @@
             });
     }
 
-    
+
     function plotarGrafico(resposta) {
 
         console.log('iniciando plotagem do gráfico...');
@@ -297,6 +296,9 @@
                 plugins: {
                     legend: {
                         position: 'right',
+                        
+                            fontColor: '#fffff' // Cor do texto dos rótulos da legenda
+        
                     },
                 }
             },
@@ -307,7 +309,7 @@
             document.getElementById(`myChartCanvas`),
             config
         );
-        
+
         setTimeout(() => atualizarGrafico(dados, myChart), 2000);
     }
 </script>

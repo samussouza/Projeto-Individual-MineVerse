@@ -98,11 +98,42 @@ nav .title {
     background: transparent;
 }
 
-section.sobre {
-    height: 600px;
-    padding: 40px 4%;
-    background: #212020;
-    font-family: "Poppins", sans-serif;
+/*AQUI COMEÇA SECTION MINE*/
+.sectionMine{
+    top: -50px;
+    background-color: #2e2a2a;
+    height: 750px;
+    background-image: url(../assets/imgs/fundoCenarioMine.png);
+    /* background-position: center; */
+    background-size: cover;
+}
+.containerMine{
+ display: flex;
+ justify-content: flex-end;
+
+}
+.cardMine1{
+    background-color: #2fb82a;
+    width: 35%;
+    height: 365px;
+    box-shadow: -5px 6px 6px rgba(30, 27, 27, 0.75);
+    border: solid 5px rgb(30, 27, 27);
+    margin: 5px;
+}
+.cardMine1 h1{
+    font-family: 'Minecraft', sans-serif;
+    font-size: 32px;
+    margin-left: 15px;
+    padding-left: 8px;
+    
+}
+.cardMine1 p{
+   font-family: "Poppins", monospace;
+   color: #FFF;
+   font-size: 18px;
+   padding-left: 15px;
+   padding-right: 5px;
+   font-weight: 600;
 }
 
 .txt-sobre {
@@ -115,15 +146,8 @@ section.sobre {
     text-align: justify;
 }
 
-section.sobre .flex {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
 
-.img-sobre img {
-    width: 400px;
-}
+
 
 .txt-sobre h2 {
     font-size: 40px;
@@ -132,36 +156,11 @@ section.sobre .flex {
 
 }
 
-.txt-sobre h2 span {
-    color: #00FF08;
-    display: block;
 
-}
 
-.btn-social button {
-    background-color: #00FF08;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    margin: 0 5px;
-}
 
-.btn-social button:hover {
-    box-shadow: 0px 0px 8px #00FF08;
-    transform: scale(1.05);
-    transition: .2s;
-}
 
-.img-sobre img {
-    border-radius: 40px;
-    box-shadow: 0px 0px 10px #00FF08;
-
-}
-
-.title-sobreMim {
+.title-mine {
     text-align: center;
     font-family: 'Minecraft', sans-serif;
     color: #ffffff;
@@ -555,4 +554,13 @@ section.sobre .flex {
     display: block;
     max-width: 100%;
     border-radius: 10px;
+}
+
+.sectionQuiz {
+    height: 700px;
+    background-color: #212020;
+    background-image: url(../assets/imgs/funcoCeu.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

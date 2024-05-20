@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Historico</title>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <link rel="stylesheet" href="perfil.css">
 </head>
-<body>
+
+<body onload="exibirRespostas() ">
     <section class="sectionsMenus">
         <div class="navigation">
             <ul>
@@ -54,18 +56,104 @@
                 </li>
             </ul>
         </div>
+        <section class="section_historico">
 
-        <div class="perfil">
-            Nome: 
-            CPF:
-            Email:
-            Senha:
-            Data de registro:
-            ID Jogador:
-        </div>
+
+            <span id="exibirRespostas" class="card1">
+                <h1>Confira a baixo sua ultima participação no quiz</h1>
+            </span>
+            <span id="exibirRespostas2" class="card2">
+
+            </span>
+        </section>
+
+
 </body>
+
 </html>
 
 <script>
-    
+    // historico()
+    setInterval(historico, 30000);
+
+    console.log('Questoões respondidas', sessionStorage.QUESTOES_RESPONDIDAS)
+    let respostaUser = [sessionStorage.QUESTOES_RESPONDIDAS[0],]
+
+    console.log(respostaUser)
+    let respostasCorretas = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    function exibirRespostas() {
+
+
+        for (let contador = 0; contador < sessionStorage.QUESTOES_RESPONDIDAS.length; contador += 1) {
+            const exibir = document.getElementById('exibirRespostas')
+            const exibir2 = document.getElementById('exibirRespostas2')
+            const respostaUser = sessionStorage.QUESTOES_RESPONDIDAS[contador]
+            const respostasCertas = respostasCorretas[contador]
+
+            exibir.innerHTML += `
+            Questão ${contador + 1} <br> 
+            Resposta informada: ${respostaUser}<br>
+            Resposta Correta: ${respostasCertas} <br><br>`
+
+
+            if (contador >= 7 && contador <= 9) {
+                const respostasCertas = respostasCorretas[contador]
+                exibir2.innerHTML += `
+            Questão ${contador + 1} <br> 
+            Resposta informada: ${respostaUser}<br>
+            Resposta Correta: ${respostasCertas} <br><br>`
+            }
+            if (contador > 9) {
+                break
+            }
+        }
+        console.log(resposta1)
+
+    } sessionStorage.EMAIL_USUARIO2
+
+    function historico() {
+        fetch("/medidas/historico", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: sessionStorage.EMAIL_USUARIO2,
+
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO historico)!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    // sessionStorage.EMAIL_USUARIO = json.email;
+                    // sessionStorage.NOME_USUARIO = json.nome;
+                    // sessionStorage.ID_USUARIO = json.id;
+                    // sessionStorage.NOME_USUARIO2 = resposta.nome;
+                    // sessionStorage.EMAIL_USUARIO2
+                    
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar pegar as respostas");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
 </script>

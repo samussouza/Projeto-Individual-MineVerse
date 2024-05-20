@@ -12,20 +12,21 @@
 }
 
 body {
-    background-color: #181818;
+    background-color: #424242;
     /* body {
         background: #dfe9f5;
     } */
+    overflow: hidden;
 }
 
 .navigation {
     margin-bottom: 50px;
     position: relative;
     height: 695px;
-    background: #424242;
-    box-shadow: 10px 0 0 #099c22;
+    background-color: #181818;
+    /* box-shadow: 10px 0 0 #099c22; */
     width: 260px;
-    border-left: 10px solid #424242;
+   
     overflow: hidden;
 }
 
@@ -80,14 +81,20 @@ body {
     height: 695px;
 }
 
-.perfil {
-    width: 1230px;
-    height: 695px;
-    background-color: rgb(168, 110, 41);
-}
 
-.dashboard {
-    width: 1230px;
-    height: 695px;
-    background-color: rgb(62, 41, 168);
+
+.section_historico{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+.card1{
+    width: 40%;
+    background-color: aqua;
+}
+.card2{
+    margin-top: 50px;
+    width: 60%;
+    background-color: rgb(0, 255, 60);
 }
