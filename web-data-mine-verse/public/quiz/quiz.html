@@ -12,7 +12,12 @@
 </head>
 
 <body>
-
+    <div  class="exibir" id="exibir" style=" color: rgb(220, 8, 8);
+    width: 300px; height: 85px; position: absolute; top: 155px; left: 1080px;
+    padding: 10px; text-align: center;  background-color: #FFDEAD; border: 4px solid saddlebrown; font-size: 18px; font-weight: 500; display: none;
+     ">
+        Erro: Por favor, selecione uma alternativa antes de prosseguir.
+    </div>
     <nav>
         <span class="title"><img style="height: 67px; margin-top: 8px;" ; src="../assets/imgs/title.png" alt=""></span>
 
@@ -20,7 +25,7 @@
 
     <div id="imgAcertoErro" class="imgAcertoErro">
         <span id="exibirImagem">
-
+           
         </span>
     </div>
     <div id="cronometro">
@@ -61,10 +66,10 @@
                 <input type="radio" id="opcao2c" name="resposta2" value="0">
                 <label for="opcao2c">MineBlocks</label><br>
 
-                <span style="display: flex; justify-content: space-between;">
+                <!-- <span style="display: flex; justify-content: space-between;">
                     <button onclick="perguntaAnterior(2)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button>
+                    </button> -->
                     <button onclick="proximaPergunta(3)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -84,10 +89,10 @@
                 <input type="radio" id="opcao3c" name="resposta3" value="0">
                 <label for="opcao3c">The Void, The Nether, Overworld</label><br>
 
-                <span style="display: flex; justify-content: space-between;">
+                <!-- <span style="display: flex; justify-content: space-between;">
                     <button onclick="perguntaAnterior(2)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button>
+                    </button> -->
                     <button onclick="proximaPergunta(4)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -107,9 +112,9 @@
                 <label for="opcao4a">Enderman</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(3)">
+                    <!-- <button onclick="perguntaAnterior(3)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button>
+                    </button> -->
                     <button onclick="proximaPergunta(5)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -129,9 +134,9 @@
                 <label for="opcao5c">Dragão das Sombras</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(4)">
+                    <!-- <button onclick="perguntaAnterior(4)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button>
+                    </button> -->
                     <button onclick="proximaPergunta(6)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -151,9 +156,9 @@
                 <label for="opcao6c">End City</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(5)">
+                    <!-- <button onclick="perguntaAnterior(5)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button>
+                    </button> -->
                     <button onclick="proximaPergunta(7)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -174,8 +179,8 @@
                 <label for="opcao7c">Wither Skeleton</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(6)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt=""></button>
+                    <!-- <button onclick="perguntaAnterior(6)">
+                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt=""></button> -->
                     <button onclick="proximaPergunta(8)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -194,10 +199,10 @@
 
                 <input type="radio" id="opcao8c" name="resposta8" value="1">
                 <label for="opcao8c">512 blocos</label><br>
-                <span style="display: flex; justify-content: space-between;">
+                <!-- <span style="display: flex; justify-content: space-between;">
                     <button onclick="perguntaAnterior(7)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button>
+                    </button> -->
                     <button onclick="proximaPergunta(9)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -217,9 +222,9 @@
                 <input type="radio" id="opcao9c" name="resposta9" value="1">
                 <label for="opcao9c"> 2009</label><br>
                 <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(8)">
+                    <!-- <button onclick="perguntaAnterior(8)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button>
+                    </button> -->
                     <button onclick="proximaPergunta(10)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -228,6 +233,7 @@
 
 
             <div class="div-quiz" style="display: none;">
+    
 
                 <p>10. Item raro para criar poções poderosas?</p>
 
@@ -240,11 +246,9 @@
                 <input type="radio" id="opcao10c" name="resposta10" value="0">
                 <label for="opcao10c">Coração de Netherite</label><br>
 
-                <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(9)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button>
-                    <button onclick="enviarRespostas()" class="button">Enviar</button>
+                <span style="display: flex; justify-content: center; align-items: center;">
+                   
+                    <button style="display: flex; justify-content: center;" onclick="enviarRespostas()" class="button">Enviar</button>
                 </span>
             </div>
         </div>

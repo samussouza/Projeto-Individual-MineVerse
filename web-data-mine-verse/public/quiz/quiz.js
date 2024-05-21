@@ -1,53 +1,54 @@
 
-// // Definir o tempo inicial em segundos (10 minutos)
-// let time = 0.8 * 60;
 
-// // Função para atualizar o cronômetro
-// function updateTimer() {
-//     const minutes = Math.floor(time / 60);
-//     const seconds = time % 60;
-
-//     // Exibir o tempo restante no formato MM:SS
-//     document.getElementById('timer').textContent =
-//         `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-//     // Verificar se o tempo acabou
-//     if (time <= 0) {
-//         acabouTempo.style.display = "block"
-//         setTimeout(() => {
-//             acabouTempo.style.display = "none"
-//             window.location.href = "telainicialQuiz.html"
-//         }, 4000);
-
-
-//         return false;
-//     } else {
-//         time--;
-//     }
-// }
-
-// // Atualizar o cronômetro a cada segundo
-// setInterval(updateTimer, 1000);
-
-// // Iniciar a contagem imediatamente
-// updateTimer();
-
-
-let tempoInicialPagina;
-let tempoInicialEnvio;
 
 window.onload = function () {
     tempoInicialPagina = new Date();
+    startTempo()
 }
+
+let totalTempo = 10 * 60; // 10 minutos em segundos
+let tempoInterval;
+
+function startTempo() {
+  tempoInterval = setInterval(updateTempo, 1000);
+}
+
+function updateTempo() {
+    let minutos = Math.floor(totalTempo / 60); // Calcula os minutos restantes
+    let segundos = totalTempo % 60; // Calcula os segundos restantes
+
+    // Adiciona um zero à esquerda se os segundos forem menores que 10
+    if (segundos < 10) {
+        segundos = '0' + segundos;
+    }
+
+    // Atualiza o texto do elemento com id 'timer'
+    document.getElementById('timer').textContent = minutos + ':' + segundos;
+
+    // Verifica se o tempo acabou
+    if (totalTempo <= 0) {
+        clearInterval(tempoInterval); // Para o cronômetro
+        alert("O tempo acabou!"); 
+        window.location.href = ""; 
+    } else {
+        totalTempo--; 
+    }
+}
+
+
+
 /*o tempo vem em milissegundos*/
+let tempoInicialPagina;
+let tempoInicialEnvio;
 function calcularTempoGasto(tempoInicial, tempoFinal) {
+    /*Math.flor arredonda para baixo*/
     const tempoGastoMs = tempoFinal - tempoInicial;
     const segundosGastos = Math.floor(tempoGastoMs / 1000);
     const minutosGastos = Math.floor(segundosGastos / 60);
-    const horasGastas = Math.floor(minutosGastos / 60);
+    // const horasGastas = Math.floor(minutosGastos / 60);
     /*formata e usa % para pegar o restp dos minutos e segundos*/
 
-    const tempoGastoFormatado = `${horasGastas}:${minutosGastos % 60}:${segundosGastos % 60}`;
+    const tempoGastoFormatado = `${minutosGastos % 60}:${segundosGastos % 60}`;
 
     return tempoGastoFormatado;
 }
@@ -61,84 +62,78 @@ function validarRespostas() {
         /*verifica se tem pelo menos um input selecionda por div*/
         var inputs = perguntas[validacao].querySelectorAll('input[type="radio"]:checked');
         if (inputs.length == 0) {
-            alert("Por favor, responda todas as perguntas antes de prosseguir.");
+            alert("Erro: Por favor, selecione uma alternativa antes de prosseguir.");
             return false;
         }
     }
-
     return true;
 }
-/*utilizei o metodo de argumento na funcao vinda do onclick*/
-function perguntaAnterior(atual) {
-    var perguntas = document.querySelectorAll('.div-quiz');
 
-    for (var contador = 0; contador < perguntas.length; contador++) {
-        if (contador == atual - 2) {
-            perguntas[contador].style.display = 'block';
-        } else {
-            perguntas[contador].style.display = 'none';
-        }
-    }
-}
-
-
-// function proximaPergunta(proxima) {
+// function perguntaAnterior(atual) {
 //     var perguntas = document.querySelectorAll('.div-quiz');
 
 //     for (var contador = 0; contador < perguntas.length; contador++) {
-//         var input = document.querySelector(`input[name="resposta${contador+1}"]:checked`);
-//         if (input) {
-//             const validar = input.value;
-//             if (validar == "1") {
-//                 alert("ok");
-//             }
-//             else{
-//                 alert("errou")
-//             }
-//         }
-
-//         if (contador + 1 == proxima) {
+//         if (contador == atual - 2) {
 //             perguntas[contador].style.display = 'block';
 //         } else {
 //             perguntas[contador].style.display = 'none';
 //         }
 //     }
 // }
-let respostas = [];
-function proximaPergunta(proxima) {
-    var perguntas = document.querySelectorAll('.div-quiz');
-    
-    for (var contador = 0; contador < perguntas.length; contador++) {
-       
-        if (contador + 1 == proxima) {
-            perguntas[contador].style.display = 'block';
+function mostrarMensagem() {
+    exibir.style.display = 'block';
+}
 
-        } else {
-            perguntas[contador].style.display = 'none';
-        }
-
-    }
-
+function ocultarMensagem() {
+    exibir.style.display = 'none';
 }
 
 
 
+/*utilizei o metodo de argumento na funcao vinda do onclick*/
+function proximaPergunta(proxima) {
+    const perguntas = document.querySelectorAll('.div-quiz');
+    let todasRespondidas = true; // Variável para verificar se todas as perguntas anteriores foram respondidas
+
+    for (var contador = 0; contador < proxima - 1; contador += 1) {
+        let resposta = document.querySelector('input[name="resposta' + (contador + 1) + '"]:checked');
+        if (!resposta) {
+            mostrarMensagem() 
+            setTimeout(() => {
+                ocultarMensagem();
+               
+            }, 3000);
+            todasRespondidas = false;
+            break; // Se encontrar uma pergunta não respondida, para o loop
+        }
+    }
+
+    if (!todasRespondidas) {
+        mostrarMensagem() 
+            setTimeout(() => {
+                ocultarMensagem();
+               
+            }, 3000);
+        return false; // Interrompe a execução da função
+    }
+
+    // Se todas as respostas estiverem checadas, mostrar a pergunta correta
+    for (var contador = 0; contador < perguntas.length; contador += 1) {
+        if (contador + 1 == proxima) {
+            perguntas[contador].style.display = 'block';
+        } else {
+            perguntas[contador].style.display = 'none';
+        }
+    }
+}
 
 
 function enviarRespostas() {
-
+    clearInterval(tempoInterval); // Para o cronômetro
+  
     if (!validarRespostas()) {
         return;
     }
-
-    
-    /*Aqui eu chamo a função paraCronometro, que contém um clar
-    pararCronometro();
-    const tempoTotalHoras = horas;
-    const tempoTotalMinutos = minutos;
-    const tempoTotalSegundos = segundos;
-    const tempoTotalFormatado = `${tempoTotalHoras}:${tempoTotalMinutos}:${tempoTotalSegundos}`;
-    console.log("Tempo total:", tempoTotalFormatado);
 
     /*Obtem os valores selecionados, que serão enviados para o banco*/
     const resposta1 = document.querySelector('input[name="resposta1"]:checked').value;

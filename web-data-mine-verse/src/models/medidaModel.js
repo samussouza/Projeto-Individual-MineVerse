@@ -20,7 +20,7 @@ function mediaAcertos() {
     var instrucaoSql = `SELECT 
     AVG(CAST(qtd_acertos AS DECIMAL(4,2))) AS media_acertos_total, 
     AVG(CAST( pontuacao_total AS DECIMAL(4,2))) AS media_pontuacao_total,
-    AVG(TIME_TO_SEC(tempo_gasto)) AS media_tempo_gasto
+    TIME_FORMAT(SEC_TO_TIME(ROUND(AVG(SUBSTRING_INDEX(tempo_gasto, ':', 1) * 60 + SUBSTRING_INDEX(tempo_gasto, ':', -1)))), '%i:%s')  AS media_tempo_gasto
 FROM 
     quiz_resultado;`;
 

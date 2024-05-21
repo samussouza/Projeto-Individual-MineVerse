@@ -93,6 +93,7 @@
                         <div class="cabecalho-item">Pontuação</div>
                         <div class="cabecalho-item">Tempo Total</div>
                     </div>
+                    <!--Para barra de rolagem-->
                     <div class="corpo-scroll">
                         <div id="corpoTabela" class="corpo"></div>
                     </div>
@@ -193,7 +194,7 @@
 
                 document.getElementById('divMediaAcertos').innerHTML = `${mediaAcertosTotal}<strong><span style="font-size: 20px;"> questões</span></strong>`;
                 document.getElementById('divPontuacao').innerHTML = `${mediaPontuacaoTotal}<strong><span style="font-size: 20px;"> pontos</span></strong>`;
-                document.getElementById('divTempo').innerHTML = `${mediaTempoTotal}<strong><span style="font-size: 20px;">segundos</span></strong>`;
+                document.getElementById('divTempo').innerHTML = `${mediaTempoTotal}<strong><span style="font-size: 20px;"> minuto</span></strong>`;
             })
             .catch(function (erro) {
                 console.error(`#ERRO: ${erro.message}`);

@@ -1,566 +1,652 @@
-@import url('https://fonts.cdnfonts.com/css/minecraft-4');
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.cdnfonts.com/css/minecraft-4');
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #424242;
-}
+        
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #424242;
+      
+       
+    }
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-.divEntrdas {
-    position: relative;
-    padding: 10px;
-    background-color: rgb(0, 0, 0);
-    height: 23px;
+    .divEntrdas {
+        position: relative;
+        padding: 10px;
+        background-color: rgb(0, 0, 0);
+        height: 45px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+    }
+
+    .divEntrdas span a {
+    
+        text-decoration: none;
+        color: #00FF08;
+        font-family: 'Minecraft', sans-serif;
+        font-size: 22px;
+    }
+
+
+    nav {
+        position: absolute;
+        margin-top: 45px;
+        background-color: rgba(0, 0, 0, 0.667);
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        /*indice de empilhamento para elementos que nao sao padroes(static)*/
+        backdrop-filter: blur(2px);
+    }
+
+    nav .title {
+        margin: auto;
+        margin-left: 550px;
+    }
+
+    .nav-fixed {
+        position: fixed;
+        top: 0;
+        margin-top: 0;
+    }
+
+    .nav.scrolled {
+        background-color: rgb(0, 0, 0);
+    }
+
+    .sectionHome {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 750px;
+        background-size: cover;
+        /* Redimensiona a imagem para cobrir todo o espaço disponível */
+        background-position: center;
+        /* Centraliza a imagem no elemento */
+        background-repeat: no-repeat;
+        /* Impede a repetição da imagem */
+        background-image: url("../assets/imgs/homeoagefundo.png");
+    }
+
+    .fundoImg {
+        margin: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.426);
+        width: 100%;
+        height: 750px;
+    }
+
+    .containerHome {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+
+    .cardHome {
+        margin-top: 120px;
+        width: 400px;
+        margin-left: 80px;
+        color: white;
+        font-size: 20px;
+        font-family: Verdana, sans-serif;
+        font-weight: 500;
+    }
+
+    .cardHome {
+        background: transparent;
+    }
+
+    /*AQUI COMEÇA SECTION MINE*/
+    .sectionMine{
+        top: -50px;
+        background-color: #2e2a2a;
+        height: 750px;
+        background-image: url(../assets/imgs/wallpaper_minecraft_15th-anniversary_1920x1080.png);
+        /* background-position: center; */
+        background-size: cover;
+    }
+    .containerMine{
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
 
-}
-
-.divEntrdas span a {
-    padding-top: 5px;
-    text-decoration: none;
-    color: #00FF08;
-    font-family: 'Minecraft', sans-serif;
-    font-size: 22px;
-}
-
-
-nav {
-    position: absolute;
-    margin-top: 43px;
-    background-color: rgba(0, 0, 0, 0.667);
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    /*indice de empilhamento para elementos que nao sao padroes(static)*/
-    backdrop-filter: blur(2px);
-}
-
-nav .title {
-    margin: auto;
-    margin-left: 550px;
-}
-
-.nav-fixed {
-    position: fixed;
-    top: 0;
-    margin-top: 0;
-}
-
-.nav.scrolled {
-    background-color: rgb(0, 0, 0);
-}
-
-.sectionHome {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 750px;
-    background-size: cover;
-    /* Redimensiona a imagem para cobrir todo o espaço disponível */
-    background-position: center;
-    /* Centraliza a imagem no elemento */
-    background-repeat: no-repeat;
-    /* Impede a repetição da imagem */
-    background-image: url("../assets/imgs/homeoagefundo.png");
-}
-
-.fundoImg {
-    margin: 0;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0.426);
-    width: 100%;
-    height: 750px;
-}
-
-.containerHome {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-}
-
-.cardHome {
-    margin-top: 120px;
-    width: 400px;
-    margin-left: 80px;
-    color: white;
-    font-size: 20px;
-    font-family: Verdana, sans-serif;
-    font-weight: 500;
-}
-
-.cardHome {
-    background: transparent;
-}
-
-/*AQUI COMEÇA SECTION MINE*/
-.sectionMine{
-    top: -50px;
-    background-color: #2e2a2a;
-    height: 750px;
-    background-image: url(../assets/imgs/fundoCenarioMine.png);
-    /* background-position: center; */
-    background-size: cover;
-}
-.containerMine{
- display: flex;
- justify-content: flex-end;
-
-}
-.cardMine1{
-    background-color: #2fb82a;
-    width: 35%;
-    height: 365px;
-    box-shadow: -5px 6px 6px rgba(30, 27, 27, 0.75);
-    border: solid 5px rgb(30, 27, 27);
-    margin: 5px;
-}
-.cardMine1 h1{
-    font-family: 'Minecraft', sans-serif;
-    font-size: 32px;
-    margin-left: 15px;
-    padding-left: 8px;
-    
-}
-.cardMine1 p{
-   font-family: "Poppins", monospace;
-   color: #FFF;
-   font-size: 18px;
-   padding-left: 15px;
-   padding-right: 5px;
-   font-weight: 600;
-}
-
-.txt-sobre {
-    color: #fff;
-}
-
-.txt-sobre p {
-    font-size: 20px;
-    margin: 20px 0;
-    text-align: justify;
-}
-
-
-
-
-.txt-sobre h2 {
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 30px;
-
-}
-
-
-
-
-
-.title-mine {
-    text-align: center;
-    font-family: 'Minecraft', sans-serif;
-    color: #ffffff;
-    font-size: 28px;
-
-}
-
-/*div personagens*/
-
-.sectionPerson {
-    background-color: #424242;
-}
-
-.title-personagem {
-    text-align: center;
-    font-family: 'Minecraft', sans-serif;
-    color: #ffffff;
-    font-size: 32px;
-    color: #00FF08;
-
-}
-
-
-.containerPerson {
-    color: #FFF;
-    font-family: Segoe UI;
-    width: 100%;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: #424242;
-    /* padding-top: 40px; */
-    padding-bottom: 20px;
-}
-
-.txt-person {
-    font-weight: 500;
+    }
+    .cardMine1{
+        background-color: #2fb82a;
+        width: 35%;
+        height: 365px;
+        box-shadow: -5px 6px 6px rgba(30, 27, 27, 0.75);
+        border: solid 5px rgb(30, 27, 27);
+        margin: 5px;
+    }
+    .cardMine1 h1{
+        font-family: 'Minecraft', sans-serif;
+        font-size: 32px;
+        margin-left: 15px;
+        padding-left: 8px;
+        
+    }
+    .cardMine1 p{
     font-family: "Poppins", monospace;
-    width: 450px;
-    margin-right: 150px;
-    font-size: 20px;
-    text-align: justify;
-    line-height: 1.6em;
-}
-
-.card {
-    border-radius: 16px;
-    /* box-shadow: #00FF08 0px 5px 15px; */
-    cursor: pointer;
-    width: 360px;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    background: transparent;
-    background-image: linear-gradient(#333, #333);
-    transition: all .5s;
-}
-
-.card:hover {
-    background-image: linear-gradient(#386b28, #3c740e);
-}
-
-.card .img {
-    width: 360px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-    /* background-image: url(Evelynn.jpg); */
-    background-size: cover;
-    background-position: center;
-    transition: all .5s;
-    z-index: 2;
-    position: relative;
-    opacity: .8;
-}
-
-.card .img span {
-    text-transform: uppercase;
-    font-size: 24px;
-    font-weight: 100;
-    font-style: italic;
-    transition: all .5s;
-}
-
-.card:hover .img {
-    width: 430px;
-    opacity: 1;
-}
-
-.card:hover .img span {
-    font-size: 28px;
-}
-
-.card .content {
-    padding: 0px 20px;
-    height: 0;
-    opacity: 0;
-    transition: all .5s;
-    position: relative;
-    box-sizing: border-box;
-    overflow: hidden;
-    transform: translateY(30px);
-}
-
-.card:hover .content {
-    height: 260px;
-    padding: 20px;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.card .content p {
-    margin: 0;
-}
-
-.card .content .title {
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.card .content .desc {
-    font-size: 14px;
-    font-weight: 100;
-    opacity: .8;
-    margin-top: 8px;
-}
-
-.card .arrow {
-
-    padding: 15px;
-    transform: rotate(-180deg);
-    transition: all .5s;
-}
-
-.card:hover .arrow {
-    transform: rotate(0);
-}
-
-.card .arrow span {
-    font-size: 24px;
-}
-
-/*AQUI COMEÇA SECTION EDUCATION*/
-.sectionEducation {
-    height: 550px;
-    display: flex;
-}
-.containerEducation{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background: #212020;
-}
-.divEducation {
-    width: 40%;
-    height: 100%;
-}
-.divEducation h1{
-    margin-top: 40px;
-    text-align: center;
-    font-size: 32px;
-    font-family: 'Minecraft', sans-serif;
-    margin-bottom: 50px;
-    color: #00FF08;
-}
-.divEducation p{
-    font-family: Arial, sans-serif;
     color: #FFF;
-    margin: 20px;
-    line-height: 1.5em;
     font-size: 18px;
-    text-align: justify;
-    padding: 10px 20px;
-}
+    padding-left: 15px;
+    padding-right: 5px;
+    font-weight: 600;
+    }
 
-.divImgEducation {
-    width: 60%;
-    height: 100%;
-    background-image: url(../assets/imgs/fundoEducation2.jpg);
-    background-size: cover;
+    .txt-sobre {
+        color: #fff;
+    }
+
+    .txt-sobre p {
+        font-size: 20px;
+        margin: 20px 0;
+        text-align: justify;
+    }
+
+
+
+
+    .txt-sobre h2 {
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 30px;
+
+    }
+
+
+
+
+
+    .title-mine {
+        text-align: center;
+        font-family: 'Minecraft', sans-serif;
+        color: #ffffff;
+        font-size: 28px;
+
+    }
+
+    /*div personagens*/
+
+    .sectionPerson {
+        background-color: #424242;
+    }
+
+    .title-personagem {
+        text-align: center;
+        font-family: 'Minecraft', sans-serif;
+        color: #ffffff;
+        font-size: 32px;
+        padding: 5px;
+        color: #00FF08;
+
+    }
+
+
+    .containerPerson {
+        color: #FFF;
+        font-family: Segoe UI;
+        width: 100%;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #424242;
+        /* padding-top: 40px; */
+        padding-bottom: 20px;
+    }
+
+    .txt-person {
+        font-weight: 500;
+        font-family: "Poppins", monospace;
+        width: 450px;
+        margin-right: 150px;
+        font-size: 20px;
+        text-align: justify;
+        line-height: 1.6em;
+    }
+
+    .card {
+        border-radius: 16px;
+        /* box-shadow: #00FF08 0px 5px 15px; */
+        cursor: pointer;
+        width: 360px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        background: transparent;
+        background-image: linear-gradient(#333, #333);
+        transition: all .5s;
+    }
+
+    .card:hover {
+        background-image: linear-gradient(#386b28, #3c740e);
+    }
+
+    .card .img {
+        width: 360px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        /* background-image: url(Evelynn.jpg); */
+        background-size: cover;
+        background-position: center;
+        transition: all .5s;
+        z-index: 2;
+        position: relative;
+        opacity: .8;
+    }
+
+    .card .img span {
+        text-transform: uppercase;
+        font-size: 24px;
+        font-weight: 100;
+        font-style: italic;
+        transition: all .5s;
+    }
+
+    .card:hover .img {
+        width: 430px;
+        opacity: 1;
+    }
+
+    .card:hover .img span {
+        font-size: 28px;
+    }
+
+    .card .content {
+        padding: 0px 20px;
+        height: 0;
+        opacity: 0;
+        transition: all .5s;
+        position: relative;
+        box-sizing: border-box;
+        overflow: hidden;
+        transform: translateY(30px);
+    }
+
+    .card:hover .content {
+        height: 260px;
+        padding: 20px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .card .content p {
+        margin: 0;
+    }
+
+    .card .content .title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .card .content .desc {
+        font-size: 14px;
+        font-weight: 100;
+        opacity: .8;
+        margin-top: 8px;
+    }
+
+    .card .arrow {
+
+        padding: 15px;
+        transform: rotate(-180deg);
+        transition: all .5s;
+    }
+
+    .card:hover .arrow {
+        transform: rotate(0);
+    }
+
+    .card .arrow span {
+        font-size: 24px;
+    }
+
+    /*AQUI COMEÇA SECTION EDUCATION*/
+    .sectionEducation {
+        height: 550px;
+        display: flex;
+    }
+    .containerEducation{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background: #212020;
+    }
+    .divEducation {
+        width: 40%;
+        height: 100%;
+    }
+    .divEducation h1{
+        margin-top: 40px;
+        text-align: center;
+        font-size: 32px;
+        font-family: 'Minecraft', sans-serif;
+        margin-bottom: 50px;
+        color: #00FF08;
+    }
+    .divEducation p{
+        font-family: Arial, sans-serif;
+        color: #FFF;
+        margin: 20px;
+        line-height: 1.5em;
+        font-size: 18px;
+        text-align: justify;
+        padding: 10px 20px;
+    }
+
+    .divImgEducation {
+        width: 60%;
+        height: 100%;
+        background-image: url(../assets/imgs/fundoEducation2.jpg);
+        background-size: cover;
+        
+    }
+
+
+    /*AQUI COMEÇA SECTION ODS*/
+
+    .sectionODS {
+        height: 500px;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        background-color: #a13939;
+        height: 100%;
+    }
+
+    .div-1 {
+        width: 50%;
+        margin-top: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+        color: white;
+        font-size: 18px;
+        line-height: 1.3em;
+    }
+
+    .div-1 h2 {
+        margin-bottom: 30px;
+        font-size: 25px;
+        
+    }
+
+    .div-2 {
+        width: 50%;
+        padding: 20px;
+        box-sizing: border-box;
+        color: white;
+        font-size: 12px;
+    }
+
+    /*AQUI COMEÇA SECTION APRESENTAÇÃO*/
+    .apresentacaoSlides{
+        padding-top: 30px;
+        background-color: #2d2e2d;
     
-}
+        height: 500px;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        margin: 70px;
+    }
 
+    .divTextoProjetos{
 
-/*AQUI COMEÇA SECTION ODS*/
-
-.sectionODS {
-    height: 500px;
-}
-
-.container {
-    display: flex;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    background-color: #a13939;
-    height: 100%;
-}
-
-.div-1 {
-    width: 50%;
-    margin-top: 20px;
-    padding: 20px;
-    box-sizing: border-box;
-    color: white;
-    font-size: 18px;
-    line-height: 1.3em;
-}
-
-.div-1 h2 {
-    margin-bottom: 30px;
-    font-size: 25px;
+        width: 40%;
+        font-family: "Poppins", sans-serif;
+        font-size: 18px;
+        margin: 30px;
+    }
+    .divTextoProjetos h1{
+        font-size: 30px;
+        font-family: "Minecraft", sans-serif;
+        color: #00FF08;
     
-}
+    }
+    .divApresentacao{
+        width: 60%;
+        margin: 30px;
+    }
 
-.div-2 {
-    width: 50%;
-    padding: 20px;
-    box-sizing: border-box;
-    color: white;
-    font-size: 12px;
-}
+    .slider{
+        margin: 0 auto; 
+        width: 800px;
+        height: 400px;
+        overflow: hidden;
+    }
+    .slides{
+        width: 400%;
+        height: 400px;
+        display: flex;
+    }
+    .slides input{
+        display: none;
+    }
+    .slide {
+        width: 25%;
+        /* position: relative; */
+    }
+    .slide img{
+    
+        border-bottom-left-radius:5px ;
+        width: 800px;
+    }
+    .manual-navegaiton{
+        position: absolute;
+        width: 800px;
+        margin-top: -40px;
+        display: flex;
+        justify-content: center;
+    }
+    .manual-btn{
+        border: 2px solid white;
+        padding:5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 1s;
+    }
+    /*menos no ultimo item, nos outros eu aplico o margin*/
+    .manual-btn:not(:last-child){
+        margin-right: 40px;
+    }
+    .manual-btn:hover{
+        background-color: aliceblue;
+    }
+    /*se tiver ativo e for o primeiro slide*/
+    #radio1:checked ~ .first{
+        margin-left: 0;
+    }
+    #radio2:checked ~ .first{
+        margin-left: -25%;
+    }
+    #radio3:checked ~ .first{
+        margin-left: -50%;
+    }
+    #radio4:checked ~ .first{
+        margin-left: -75%;
+    }
+    #radio5:checked ~ .first{
+        margin-left: -100%;
+    }
+    #radio6:checked ~ .first{
+        margin-left: -125%;
+    }
+    .navegation-auto div{
+        border: 2px solid #20a6ff;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: 1s;
+    }
+    .navegation-auto{
+        position: absolute;
+        width: 800px;
+        margin-top: 360px;
+        display: flex;
+        justify-content: center;
+    }
+    .navegation-auto div:not(:last-child){
+        margin-right: 40px;
+    } 
+    #radio1:checked ~ .navegation-auto .auto-btn1{
+        background-color: rgb(255, 255, 255);
+    }
+    #radio2:checked ~ .navegation-auto .auto-btn2{
+        background-color: rgb(255, 255, 255);
+    }
+    #radio3:checked ~ .navegation-auto .auto-btn3{
+        background-color: rgb(255, 255, 255);
+    }
+    #radio4:checked ~ .navegation-auto .auto-btn4{
+        background-color: rgb(255, 255, 255);
+    }
+    #radio5:checked ~ .navegation-auto .auto-btn5{
+        background-color: rgb(255, 255, 255);
+    }
+    #radio6:checked ~ .navegation-auto .auto-btn6{
+        background-color: rgb(255, 255, 255);
+    }
 
-/*AQUI COMEÇA SECTION APRESENTAÇÃO*/
-.apresentacaoSlides{
-    padding-top: 30px;
-    background-color: #2d2e2d;
- 
-    height: 500px;
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    margin: 70px;
-}
+    /*AQUI COMEÇA SECTION VIDEO*/
+    
+    .sectionVideo {
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(270deg, #004d00, #003300, #002200, #001100);
+        background-size: 400% 400%;
+        animation: gradientBackground 15s ease infinite;
+    }
 
-.divTextoProjetos{
+    @keyframes gradientBackground {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    .video-frame {
+        display: inline-block;
+        padding: 10px;
+        border: 5px solid #000;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-    width: 40%;
-    font-family: "Poppins", sans-serif;
-    font-size: 18px;
-    margin: 30px;
-}
-.divTextoProjetos h1{
-    font-size: 30px;
-    font-family: "Minecraft", sans-serif;
-    color: #00FF08;
-  
-}
-.divApresentacao{
-    width: 60%;
-    margin: 30px;
-}
+    .video-frame video {
+        display: block;
+        max-width: 100%;
+        border-radius: 10px;
+    }
 
-.slider{
-    margin: 0 auto; 
-    width: 800px;
-    height: 400px;
-    overflow: hidden;
-  }
-  .slides{
-    width: 400%;
-    height: 400px;
-    display: flex;
-  }
-  .slides input{
-    display: none;
-  }
-  .slide {
+    .sectionQuiz {
+        height: 700px;
+        background-color: #212020;
+        background-image: url(../assets/imgs/funcoCeu.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    /*AQUI COMEÇA FOOTER*/
+    .containerFooter {
+    
+
+        max-width: 1170px;
+        margin:auto;
+        font-family: 'Poppins', sans-serif;
+        color: #bbbbbb;
+    }
+    .divFooter{
+        display: flex;
+        flex-wrap: wrap; /*elementos flexiveis, realiza a quebra de linha */
+    }
+    ul{
+        list-style: none;
+        
+    }
+    .footer{
+        background-color: #24262b;
+        padding: 70px 0;
+    }
+    .footer-card{
     width: 25%;
-    /* position: relative; */
-  }
-  .slide img{
-   
-    border-bottom-left-radius:5px ;
-    width: 800px;
-  }
-  .manual-navegaiton{
-    position: absolute;
-    width: 800px;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-  }
-  .manual-btn{
-    border: 2px solid white;
-    padding:5px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 1s;
-  }
-  /*menos no ultimo item, nos outros eu aplico o margin*/
-  .manual-btn:not(:last-child){
-    margin-right: 40px;
-  }
-  .manual-btn:hover{
-    background-color: aliceblue;
-  }
-  /*se tiver ativo e for o primeiro slide*/
-  #radio1:checked ~ .first{
-    margin-left: 0;
-  }
-  #radio2:checked ~ .first{
-    margin-left: -25%;
-  }
-  #radio3:checked ~ .first{
-    margin-left: -50%;
-  }
-  #radio4:checked ~ .first{
-    margin-left: -75%;
-  }
-  #radio5:checked ~ .first{
-    margin-left: -100%;
-  }
-  #radio6:checked ~ .first{
-    margin-left: -125%;
-  }
-  .navegation-auto div{
-    border: 2px solid #20a6ff;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: 1s;
-  }
-  .navegation-auto{
-    position: absolute;
-    width: 800px;
-    margin-top: 360px;
-    display: flex;
-    justify-content: center;
-  }
-  .navegation-auto div:not(:last-child){
-    margin-right: 40px;
-  } 
-  #radio1:checked ~ .navegation-auto .auto-btn1{
-    background-color: rgb(255, 255, 255);
-  }
-  #radio2:checked ~ .navegation-auto .auto-btn2{
-    background-color: rgb(255, 255, 255);
-  }
-  #radio3:checked ~ .navegation-auto .auto-btn3{
-    background-color: rgb(255, 255, 255);
-  }
-  #radio4:checked ~ .navegation-auto .auto-btn4{
-    background-color: rgb(255, 255, 255);
-  }
-  #radio5:checked ~ .navegation-auto .auto-btn5{
-    background-color: rgb(255, 255, 255);
-  }
-  #radio6:checked ~ .navegation-auto .auto-btn6{
-    background-color: rgb(255, 255, 255);
-  }
-
-  /*AQUI COMEÇA SECTION VIDEO*/
-  
-  .sectionVideo {
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(270deg, #004d00, #003300, #002200, #001100);
-    background-size: 400% 400%;
-    animation: gradientBackground 15s ease infinite;
-}
-
-@keyframes gradientBackground {
-    0% {
-        background-position: 0% 50%;
+    padding: 0 15px;
     }
-    50% {
-        background-position: 100% 50%;
+    .footer-card h4{
+        font-size: 18px;
+        color: #ffffff;
+        text-transform: capitalize;
+        margin-bottom: 35px;
+        font-weight: 500;
+        position: relative;
     }
-    100% {
-        background-position: 0% 50%;
+    .footer-card h4::before{
+        content: '';
+        position: absolute;
+        left:0;
+        bottom: -10px;
+        background-color: #1dff19;
+        height: 2px;
+        box-sizing: border-box;
+        width: 50px;
     }
-}
-.video-frame {
-    display: inline-block;
-    padding: 10px;
-    border: 5px solid #000;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    .footer-card ul li:not(:last-child){
+        margin-bottom: 10px;
+    }
+    .footer-card ul li a{
+        font-size: 16px;
+        text-transform: capitalize;
 
-.video-frame video {
-    display: block;
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-.sectionQuiz {
-    height: 700px;
-    background-color: #212020;
-    background-image: url(../assets/imgs/funcoCeu.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+        text-decoration: none;
+        font-weight: 300;
+        color: #bbbbbb;
+        display: block;
+        transition: all 0.3s ease;
+    }
+    .footer-card ul li a:hover{
+        color: #08ff19;
+        padding-left: 8px;
+    }
+    .footer-card .social-links a{
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        background-color: rgba(255,255,255,0.2);
+        margin:0 10px 10px 0;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color: #ffffff;
+        transition:0.5s ease;
+    }
+    .footer-card .social-links a:hover{
+        color: #24262b;
+        background-color: #ffffff;
+    }
