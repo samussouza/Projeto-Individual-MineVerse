@@ -223,3 +223,32 @@ input[type="radio"]:checked+label {
 .divResultados button:hover {
     background: #60aa47;
 }
+
+/*divs para exibir validações*/
+.exibir{
+    color: rgb(220, 8, 8);
+    width: 300px; height: 85px; position: absolute; top: 155px; left: 1080px;
+    padding: 10px; text-align: center;  background-color: #FFDEAD; border: 4px solid saddlebrown; font-size: 18px; font-weight: 500; display: none;
+}
+.acertou{
+    left: 620px;
+    top: 120px;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+}
+.acertou img{
+    width: 300px;
+ 
+}
+.errou{
+    left: 620px;
+    top: 120px;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+}
+.errou img{
+    width: 300px;
+ 
+}

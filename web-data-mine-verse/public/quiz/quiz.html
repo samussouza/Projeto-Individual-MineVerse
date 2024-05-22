@@ -12,12 +12,18 @@
 </head>
 
 <body>
-    <div  class="exibir" id="exibir" style=" color: rgb(220, 8, 8);
-    width: 300px; height: 85px; position: absolute; top: 155px; left: 1080px;
-    padding: 10px; text-align: center;  background-color: #FFDEAD; border: 4px solid saddlebrown; font-size: 18px; font-weight: 500; display: none;
-     ">
+    <div class="errou" id="errou">
+        <img src="../assets/imgs/cruz.png" alt="">
+    </div>
+    <div class="acertou" id="acertou">{
+        <img src="../assets/imgs/verificar.png" alt="">
+    }
+
+    </div>
+    <div  class="exibir" id="exibir">
         Erro: Por favor, selecione uma alternativa antes de prosseguir.
     </div>
+
     <nav>
         <span class="title"><img style="height: 67px; margin-top: 8px;" ; src="../assets/imgs/title.png" alt=""></span>
 
@@ -45,7 +51,7 @@
                 <input type="radio" id="opcao1b" name="resposta1" value="0">
                 <label for="opcao1b">Linus Torvalds</label>
 
-                <input type="radio" id="opcao1c" name="resposta1" value="1">
+                <input type="radio" id="opcao1c" name="resposta1" value="0">
                 <label for="opcao1c">Rasmus Lerdorf</label><br>
 
                 <button style="margin-left: 420px;" onclick="proximaPergunta(2)">

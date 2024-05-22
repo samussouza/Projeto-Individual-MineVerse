@@ -10,7 +10,7 @@ let totalTempo = 10 * 60; // 10 minutos em segundos
 let tempoInterval;
 
 function startTempo() {
-  tempoInterval = setInterval(updateTempo, 1000);
+    tempoInterval = setInterval(updateTempo, 1000);
 }
 
 function updateTempo() {
@@ -28,10 +28,10 @@ function updateTempo() {
     // Verifica se o tempo acabou
     if (totalTempo <= 0) {
         clearInterval(tempoInterval); // Para o cronômetro
-        alert("O tempo acabou!"); 
-        window.location.href = ""; 
+        alert("O tempo acabou!");
+        window.location.href = "";
     } else {
-        totalTempo--; 
+        totalTempo--;
     }
 }
 
@@ -88,37 +88,73 @@ function ocultarMensagem() {
     exibir.style.display = 'none';
 }
 
+function mostrarAcertou() {
+    acertou.style.display = "block"
+}
+function ocultarAcertou() {
+    acertou.style.display = "none"
+}
+function mostrarErrou() {
+    errou.style.display = "block"
+}
+function ocultarErrou() {
+    errou.style.display = "none"
+}
 
-
+let mensagemExibida = false;
 /*utilizei o metodo de argumento na funcao vinda do onclick*/
 function proximaPergunta(proxima) {
     const perguntas = document.querySelectorAll('.div-quiz');
+    const perguntaAtual = perguntas[proxima - 1];
     let todasRespondidas = true; // Variável para verificar se todas as perguntas anteriores foram respondidas
+
 
     for (var contador = 0; contador < proxima - 1; contador += 1) {
         let resposta = document.querySelector('input[name="resposta' + (contador + 1) + '"]:checked');
         if (!resposta) {
-            mostrarMensagem() 
+            mostrarMensagem()
             setTimeout(() => {
                 ocultarMensagem();
-               
+
             }, 3000);
             todasRespondidas = false;
-            break; // Se encontrar uma pergunta não respondida, para o loop
+            return false;
         }
     }
 
+
     if (!todasRespondidas) {
-        mostrarMensagem() 
-            setTimeout(() => {
-                ocultarMensagem();
-               
-            }, 3000);
+        mostrarMensagem()
+        setTimeout(() => {
+            ocultarMensagem();
+
+        }, 3000);
         return false; // Interrompe a execução da função
     }
 
+
+        // Obtém o valor da resposta selecionada
+        const respostaSelecionada = document.querySelector(`input[name="resposta${proxima -1}"]:checked`).value;
+
+        // Verifica se a resposta selecionada é 1 ou 0
+        if (respostaSelecionada === "1") {
+            mostrarAcertou()
+            setTimeout(() => {
+                ocultarAcertou();
+
+            }, 3000);
+        } else {
+            mostrarErrou()
+            setTimeout(() => {
+                ocultarErrou();
+
+            }, 3000);
+        }
+    
+    
     // Se todas as respostas estiverem checadas, mostrar a pergunta correta
     for (var contador = 0; contador < perguntas.length; contador += 1) {
+
         if (contador + 1 == proxima) {
             perguntas[contador].style.display = 'block';
         } else {
@@ -130,7 +166,7 @@ function proximaPergunta(proxima) {
 
 function enviarRespostas() {
     clearInterval(tempoInterval); // Para o cronômetro
-  
+
     if (!validarRespostas()) {
         return;
     }
