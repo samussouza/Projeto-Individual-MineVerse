@@ -1,6 +1,4 @@
 
-
-
 window.onload = function () {
     tempoInicialPagina = new Date();
     startTempo()
@@ -127,7 +125,6 @@ function proximaPergunta(proxima) {
         mostrarMensagem()
         setTimeout(() => {
             ocultarMensagem();
-
         }, 3000);
         return false; // Interrompe a execução da função
     }

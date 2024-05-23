@@ -120,10 +120,10 @@
     .containerMine {
         display: flex;
         justify-content: flex-end;
-
     }
 
     .cardMine1 {
+
         background-color: #2fb82a;
         width: 35%;
         height: 365px;
@@ -135,8 +135,9 @@
     .cardMine1 h1 {
         font-family: 'Minecraft', sans-serif;
         font-size: 32px;
-        margin-left: 15px;
-        padding-left: 8px;
+
+        padding: 25px;
+
 
     }
 
@@ -144,9 +145,12 @@
         font-family: "Poppins", monospace;
         color: #FFF;
         font-size: 18px;
-        padding-left: 15px;
-        padding-right: 5px;
+        /* padding-left: 25px;
+        padding-right: 5px; */
         font-weight: 600;
+        /* padding: 10px 20px; */
+        padding-left: 25px;
+
     }
 
     .txt-sobre {
@@ -259,7 +263,7 @@
 
     .card .img span {
         text-transform: uppercase;
-        font-size: 24px;
+        font-size: 30px;
         font-weight: 100;
         font-style: italic;
         transition: all .5s;
@@ -271,7 +275,8 @@
     }
 
     .card:hover .img span {
-        font-size: 28px;
+        font-size: 30px;
+
     }
 
     .card .content {
@@ -409,7 +414,7 @@
 
     /*AQUI COMEÇA SECTION APRESENTAÇÃO*/
     .apresentacaoSlides {
-        padding-top: 30px;
+        /* padding-top: 30px; */
         background-color: #2d2e2d;
 
         height: 500px;
@@ -605,16 +610,56 @@
     /*AQUI COMEÇA SECTION QUIZ */
     .sectionQuiz {
         height: 700px;
-        background-color: #2120207b;
-        background-image: url(../assets/imgs/creeeper7.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        /* flex-direction: column; */
-        align-items: center;
-        justify-content: center;
         font-family: "Poppins", sans-serif;
+        background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ec1b8560-a6d6-40e4-8ddf-df5962d6c8a3/d4sbkeo-86d047c5-8a92-4ca0-ad4a-8ff790c90786.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2VjMWI4NTYwLWE2ZDYtNDBlNC04ZGRmLWRmNTk2MmQ2YzhhM1wvZDRzYmtlby04NmQwNDdjNS04YTkyLTRjYTAtYWQ0YS04ZmY3OTBjOTA3ODYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.phootKQM7riVs9QHhLqhj003GQykeU2FtSUc6vSIXwo);
+        background-size: cover;
+        background-position: 0px 0px;
+        animation-name: slide;
+        animation-duration: 150s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        place-items: center;
+    }
+
+
+
+    @keyframes bob {
+        0% {
+            transform: scale(1, 1) rotate(-25deg);
+        }
+
+        40% {
+            transform: scale(1, 1) rotate(-25deg);
+        }
+
+        50% {
+            transform: scale(1.1, 1.1) rotate(-25deg);
+        }
+
+        60% {
+            transform: scale(1, 1) rotate(-25deg);
+        }
+
+        100% {
+            transform: scale(1, 1) rotate(-25deg);
+        }
+    }
+
+    @keyframes slide {
+        0% {
+            background-position: 0px 0px;
+        }
+
+        50% {
+            background-position: 100% 100%;
+        }
+
+        100% {
+            background-position: 0px 0px;
+        }
     }
 
     .containerQuiz {
@@ -622,35 +667,34 @@
         /* backdrop-filter: blur(7px); */
         width: 60%;
         height: 70%;
-      background-color: #2e292992;
+        background-color: #2e292992;
         border-radius: 30px;
         color: #fffefe;
-        padding: 40px;   
+        padding: 40px;
         font-family: 'Popis';
     }
-    .containerQuiz p{
+
+    .containerQuiz p {
         width: 300px;
         line-height: 1.5em;
         font-size: 24px;
         font-weight: 600;
     }
-    .containerQuiz h1{
+
+    .containerQuiz h1 {
         text-align: center;
         font-size: 35px;
-        
+
     }
-        .containerQuiz button{
-            width: 200px;
-            height: 45px;
-        }
 
-
-
+    .containerQuiz button {
+        width: 200px;
+        height: 45px;
+    }
 
 
     /*AQUI COMEÇA FOOTER*/
     .containerFooter {
-
 
         max-width: 1170px;
         margin: auto;
@@ -735,4 +779,16 @@
     .footer-card .social-links a:hover {
         color: #24262b;
         background-color: #ffffff;
+    }
+
+    .footer hr {
+        margin: auto;
+        width: 1400px;
+        margin-bottom: 10px;
+    }
+
+    .reserva {
+        margin-top: 10px;
+        margin-left: 65px;
+        color: white;
     }

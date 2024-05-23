@@ -1,5 +1,5 @@
-CREATE DATABASE MineVerse;
-USE MineVerse;
+CREATE DATABASE mineverse;
+USE mineverse;
 
 CREATE TABLE usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -27,15 +27,19 @@ CREATE TABLE quiz_resultado (
     pontuacao_total varchar(40),
     foreign key (fk_user) references usuario (id)
 );
-alter table usuario add column tempo_jogador varchar (20);
+
 
 select * from quiz_resultado;
 select * from usuario;
 
-insert into usuario(nome, email, senha, tempo_jogador)
-values ('Samuel', 'samuel@gmail.com', '1234', '1 a 2 anos');
-
+insert into usuario(nome, email, senha)
+values ('Samuel', 'samuel@gmail.com', 'Samuel123@'),
+ ('Davi', 'davi@gmail.com', 'Davi123@'),
+  ('Suzana', 'suzana@gmail.com', 'Suzana123@'),
+   ('Neilson', 'neilson@gmail.com', 'Neilson123');
+   
+/*   
 INSERT INTO quiz_resultado (fk_user, quest1, quest2, quest3, quest4, quest5, quest6, quest7, quest8, quest9, quest10, qtd_acertos, data_hora, tempo_gasto, pontuacao_total) 
-VALUES (1, '1', '0', '1', '0', '1', '1', '0', '0', '1', '1', '6', '2024-05-17 08:30:00', '0:20:35', '18');
+VALUES (1, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '10', '2024-05-17 08:30:00', '0:20:35', '30');
 
-
+*/
