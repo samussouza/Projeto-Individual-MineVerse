@@ -14,13 +14,20 @@
         rel="stylesheet">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <link rel="shortcut icon" href="./assets/icon/favicon3.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-
+    <audio   id="background-audio"  loop>
+        <source src="./assets/minecraft-1-20-trails-and-tales-ost.mp3" type="audio/mpeg">
+        Seu navegador não suporta a tag de áudio.
+    </audio>
     <div class="divEntrdas">
-     
+        
+            <button  id="play-button"><img src="./assets/icons8-fones-de-ouvido-30.png" alt=""></button>
+   
+
+
         <span style="margin-right: 40px;">
             <a href="sobre.html">Sobre Mim</a>
         </span>
@@ -31,6 +38,7 @@
             <a href="cadastro.html">Cadastro</a>
         </span>
 
+      
 
     </div>
     <nav>
@@ -53,21 +61,10 @@
                     </span>
                     <p>
                         <button class="buttonQuiz" id="buttonQuiz">Play</button>
+                    
                     </p>
-
-                    <!-- <h1>Bem vindo ao </h1>
-                    Explore, crie e descubra neste universo digital incrível.Prepare-se para desvendar os segredos deste
-                    mundo pixelado e criar suas próprias histórias inesquecíveis em
-                    Minecraft!
-                    FALAR SOBRE OS MULTIPLOS AMBIENTES QUE O SITE RETRATA
-                    <br> -->
-
                 </div>
-                <!-- <div class="card">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo architecto veritatis maiores molestiae quod cumque accusantium, at autem provident! Illo culpa autem consectetur excepturi quod, perspiciatis tenetur ipsum sequi quisquam.</div>
-            </div> -->
-
             </div>
-
         </div>
         <div style="height: 80px; background-color: rgb(39, 37, 37);">
         </div>
@@ -166,10 +163,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="slideMundo">
-                        <img src="imagem3.jpg" alt="">
-                        <div class="sobreposicao-texto">Texto da Imagem 4</div>
-                    </div>
+
                 </div>
             </div>
             <button id="botao-anterior" class="botao-anterior"><img width="30px" height="30px"
@@ -189,11 +183,14 @@
             <div class="containerPerson">
                 <p class="txt-person">
 
-                    Steve e Alex são personagens centrais em Minecraft, desempenhando papéis importantes na representatividade, personalização e comunidade do jogo.
+                    Steve e Alex são personagens centrais em Minecraft, desempenhando papéis importantes na
+                    representatividade, personalização e comunidade do jogo.
                     <br>
-                    Steve, presente desde 2009, e Alex, introduzida em 2014, garantem que jogadores de diferentes gêneros se sintam representados e incluídos no jogo, promovendo a diversidade.
+                    Steve, presente desde 2009, e Alex, introduzida em 2014, garantem que jogadores de diferentes
+                    gêneros se sintam representados e incluídos no jogo, promovendo a diversidade.
                     <br>
-                   Com sua criatividade e habilidade, eles inspiram jogadores de todas as idades a se aventurarem neste universo infinito.
+                    Com sua criatividade e habilidade, eles inspiram jogadores de todas as idades a se aventurarem neste
+                    universo infinito.
                 </p>
 
                 <div class="card">
@@ -347,10 +344,10 @@
                         <div class="footer-card">
                             <h4>Menu</h4>
                             <ul>
-                                <li><a href="#">Inicio</a></li>
-                                <li><a href="#">Cadastro</a></li>
-                                <li><a href="#">Login</a></li>
-                                <li><a href="#">Sobre Mim</a></li>
+                                <li><a href="index.html">Inicio</a></li>
+                                <li><a href="cadastro.html">Cadastro</a></li>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="sobre.html">Sobre Mim</a></li>
                             </ul>
                         </div>
                         <div class="footer-card">
@@ -380,11 +377,21 @@
                     </div>
                 </div>
                 <br><br>
-
             </footer>
 
 </html>
 <script>
+      document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('background-audio');
+            audio.volume = 0.1;
+        });
+        document.getElementById('play-button').addEventListener('click', function() {
+            var audio = document.getElementById('background-audio');
+            audio.play().catch(function(error) {
+                console.log('Falha ao reproduzir o áudio:', error);
+            });
+            this.style.display = 'none'; // Esconde o botão após o clique
+        });
     /*evento para fixação da barra de navegação ao rolar a pagina*/
     window.addEventListener('scroll', function () {
         const nav = document.querySelector('nav');

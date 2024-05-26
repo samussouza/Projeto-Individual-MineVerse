@@ -17,7 +17,8 @@ function ranking() {
 }
 function mediaAcertos() {
 
-    var instrucaoSql = `SELECT 
+    var instrucaoSql = `
+    SELECT 
     AVG(CAST(qtd_acertos AS DECIMAL(4,2))) AS media_acertos_total, 
     AVG(CAST( pontuacao_total AS DECIMAL(4,2))) AS media_pontuacao_total,
     TIME_FORMAT(SEC_TO_TIME(ROUND(AVG(TIME_TO_SEC(STR_TO_DATE(tempo_gasto, '%i:%s'))))), '%i:%s') AS media_tempo_gasto

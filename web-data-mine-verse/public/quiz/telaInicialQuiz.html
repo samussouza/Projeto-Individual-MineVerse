@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MineVerse</title>
     <script src="../js/sessao.js"></script>
+    <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
+</head>
 </head>
 <style>
     @import url('https://fonts.cdnfonts.com/css/minecraft-4');
@@ -132,7 +134,7 @@
             <span id="resultadosObtidos">
                 Quantidade de questões: <b>10</b>
                 <br>
-                Duração máxima permitida: <b>10 minutos</b>
+                Duração máxima permitida: <b>5 minutos</b>
                 <br>
                 Tentativas permitidas: <b>1</b>
                 <br>
@@ -144,7 +146,7 @@
     
 
     <div class="sair"><button onclick="window.open('../index.html', '_self')">Sair</button></div>
-    <div class="container">
+    <div id="container" class="container">
         <div class="title"><img style="width: 550px; margin-bottom: 50px;" src="../assets/imgs/title.png" alt=""></div>
 
         <button id="botao-jogar">Jogar</button>
@@ -163,9 +165,12 @@
     }
     const mensagemJogo = document.getElementById('mensagem-jogo');
     const botaoJogar = document.getElementById('botao-jogar');
+    const container = document.getElementById('container');
 
     function mostrarMensagem() {
         mensagemJogo.style.display = 'block';
+        container.style.display = "none"
+
     }
 
     function ocultarMensagem() {
@@ -178,7 +183,7 @@
         setTimeout(() => {
             ocultarMensagem();
             window.location.href = 'quiz.html';
-        }, 10000);
+        }, 5000);
     });
 
     function verificarSexo() {

@@ -231,24 +231,24 @@ input[type="radio"]:checked+label {
     padding: 10px; text-align: center;  background-color: #FFDEAD; border: 4px solid saddlebrown; font-size: 18px; font-weight: 500; display: none;
 }
 .acertou{
-    left: 620px;
-    top: 120px;
+    left: 734px;
+    top: 400px;
     position: absolute;
     z-index: 1000;
     display: none;
 }
 .acertou img{
-    width: 300px;
+    width: 65px;
  
 }
 .errou{
-    left: 620px;
-    top: 120px;
+    left: 734px;
+    top: 400px;
     position: absolute;
     z-index: 1000;
     display: none;
 }
 .errou img{
-    width: 300px;
+    width: 65px;
  
 }

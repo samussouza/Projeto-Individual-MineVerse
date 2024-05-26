@@ -127,13 +127,13 @@ function proximaPergunta(proxima) {
             setTimeout(() => {
                 ocultarAcertou();
 
-            }, 3000);
+            }, 2000);
         } else {
             mostrarErrou()
             setTimeout(() => {
                 ocultarErrou();
 
-            }, 3000);
+            }, 2000);
         }
     
     

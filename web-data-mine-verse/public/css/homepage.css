@@ -16,7 +16,25 @@
         margin: 0;
         padding: 0;
     }
-
+    audio {
+        display: none; 
+    }
+    #play-button {
+        position: absolute; 
+        left: -20px; 
+        top: -20px;
+        display: block;
+        margin: 20px;
+        padding: 10px 20px;
+     background: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    /* #play-button:active {
+        background-color: #45a049;
+    } */
     .divEntrdas {
         position: relative;
         padding: 10px;
