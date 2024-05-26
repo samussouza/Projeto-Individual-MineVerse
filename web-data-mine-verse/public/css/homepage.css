@@ -44,14 +44,14 @@
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 1000;
+        z-index: 2000;
         /*indice de empilhamento para elementos que nao sao padroes(static)*/
         backdrop-filter: blur(2px);
     }
 
     nav .title {
         margin: auto;
-        margin-left: 550px;
+        margin-left: 570px;
     }
 
     .nav-fixed {
@@ -92,20 +92,65 @@
         justify-content: space-between;
 
     }
-
+    .cardHome h1{
+        color: #1dff19;
+        font-size: 42px;
+        margin-bottom: 5px;
+    }
     .cardHome {
         margin-top: 120px;
-        width: 400px;
+        width: 430px;
         margin-left: 80px;
-        color: white;
-        font-size: 20px;
+        color: rgb(255, 255, 255);
+        font-size: 22px;
         font-family: Verdana, sans-serif;
         font-weight: 500;
+
+    }
+    .buttonQuiz {
+        margin-top: 20px;
+        background-color: #00aa00;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: 3px solid #000000;
+        border-radius: 4px;
+        cursor: pointer;
+        text-shadow: 1px 1px 0px #000000;
+        box-shadow: 3px 3px 0px #000000;
+        margin: 20px 0;
+        transition: all 0.1s ease-in-out;
+        font-family: 'Minecraftia', sans-serif;
+        width: 200px;
+    }
+    
+    .buttonQuiz:hover {
+        background-color: #008800;
+        box-shadow: 1px 1px 0px #000000;
+        transform: translate(2px, 2px);
+    }
+    
+    .buttonQuiz:active {
+        background-color: #006600;
+        box-shadow: 1px 1px 0px #000000;
+        transform: translate(2px, 2px);
+    }
+    /* .cardHome button {
+       
+        width: 250px;
+        height: 40px;
+        border-radius: 2px;
+        
+        font-family: 'Minecraft', sans-serif;
+        transition: 0.7s;
+        font-size: 18px;
     }
 
-    .cardHome {
-        background: transparent;
-    }
+    .cardHome button:hover {
+        background-color: #004d00;
+    } */
+
 
     /*AQUI COMEÇA SECTION MINE*/
     .sectionMine {
@@ -185,12 +230,166 @@
 
     }
 
+
+    /*AQUI COMEÇA DIV MUNDOS */
+    
+    .titleMundo{
+        position: absolute;
+        top: 1740px;
+        font-family: 'Minecraft', sans-serif;
+        padding-top: 40px;
+        font-size: 50px;
+        background-color: rgb(39, 37, 37);
+        color: #00FF08;
+        z-index: 1000;
+        left: 110px;
+    }
+
+    .sectionMundos {
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 650px;
+        margin: 0;
+        background-color: rgb(39, 37, 37);
+        position: relative;
+    }
+
+    #container-slider {
+        margin-top: 400px;
+        margin-left: 600px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 400px;
+    }
+
+    #sliderMundo {
+        margin-left: 65px;
+        position: relative;
+        top: -30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 900px;
+        height: 470px;
+        background-color: rgb(78, 78, 80);
+    }
+
+    .slideMundo {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s;
+
+    }
+
+    .slideMundo.ativo {
+        display: block;
+        opacity: 1;
+    }
+
+    .slideMundo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+    }
+
+    .sobreposicao-texto {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.625);
+        padding: 20px;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.5s;
+        text-align: justify;
+        font-weight: bold;
+    }
+    .sobreposicao-texto p{
+        font-family: "Poppins", sans-serif;
+        margin: 30px;
+        font-size: 20px;
+        line-height: 1.5em;
+    }
+    .sobreposicao-texto h1{
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 30px;
+    }
+
+    .slideMundo:hover .sobreposicao-texto {
+        opacity: 1;
+    }
+
+    .botao-anterior {
+        position: absolute;
+        top: 92%;
+        left: 524px;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: #08ff19;
+    }
+
+    .botao-proximo {
+        padding-top: 3px;
+        position: absolute;
+        top: 92%;
+        right: 94px;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: #08ff19;
+    }
+    .botao-proximo:hover,
+    .botao-anterior:hover{
+        background-color: #004d00;
+        transition: 0.6s;
+    }
+    .fundo {
+        margin-left: 700px;
+        top: 40px;
+        right: 45px;
+        margin-top: 20px;
+        position: absolute;
+        width: 990px;
+        height: 580px;
+        background-color: rgb(54, 52, 52);
+        border: 5px solid rgb(80, 80, 80);
+    }
+
+    .fundoText {
+        margin-top: 20px;
+        position: absolute;
+        width: 424px;
+        height: 260px;
+        background-color: rgb(54, 52, 52);
+        top: 40px;
+        left: 65px;
+        z-index: 1;
+        border: 5px solid rgb(80, 80, 80);
+        border-right: none;
+       
+    }
+    
+    
     /*div personagens*/
 
     .sectionPerson {
         background-color: #424242;
     }
-
+ 
+  
     .title-personagem {
         text-align: center;
         font-family: 'Minecraft', sans-serif;
@@ -216,13 +415,15 @@
     }
 
     .txt-person {
+        margin-top: 20px;
         font-weight: 500;
         font-family: "Poppins", monospace;
-        width: 450px;
-        margin-right: 150px;
+        width: 420px;
+        margin-right: 130px;
         font-size: 20px;
         text-align: justify;
         line-height: 1.6em;
+   
     }
 
     .card {
@@ -374,44 +575,7 @@
     }
 
 
-    /*AQUI COMEÇA SECTION ODS*/
-
-    .sectionODS {
-        height: 500px;
-    }
-
-    .container {
-        display: flex;
-        width: 100%;
-        font-family: Arial, sans-serif;
-        background-color: #a13939;
-        height: 100%;
-    }
-
-    .div-1 {
-        width: 50%;
-        margin-top: 20px;
-        padding: 20px;
-        box-sizing: border-box;
-        color: white;
-        font-size: 18px;
-        line-height: 1.3em;
-    }
-
-    .div-1 h2 {
-        margin-bottom: 30px;
-        font-size: 25px;
-
-    }
-
-    .div-2 {
-        width: 50%;
-        padding: 20px;
-        box-sizing: border-box;
-        color: white;
-        font-size: 12px;
-    }
-
+ 
     /*AQUI COMEÇA SECTION APRESENTAÇÃO*/
     .apresentacaoSlides {
         /* padding-top: 30px; */
@@ -569,127 +733,42 @@
     /*AQUI COMEÇA SECTION VIDEO*/
 
     .sectionVideo {
-        height: 500px;
+        height: 400px;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(270deg, #004d00, #003300, #002200, #001100);
+        /* background: linear-gradient(270deg, #004d00, #003300, #002200, #001100);
         background-size: 400% 400%;
-        animation: gradientBackground 15s ease infinite;
+        animation: gradientBackground 15s ease infinite; */
     }
 
-    @keyframes gradientBackground {
-        0% {
-            background-position: 0% 50%;
-        }
+   
 
-        50% {
-            background-position: 100% 50%;
-        }
 
-        100% {
-            background-position: 0% 50%;
-        }
-    }
 
     .video-frame {
         display: inline-block;
         padding: 10px;
         border: 5px solid #000;
-        border-radius: 5px;
+
         background-color: rgba(255, 255, 255, 0.8);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
     }
+    .video-frame2 {
+        display: inline-block;
+        padding: 10px;
+        border: 5px solid #000;
 
-    .video-frame video {
-        display: block;
-        max-width: 100%;
+        background-color: rgba(77, 196, 31, 0.8);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
     }
 
-    /*AQUI COMEÇA SECTION QUIZ */
-    .sectionQuiz {
-        height: 700px;
-        font-family: "Poppins", sans-serif;
-        background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ec1b8560-a6d6-40e4-8ddf-df5962d6c8a3/d4sbkeo-86d047c5-8a92-4ca0-ad4a-8ff790c90786.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2VjMWI4NTYwLWE2ZDYtNDBlNC04ZGRmLWRmNTk2MmQ2YzhhM1wvZDRzYmtlby04NmQwNDdjNS04YTkyLTRjYTAtYWQ0YS04ZmY3OTBjOTA3ODYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.phootKQM7riVs9QHhLqhj003GQykeU2FtSUc6vSIXwo);
-        background-size: cover;
-        background-position: 0px 0px;
-        animation-name: slide;
-        animation-duration: 150s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        place-items: center;
-    }
-
-
-
-    @keyframes bob {
-        0% {
-            transform: scale(1, 1) rotate(-25deg);
-        }
-
-        40% {
-            transform: scale(1, 1) rotate(-25deg);
-        }
-
-        50% {
-            transform: scale(1.1, 1.1) rotate(-25deg);
-        }
-
-        60% {
-            transform: scale(1, 1) rotate(-25deg);
-        }
-
-        100% {
-            transform: scale(1, 1) rotate(-25deg);
-        }
-    }
-
-    @keyframes slide {
-        0% {
-            background-position: 0px 0px;
-        }
-
-        50% {
-            background-position: 100% 100%;
-        }
-
-        100% {
-            background-position: 0px 0px;
-        }
-    }
-
-    .containerQuiz {
-        padding-top: 70px;
-        /* backdrop-filter: blur(7px); */
-        width: 60%;
-        height: 70%;
-        background-color: #2e292992;
-        border-radius: 30px;
-        color: #fffefe;
-        padding: 40px;
-        font-family: 'Popis';
-    }
-
-    .containerQuiz p {
-        width: 300px;
-        line-height: 1.5em;
-        font-size: 24px;
-        font-weight: 600;
-    }
-
-    .containerQuiz h1 {
-        text-align: center;
-        font-size: 35px;
-
-    }
-
-    .containerQuiz button {
-        width: 200px;
-        height: 45px;
+    .video-frame iframe {
+        display: block;
+        max-width: 100%;
+        border-radius: 10px;
     }
 
 
@@ -792,3 +871,8 @@
         margin-left: 65px;
         color: white;
     }
+
+
+
+
+

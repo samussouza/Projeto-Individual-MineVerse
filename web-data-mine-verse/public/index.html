@@ -14,11 +14,13 @@
         rel="stylesheet">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="shortcut icon" href="./assets/icon/favicon3.ico" type="image/x-icon">
 </head>
 
 <body>
 
     <div class="divEntrdas">
+     
         <span style="margin-right: 40px;">
             <a href="sobre.html">Sobre Mim</a>
         </span>
@@ -28,6 +30,7 @@
         <span style="margin-right: 30px;">
             <a href="cadastro.html">Cadastro</a>
         </span>
+
 
     </div>
     <nav>
@@ -39,13 +42,26 @@
 
             <div class="containerHome">
                 <div class="cardHome">
-                    <h1>Bem vindo ao </h1>
+                    <h1>Bem vindo ao MineVerse</h1>
+
+                    <span>
+                        Explore diferentes ambientes, mundos e personagens tornam o jogo de Minecraft único.
+                        <br>
+                        Teste seus conhecimentos e divirta-se com o nosso quiz exclusivo sobre jogo.
+                        Clique no botão abaixo e aproveite sua
+                        jornada!
+                    </span>
+                    <p>
+                        <button class="buttonQuiz" id="buttonQuiz">Play</button>
+                    </p>
+
+                    <!-- <h1>Bem vindo ao </h1>
                     Explore, crie e descubra neste universo digital incrível.Prepare-se para desvendar os segredos deste
                     mundo pixelado e criar suas próprias histórias inesquecíveis em
                     Minecraft!
                     FALAR SOBRE OS MULTIPLOS AMBIENTES QUE O SITE RETRATA
-                    <br>
-                    <a href="./dashboard/dashboard.html">Dashboard</a>
+                    <br> -->
+
                 </div>
                 <!-- <div class="card">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo architecto veritatis maiores molestiae quod cumque accusantium, at autem provident! Illo culpa autem consectetur excepturi quod, perspiciatis tenetur ipsum sequi quisquam.</div>
             </div> -->
@@ -74,10 +90,97 @@
             </div>
 
         </section>
+
+
+        <h1 class="titleMundo">PRINCIPAIS
+            <br>
+            <span style="text-align: center; padding-left: 35px;">
+                MUNDOS
+            </span>
+        </h1>
+        <p
+            style="width: 400px; height: 400px; position: absolute; top: 1900px; z-index: 1000; color: white; font-size: 24px; text-align: center; left:30px; font-family: 'Poppins' monospace; line-height: 1.4em;">
+
+            Explore três mundos únicos cheios de aventuras e desafios em Minecraft. Descubra paisagens variadas,
+            enfrente criaturas perigosas e encontre recursos valiosos enquanto mergulha em uma jornada épica.</p>
+
+
+        <section class="sectionMundos" style="position: relative;">
+
+            <div class="fundo"></div>
+
+
+            <div id="container-slider">
+                <div id="sliderMundo">
+                    <div class="slideMundo ativo">
+                        <img src="./assets/imgs/wallpaper_dungeons_2058x1440.png" alt="">
+                        <div class="sobreposicao-texto">
+                            <h1>The Nether</h1>
+                            <p>
+                                Você já explorou todas as terras do Overworld e quer uma aventura mais emocionante?
+                                Então o
+                                Nether é o lugar perfeito para você! É como se fosse o lado sombrio do Minecraft, cheio
+                                de
+                                lava borbulhante, fogo ardente e paisagens de arrepiar os cabelos.
+                                <br>
+                                Lá, você vai encontrar recursos únicos que não existem em nenhum outro lugar, como o
+                                brilhante quartzo do Nether e uma pedra super resistente que parece ter saído direto do
+                                inferno. Mas cuidado, porque os inimigos são bem mais assustadores por lá! Zumbis Pigmen
+                                furiosos e criaturas que lançam bolas de fogo vão fazer de tudo para atrapalhar sua
+                                aventura.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="slideMundo">
+                        <img src="./assets/imgs/minecraft-grass-tree-desktop-wallpaper-preview.jpg" alt="">
+                        <div class="sobreposicao-texto">
+                            <h1>Overworld</h1>
+                            <p> Sabe aquele lugar onde você começa sua aventura no Minecraft? É o Overworld! É onde você
+                                encontra uma mistura maluca de terras, desde florestas cheias de árvores até desertos
+                                com areia quente. Tem até montanhas altíssimas e oceanos imensos!
+                                <br>
+                                Mas cuidado com os monstros! Quando o sol se põe, criaturas assustadoras como zumbis,
+                                esqueletos e até aranhas gigantes aparecem para te dar um susto. Então, é bom estar
+                                preparado para enfrentar esses desafios!
+                            </p>
+
+
+                        </div>
+                    </div>
+                    <div class="slideMundo">
+                        <img src="./assets/imgs/wp10808662.jpg" alt="">
+                        <div class="sobreposicao-texto">
+                            <h1>The End</h1>
+                            <p>
+                                Você achou que já tinha visto de tudo no Minecraft? Então prepare-se para uma surpresa,
+                                porque o End vai te deixar de queixo caído! É um lugar super misterioso, onde o céu é
+                                escuro e a paisagem é dominada por uma ilha flutuante no meio do nada.
+                                <br>
+                                Mas o mais impressionante de tudo é o dragão Ender, um monstro gigantesco que protege o
+                                End com unhas e dentes. Ele não vai facilitar sua vida, então vai ser uma verdadeira
+                                batalha épica para derrotá-lo!
+                                <br>
+                                É como se fosse o final de uma grande aventura, mas também o começo de uma nova jornada
+                                cheia de emoção e perigo!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slideMundo">
+                        <img src="imagem3.jpg" alt="">
+                        <div class="sobreposicao-texto">Texto da Imagem 4</div>
+                    </div>
+                </div>
+            </div>
+            <button id="botao-anterior" class="botao-anterior"><img width="30px" height="30px"
+                    src="./assets/imgs/seta-esquerda.png" alt=""></button>
+            <button id="botao-proximo" class="botao-proximo"><img width="30px" height="30px"
+                    src="./assets/imgs/seta-direita.png" alt=""></button>
+        </section>
+
         <div style="height: 80px; background-color: rgb(39, 37, 37);">
 
         </div>
-
         <section class="sectionPerson">
             <span class="title-personagem">
                 <h1>PERSONAGENS PRINCIPAIS</h1>
@@ -85,11 +188,12 @@
 
             <div class="containerPerson">
                 <p class="txt-person">
-                    Conheça Steve e Alex, os heróis de Minecraft! Steve é o aventureiro corajoso e Alex é sua parceira
-                    destemida. Juntos, eles exploram um mundo cheio de blocos, construindo, lutando contra monstros e
-                    descobrindo segredos emocionantes. Com sua criatividade e habilidade, eles inspiram jogadores de
-                    todas as idades a se aventurarem neste universo infinito. Pronto para se juntar a eles? A diversão
-                    em Minecraft nunca acaba!
+
+                    Steve e Alex são personagens centrais em Minecraft, desempenhando papéis importantes na representatividade, personalização e comunidade do jogo.
+                    <br>
+                    Steve, presente desde 2009, e Alex, introduzida em 2014, garantem que jogadores de diferentes gêneros se sintam representados e incluídos no jogo, promovendo a diversidade.
+                    <br>
+                   Com sua criatividade e habilidade, eles inspiram jogadores de todas as idades a se aventurarem neste universo infinito.
                 </p>
 
                 <div class="card">
@@ -203,7 +307,7 @@
             <div class="containerEducation">
 
                 <div class="divEducation">
-                    <h1>Titulo</h1>
+                    <h1>Minecraft Education</h1>
                     <p> O Minecraft Education é uma ferramenta incrível que torna a aprendizagem uma aventura
                         emocionante. Sua importância está em como ele torna a educação mais acessível e interessante
                         para todos. Isso se alinha perfeitamente com a ambição global da ODS de garantir que todos
@@ -221,7 +325,7 @@
 
         <section class="sectionVideo">
 
-            <div class="video-frame">
+            <div class="video-frame2">
                 <iframe width="600px" height="350px"
                     src="https://www.youtube-nocookie.com/embed/o5dk49EfV7Y?si=isNKgoLDNtgVpjce"
                     title="YouTube video player" frameborder="0"
@@ -232,65 +336,52 @@
 
         </section>
         <div style="height: 80px;  background-color: #424242;">
-        </div>
 
-        <section class="sectionQuiz">
 
-            <div class="containerQuiz">
-                <h1>CRAFTQUIZ</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem asperiores quia illo atque officia
-                    placeat cupiditate ullam quod eos blanditiis unde, minus sequi numquam repellat nesciunt quidem
-                    magni tempore cum?
-                </p>
-                <button>Encarar</button>
+            <div style="height: 80px;    background-color: #424242;">
             </div>
-        </section>
-        <div style="height: 80px;    background-color: #424242;">
-        </div>
 
-        <footer class="footer">
-            <div class="containerFooter">
-                <div class="divFooter">
-                    <div class="footer-card">
-                        <h4>Menu</h4>
-                        <ul>
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#">Cadastro</a></li>
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Sobre Mim</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-card">
-                        <h4>Contato</h4>
-                        <ul>
-                            <li><a href="#">Feedback</a></li>
-                            <li>+55 969871234</li>
-                            <li>mineverse@hotmail.com</li>
+            <footer class="footer">
+                <div class="containerFooter">
+                    <div class="divFooter">
+                        <div class="footer-card">
+                            <h4>Menu</h4>
+                            <ul>
+                                <li><a href="#">Inicio</a></li>
+                                <li><a href="#">Cadastro</a></li>
+                                <li><a href="#">Login</a></li>
+                                <li><a href="#">Sobre Mim</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-card">
+                            <h4>Contato</h4>
+                            <ul>
+                                <li><a href="#">Feedback</a></li>
+                                <li>+55 969871234</li>
+                                <li>mineverse@hotmail.com</li>
 
-                        </ul>
-                    </div>
-                    <div class="footer-card">
-                        <h4>Rede Sociais</h4>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </ul>
+                        </div>
+                        <div class="footer-card">
+                            <h4>Rede Sociais</h4>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="footer-card">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2881607958625!2d-46.66425002467007!3d-23.55809197880215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2a5270055%3A0x3c7ea4f4c7d51fb6!2sRua%20Haddock%20Lobo%2C%20595%20-%20Cerqueira%20C%C3%A9sar%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001414-001!5e0!3m2!1spt-BR!2sbr!4v1714872768626!5m2!1spt-BR!2sbr"
+                                width="260" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-                    <div class="footer-card">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2881607958625!2d-46.66425002467007!3d-23.55809197880215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2a5270055%3A0x3c7ea4f4c7d51fb6!2sRua%20Haddock%20Lobo%2C%20595%20-%20Cerqueira%20C%C3%A9sar%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001414-001!5e0!3m2!1spt-BR!2sbr!4v1714872768626!5m2!1spt-BR!2sbr"
-                            width="260" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
                 </div>
-            </div>
-            <br><br>
-            <hr>
-            <span class="reserva">Todos os direitos reservados a Samuel Sales de Souza &copy;2024</span>
-        </footer>
+                <br><br>
+
+            </footer>
 
 </html>
 <script>
@@ -312,6 +403,14 @@
         }
     });
 
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var button = document.getElementById('buttonQuiz');
+
+        button.addEventListener('click', function () {
+            window.location.href = 'login.html   ';
+        });
+    });
 
     let contador = 1;
     document.getElementById('radio1').checked = true;
@@ -328,4 +427,29 @@
         document.getElementById("radio" + contador).checked = true;
     }
 
+    let indiceSlide = 0;
+    mostrarSlides(indiceSlide);
+
+    function mostrarSlides(slideMostrar) {
+        const slides = document.getElementsByClassName("slideMundo");
+
+        if (slideMostrar >= slides.length) {
+            indiceSlide = 0;
+        }
+        if (slideMostrar < 0) {
+            indiceSlide = slides.length - 1;
+        }
+        for (let contador = 0; contador < slides.length; contador++) {
+            slides[contador].classList.remove('ativo');
+        }
+        slides[indiceSlide].classList.add('ativo');
+    }
+
+    document.getElementById("botao-anterior").onclick = function () {
+        mostrarSlides(indiceSlide -= 1);
+    };
+
+    document.getElementById("botao-proximo").onclick = function () {
+        mostrarSlides(indiceSlide += 1);
+    };
 </script>

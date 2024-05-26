@@ -4,7 +4,7 @@ window.onload = function () {
     startTempo()
 }
 
-let totalTempo = 10 * 60; // 10 minutos em segundos
+let totalTempo = 5 * 60; // 10 minutos em segundos
 let tempoInterval;
 
 function startTempo() {
@@ -100,12 +100,12 @@ function ocultarErrou() {
 }
 
 let mensagemExibida = false;
+
 /*utilizei o metodo de argumento na funcao vinda do onclick*/
 function proximaPergunta(proxima) {
     const perguntas = document.querySelectorAll('.div-quiz');
-    const perguntaAtual = perguntas[proxima - 1];
+  
     let todasRespondidas = true; // Variável para verificar se todas as perguntas anteriores foram respondidas
-
 
     for (var contador = 0; contador < proxima - 1; contador += 1) {
         let resposta = document.querySelector('input[name="resposta' + (contador + 1) + '"]:checked');
@@ -113,28 +113,16 @@ function proximaPergunta(proxima) {
             mostrarMensagem()
             setTimeout(() => {
                 ocultarMensagem();
-
             }, 3000);
-            todasRespondidas = false;
             return false;
         }
     }
-
-
-    if (!todasRespondidas) {
-        mostrarMensagem()
-        setTimeout(() => {
-            ocultarMensagem();
-        }, 3000);
-        return false; // Interrompe a execução da função
-    }
-
 
         // Obtém o valor da resposta selecionada
         const respostaSelecionada = document.querySelector(`input[name="resposta${proxima -1}"]:checked`).value;
 
         // Verifica se a resposta selecionada é 1 ou 0
-        if (respostaSelecionada === "1") {
+        if (respostaSelecionada == "1") {
             mostrarAcertou()
             setTimeout(() => {
                 ocultarAcertou();
@@ -149,7 +137,7 @@ function proximaPergunta(proxima) {
         }
     
     
-    // Se todas as respostas estiverem checadas, mostrar a pergunta correta
+    // Se todas as respostas estiverem checadas, mostrar a proxima pergunta
     for (var contador = 0; contador < perguntas.length; contador += 1) {
 
         if (contador + 1 == proxima) {
@@ -180,8 +168,7 @@ function enviarRespostas() {
     const resposta9 = document.querySelector('input[name="resposta9"]:checked').value;
     const resposta10 = document.querySelector('input[name="resposta10"]:checked').value;
     // armazenando para exibir as respostas 
-    let respostasRespondidas = [resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10];
-    sessionStorage.QUESTOES_RESPONDIDAS = respostasRespondidas
+   
 
     console.log(resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta7, resposta8, resposta9, resposta10)
     calcularKPIs()
@@ -219,7 +206,7 @@ function enviarRespostas() {
             console.log("Resposta do servidor: ", resposta);
 
             if (resposta.ok) {
-                // alert("Respostas enviadas com sucesso!");
+          
                 calcularKPIs()
                 // let redirecionarDash = "../dashboard/dashboard.html";
                 // window.location.href = redirecionarDash;
@@ -267,10 +254,7 @@ function calcularKPIs() {
             }
         }
     }
-    let desacertos = 10 - respostasCorretasPlayer;
-    let aproveitamento = (pontuacaoTotal / 100) * 100
-    sessionStorage.DESACERTOS = desacertos;
-    sessionStorage.APROVEITAMENTO = aproveitamento;
+    
     sessionStorage.RESPOSTA_CORRETA = respostasCorretasPlayer;
     sessionStorage.PONTUACAO_TOTAL = pontuacaoTotal;
 

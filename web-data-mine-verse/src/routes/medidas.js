@@ -16,7 +16,9 @@ router.get("/mediaAcertos", function (req, res) {
 router.get("/graficoPizza", function (req, res) {
     medidaController.graficoPizza(req, res);
 });
-
+router.get("/tempo-real", function (req, res) {
+    medidaController.buscarMedidasEmTempoReal(req, res);
+})
 
 
 

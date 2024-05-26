@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
@@ -31,9 +32,9 @@
                 </li>
                 <br>
                 <li class="list">
-                    <a href="./perfil/perfil.html">
-                        <span class="icon"><ion-icon name="chatboxes"></ion-icon></span>
-                        <span class="title">Histórico</span>
+                    <a href="../quiz/telaInicialQuiz.html">
+                        <span class="icon"><ion-icon name="play-outline"></ion-icon></span>
+                        <span class="title">Jogar</span>
                     </a>
                 </li>
                 <br>
@@ -106,16 +107,16 @@
 
 </html>
 <script>
-
-    window.addEventListener('load', function () {
+ let proximaAtualizacao;
+    window.onload = function () {
         obterDadosGrafico()
         listar();
         mediaAcertos();
-    });
+    };
     // Atualiza os valores a cada 1 minutos
-    setInterval(listar, 60000)
-    setInterval(mediaAcertos, 60000);
-
+    setInterval(listar, 5000)
+    setInterval(mediaAcertos, 5000);
+ 
     const ranking = [];
     function listar() {
         fetch("/medidas/ranking", {
@@ -183,18 +184,19 @@
                 if (mediaAcertos.length > 0) {
                     const media = parseFloat(mediaAcertos[0].media_acertos_total);
                     const media2 = parseFloat(mediaAcertos[0].media_pontuacao_total);
-                    const media3 = parseFloat(mediaAcertos[0].media_tempo_gasto);
+                    const media3 = mediaAcertos[0].media_tempo_gasto;
 
                     if (!isNaN(media)) {
                         mediaAcertosTotal = Math.ceil(media);
                         mediaPontuacaoTotal = Math.ceil(media2);
-                        mediaTempoTotal = Math.ceil(media3);
+                        mediaTempoTotal = media3;
                     }
+                    console.log("MEdia 3", media3)
                 }
 
                 document.getElementById('divMediaAcertos').innerHTML = `${mediaAcertosTotal}<strong><span style="font-size: 20px;"> questões</span></strong>`;
                 document.getElementById('divPontuacao').innerHTML = `${mediaPontuacaoTotal}<strong><span style="font-size: 20px;"> pontos</span></strong>`;
-                document.getElementById('divTempo').innerHTML = `${mediaTempoTotal}<strong><span style="font-size: 20px;"> minuto</span></strong>`;
+                document.getElementById('divTempo').innerHTML = `${mediaTempoTotal}<strong><span style="font-size: 20px;"> </span></strong>`;
             })
             .catch(function (erro) {
                 console.error(`#ERRO: ${erro.message}`);
@@ -222,7 +224,9 @@
     }
 
     function obterDadosGrafico() {
-
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
         fetch(`/medidas/graficoPizza`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
@@ -313,4 +317,55 @@
 
         setTimeout(() => atualizarGrafico(dados, myChart), 2000);
     }
+    function atualizarGrafico(dados, myChart) {
+
+fetch(`/medidas/tempo-real`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (novoRegistro) {
+
+            
+            // alertar(novoRegistro, idAquario);
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(dados);
+
+            
+
+
+            if (novoRegistro[0].faixa == dados.labels[dados.labels.length - 1]) {
+                console.log("---------------------------------------------------------------")
+                console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                
+                console.log("Horário do novo dado capturado:")
+                console.log(novoRegistro[0].faixa)
+                console.log("Horário do último dado capturado:")
+                console.log(dados.labels[dados.labels.length - 1])
+                console.log("---------------------------------------------------------------")
+            } else {
+                // tirando e colocando valores no gráfico
+                dados.labels.shift(); // apagar o primeiro
+                dados.labels.push(novoRegistro[0].faixa); // incluir um novo momento
+
+                dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                dados.datasets[0].data.push(novoRegistro[0].total_usuarios); // incluir uma nova medida de umidade
+
+             
+
+                myChart.update();
+            }
+
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            proximaAtualizacao = setTimeout(() => atualizarGrafico( dados, myChart), 2000);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
 </script>
