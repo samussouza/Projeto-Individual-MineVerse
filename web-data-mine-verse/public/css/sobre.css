@@ -104,6 +104,7 @@ section.sobre .flex {
     display: flex;
     justify-content: space-between;
     height: 500px;
+   
 }
 .sobre-pt2 p{
     margin-right: 135px;
@@ -127,108 +128,3 @@ section.sobre .flex {
     height: 100%;
     display: block;
 }
-
- /*AQUI COMEÇA FOOTER*/
- .containerFooter {
-   
-    max-width: 1170px;
-    margin: auto;
-    font-family: 'Poppins', sans-serif;
-    color: #bbbbbb;
-}
-
-.divFooter {
-    display: flex;
-    flex-wrap: wrap;
-    /*elementos flexiveis, realiza a quebra de linha */
-}
-
-ul {
-    list-style: none;
-
-}
-
-.footer {
-    background-color: #24262b;
-    padding: 70px 0;
-}
-
-.footer-card {
-    width: 25%;
-    padding: 0 15px;
-}
-
-.footer-card h4 {
-    font-size: 18px;
-    color: #ffffff;
-    text-transform: capitalize;
-    margin-bottom: 35px;
-    font-weight: 500;
-    position: relative;
-}
-
-.footer-card h4::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    background-color: #1dff19;
-    height: 2px;
-    box-sizing: border-box;
-    width: 50px;
-}
-
-.footer-card ul li:not(:last-child) {
-    margin-bottom: 10px;
-}
-
-.footer-card ul li a {
-    font-size: 16px;
-    text-transform: capitalize;
-
-    text-decoration: none;
-    font-weight: 300;
-    color: #bbbbbb;
-    display: block;
-    transition: all 0.3s ease;
-}
-
-.footer-card ul li a:hover {
-    color: #08ff19;
-    padding-left: 8px;
-}
-
-.footer-card .social-links a {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin: 0 10px 10px 0;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    color: #ffffff;
-    transition: 0.5s ease;
-}
-
-.footer-card .social-links a:hover {
-    color: #24262b;
-    background-color: #ffffff;
-}
-
-.footer hr {
-    margin: auto;
-    width: 1400px;
-    margin-bottom: 10px;
-}
-
-.reserva {
-    margin-top: 10px;
-    margin-left: 65px;
-    color: white;
-}
-
-
-
-
-

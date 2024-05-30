@@ -57,7 +57,7 @@ body {
   justify-content: space-evenly;
   color: rgb(49, 173, 74);
   flex-direction: column;
-  height: 320px;
+  height: 340px;
   padding: 20px 0;
 }
 
@@ -201,3 +201,27 @@ input {
   width: 50px;
 }
 
+.redirecionarCadastro{
+  margin-top: 270px;
+  position: absolute;
+  width: auto;
+  height: auto;
+  font-size: 12px;
+  z-index: 1000;
+}
+.redirecionarCadastro a{
+  color: rgb(64, 137, 201);
+  text-decoration: none;
+}
+.redirecionarLogin{
+  margin-top: 432px;
+  position: absolute;
+  width: auto;
+  height: auto;
+  font-size: 13px;
+  z-index: 1000;
+}
+.redirecionarLogin a{
+  color: rgb(64, 137, 201);
+  text-decoration: none;
+}

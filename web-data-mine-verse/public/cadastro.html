@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
-  <title>Cadastro</title>
+  <title>Cadastro | MineVerse</title>
 
   <script src="./js/sessao.js"></script>
 
@@ -18,7 +18,7 @@
 
 <body style="background-image: url(./assets/imgs/fundoCad.png); background-size: cover; background-position: center;">
   <a style="position: absolute;" href="index.html"><img width="70px" height="70px" src="./assets/imgs/botao-voltar (1).png" alt=""></a>
-
+  
   <div class="login">
     <div class="alerta_erro">
       <div class="card_erro" id="cardErro">
@@ -49,6 +49,7 @@
           </div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
+        <div class="redirecionarLogin">Já possui cadastro? <a href="login.html">Clique aqui</a></div>
         <div id="div_aguardar" class="loading-div">
           <img src="./assets/circle-loading.gif" id="loading-gif" />
         </div>
@@ -65,7 +66,7 @@
 
 <script>
   function cadastrar() {
-    aguardar();
+    // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo

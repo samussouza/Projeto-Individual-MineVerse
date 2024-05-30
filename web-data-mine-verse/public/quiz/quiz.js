@@ -67,17 +67,7 @@ function validarRespostas() {
     return true;
 }
 
-// function perguntaAnterior(atual) {
-//     var perguntas = document.querySelectorAll('.div-quiz');
 
-//     for (var contador = 0; contador < perguntas.length; contador++) {
-//         if (contador == atual - 2) {
-//             perguntas[contador].style.display = 'block';
-//         } else {
-//             perguntas[contador].style.display = 'none';
-//         }
-//     }
-// }
 function mostrarMensagem() {
     exibir.style.display = 'block';
 }
@@ -148,10 +138,25 @@ function proximaPergunta(proxima) {
     }
 }
 
-
-function enviarRespostas() {
+function validarQuestao10(){
+    const validar10 = document.querySelector('input[name="resposta10"]:checked').value;
     clearInterval(tempoInterval); // Para o cronômetro
+    if (validar10 == "1") {
+        mostrarAcertou()
+        setTimeout(() => {
+            ocultarAcertou();
 
+        }, 2000);
+    } else {
+        mostrarErrou()
+        setTimeout(() => {
+            ocultarErrou();
+
+        }, 2000);
+    }
+}
+function enviarRespostas() {
+    validarQuestao10()
     if (!validarRespostas()) {
         return;
     }

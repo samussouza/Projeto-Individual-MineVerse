@@ -14,7 +14,9 @@
 </head>
 
 <body>
-    <a style="position: absolute;" href="index.html"><img width="70px" height="70px" src="./assets/imgs/botao-voltar (2).png" alt=""></a>
+
+    <a style="position: absolute;" href="index.html"><img width="70px" height="70px"
+            src="./assets/imgs/botao-voltar (2).png" alt=""></a>
     <div class="login">
         <div class="alerta_erro">
             <div class="card_erro" id="cardErro">
@@ -22,7 +24,9 @@
             </div>
         </div>
         <div class="container">
+
             <div class="card2 card-login">
+
                 <h2>Login</h2>
                 <div class="formulario">
                     <div class="campo">
@@ -40,7 +44,13 @@
                     <img src="./assets/circle-loading.gif" id="loading-gif">
                 </div>
                 <div id="div_erros_login"></div>
+                <div class="redirecionarCadastro">
+                    <span>
+                        Não tem uma conta? <a href="cadastro.html">Clique aqui</a>
+                    </span>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -51,13 +61,10 @@
 
 <script>
     /*colocarVetor*/
-    const caracterEspecial = [`!`, `@`, "#", "$", "%", "&", "*"];
-    if (caracterEspecial.includes(senhaVar)) {
 
-    }
-        
+
     function entrar() {
-        aguardar();
+        // aguardar();
 
         let emailVar = email_input.value;
         let senhaVar = senha_input.value;
@@ -66,11 +73,12 @@
         let senhaMaiusculo = /[A-Z]/.test(senhaVar);
         let senhaNum = /[0-9]/.test(senhaVar);
         let senhaEspecial = /[!@#.#]/.test(senhaVar)
-
+        let caracterEspecial = [`!`, `@`, "#", "$", "%", "&", "*"];
+        let temCaractere = false
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Preencha e selecione todos os campos!";
+            mensagem_erro.innerHTML = "Preencha todos os campos!";
             finalizarAguardar();
             return false;
         } else if (!validacaoEmail) {
@@ -80,14 +88,25 @@
 
             finalizarAguardar();
             return false;
-        } else if (!senhalength || !senhaMaiusculo || !senhaNum || !senhaEspecial) {
+        } else if (!senhalength || !senhaMaiusculo || !senhaNum) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
                 "Senha Inválida !";
 
             finalizarAguardar();
             return false;
-        } else {
+        } else if (caracterEspecial.includes(senhaVar)) {
+            temCaractere = true
+        }
+        if (temCaractere) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Senha Inválida !";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
             setInterval(sumirMensagem, 5000)
         }
         sessionStorage.EMAIL_USUARIO2 = emailVar;
@@ -117,10 +136,11 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.NOME_USUARIO2 = resposta.nome;
-
+                    cardErro.style.display = "block";
+                    mensagem_erro.innerHTML = "Login realizado com sucesso...";
                     setTimeout(function () {
                         window.location = "./quiz/telaInicialQuiz.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 2000); // apenas para exibir o loading
 
                 });
 
@@ -132,7 +152,7 @@
                     console.error(texto);
                     finalizarAguardar(texto);
 
-                  
+
                 });
             }
 
