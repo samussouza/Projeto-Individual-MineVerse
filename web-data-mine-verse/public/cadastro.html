@@ -76,7 +76,7 @@
     const confirmacaoSenhaVar = confirmacao_senha_input.value;
     
    
-    let validacaoEmail = emailVar.indexOf('@') !== -1 && emailVar.indexOf('.com') 
+    let validacaoEmail = emailVar.indexOf('@') !== -1 && emailVar.indexOf('.com') !== -1
     let senhalength = senhaVar.length >= 8;
     let senhaMaiusculo = /[A-Z]/.test(senhaVar); 
     let senhaNum = /[0-9]/.test(senhaVar);

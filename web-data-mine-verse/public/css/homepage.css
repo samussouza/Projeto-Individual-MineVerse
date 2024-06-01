@@ -615,10 +615,17 @@
     }
 
     .divTextoProjetos h1 {
-        font-size: 30px;
+        font-size: 35px;
         font-family: "Minecraft", sans-serif;
         color: #00FF08;
 
+    }
+    
+    .divTextoProjetos p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        margin-top: 35px;
+        text-align: justify ;
     }
 
     .divApresentacao {
@@ -629,13 +636,14 @@
     .slider {
         margin: 0 auto;
         width: 800px;
-        height: 400px;
+        height: 385px;
         overflow: hidden;
     }
 
     .slides {
+        margin-top: 5px;
         width: 400%;
-        height: 400px;
+        height: 385px;
         display: flex;
     }
 
@@ -657,13 +665,15 @@
     .manual-navegaiton {
         position: absolute;
         width: 800px;
-        margin-top: -40px;
+        margin-top: -18px;
         display: flex;
         justify-content: center;
+        
     }
 
     .manual-btn {
-        border: 2px solid white;
+      
+        border: 2px solid rgb(34, 157, 214);
         padding: 5px;
         border-radius: 5px;
         cursor: pointer;
@@ -676,7 +686,7 @@
     }
 
     .manual-btn:hover {
-        background-color: aliceblue;
+        background-color: rgb(4, 255, 46);
     }
 
     /*se tiver ativo e for o primeiro slide*/
@@ -705,11 +715,12 @@
     }
 
     .navegation-auto div {
-        border: 2px solid #20a6ff;
+        border: 2px solid #3b7249;
         padding: 5px;
         cursor: pointer;
         border-radius: 10px;
         transition: 1s;
+        margin-top: 7px;
     }
 
     .navegation-auto {
