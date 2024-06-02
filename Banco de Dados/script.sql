@@ -3,27 +3,27 @@ USE mineverse;
 
 CREATE TABLE usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(50),
-    email VARCHAR(100),
-    senha VARCHAR(50)
+    nome VARCHAR(50) unique,
+    email VARCHAR(100) unique,
+    senha VARCHAR(20)
 ); 
 
 CREATE TABLE quiz_resultado (
     idTentativa INT PRIMARY KEY AUTO_INCREMENT,
     fk_user int,
-    quest1 VARCHAR(50),
-    quest2 VARCHAR(50),
-    quest3 VARCHAR(50),
-    quest4 VARCHAR(50),
-    quest5 VARCHAR(50),
-    quest6 VARCHAR(50),
-    quest7 VARCHAR(50),
-    quest8 VARCHAR(50),
-    quest9 VARCHAR(50),
-    quest10 VARCHAR(60),
+    quest1 VARCHAR(5),
+    quest2 VARCHAR(5),
+    quest3 VARCHAR(5),
+    quest4 VARCHAR(5),
+    quest5 VARCHAR(5),
+    quest6 VARCHAR(5),
+    quest7 VARCHAR(5),
+    quest8 VARCHAR(5),
+    quest9 VARCHAR(5),
+    quest10 varchar(5),
     qtd_acertos varchar(20),
     data_hora DATETIME,
-    tempo_gasto varchar(40),
+    tempo_gasto time,
     pontuacao_total varchar(40),
     foreign key (fk_user) references usuario (id)
 );
@@ -32,14 +32,3 @@ CREATE TABLE quiz_resultado (
 select * from quiz_resultado;
 select * from usuario;
 
-insert into usuario(nome, email, senha)
-values ('Samuel', 'samuel@gmail.com', 'Samuel123@'),
- ('Davi', 'davi@gmail.com', 'Davi123@'),
-  ('Suzana', 'suzana@gmail.com', 'Suzana123@'),
-   ('Neilson', 'neilson@gmail.com', 'Neilson123');
-   
-/*   
-INSERT INTO quiz_resultado (fk_user, quest1, quest2, quest3, quest4, quest5, quest6, quest7, quest8, quest9, quest10, qtd_acertos, data_hora, tempo_gasto, pontuacao_total) 
-VALUES (1, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '10', '2024-05-17 08:30:00', '0:20:35', '30');
-
-*/
