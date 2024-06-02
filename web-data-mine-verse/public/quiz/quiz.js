@@ -46,7 +46,7 @@ function calcularTempoGasto(tempoInicial, tempoFinal) {
     // const horasGastas = Math.floor(minutosGastos / 60);
     /*formata e usa % para pegar o restp dos minutos e segundos*/
 
-    const tempoGastoFormatado = `${minutosGastos % 60}:${segundosGastos % 60}`;
+    const tempoGastoFormatado = `00:${minutosGastos % 60}:${segundosGastos % 60}`;
 
     return tempoGastoFormatado;
 }
@@ -138,25 +138,9 @@ function proximaPergunta(proxima) {
     }
 }
 
-function validarQuestao10(){
-    const validar10 = document.querySelector('input[name="resposta10"]:checked').value;
-    clearInterval(tempoInterval); // Para o cronômetro
-    if (validar10 == "1") {
-        mostrarAcertou()
-        setTimeout(() => {
-            ocultarAcertou();
 
-        }, 2000);
-    } else {
-        mostrarErrou()
-        setTimeout(() => {
-            ocultarErrou();
-
-        }, 2000);
-    }
-}
 function enviarRespostas() {
-    validarQuestao10()
+    clearInterval(tempoInterval); // Para o cronômetro
     if (!validarRespostas()) {
         return;
     }
@@ -211,23 +195,9 @@ function enviarRespostas() {
             console.log("Resposta do servidor: ", resposta);
 
             if (resposta.ok) {
-          
-                calcularKPIs()
-                // let redirecionarDash = "../dashboard/dashboard.html";
-                // window.location.href = redirecionarDash;
-                const section_saida = document.getElementById('section_saida')
-                const section_quiz = document.getElementById('section_quiz')
-
-                section_saida.style.display = "block";
-                section_quiz.style.display = "none";
-
-                resultadosQuiz.innerHTML = `
-                Quantidade acertos: <b>${sessionStorage.RESPOSTA_CORRETA}/10</b><br>
-                Pontuação: <b>${sessionStorage.PONTUACAO_TOTAL}/30 </b><br>
-                Tempo de duração: <b>${tempoGasto}</b><br>
-                Você também pode conferir sua classificação em nosso ranking clicando no botão abaixo:<br>
+                
                
-                `
+                setTimeout(validar10, 2000)
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
@@ -239,7 +209,23 @@ function enviarRespostas() {
     return false;
 
 }
+function validar10(){
+    calcularKPIs();
+    const tempoGasto = calcularTempoGasto(tempoInicialPagina, tempoInicialEnvio);
+    const section_saida = document.getElementById('section_saida')
+    const section_quiz = document.getElementById('section_quiz')
 
+    section_saida.style.display = "block";
+    section_quiz.style.display = "none";
+
+    resultadosQuiz.innerHTML = `
+    Quantidade acertos: <b>${sessionStorage.RESPOSTA_CORRETA}/10</b><br>
+    Pontuação: <b>${sessionStorage.PONTUACAO_TOTAL}/30 </b><br>
+    Tempo de duração: <b>${tempoGasto}</b><br>
+    Você também pode conferir sua classificação em nosso ranking clicando no botão abaixo:<br>
+   
+    `
+}
 function calcularKPIs() {
 
     let pontuacaoTotal = 0;

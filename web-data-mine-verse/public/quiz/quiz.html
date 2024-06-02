@@ -19,11 +19,11 @@
     </div>
     <div class="acertou" id="acertou">
         <img src="../assets/icons8-done-144 (1).png" alt="">
-    
+
 
 
     </div>
-    <div  class="exibir" id="exibir">
+    <div class="exibir" id="exibir">
         Erro: Por favor, selecione uma alternativa antes de prosseguir.
     </div>
 
@@ -34,18 +34,19 @@
 
     <div id="imgAcertoErro" class="imgAcertoErro">
         <span id="exibirImagem">
-           
+
         </span>
     </div>
     <div id="cronometro">
         <p id="timer">5:00</p>
-      </div>
-      <div id="acabouTempo" class="acabouTempo" style="width: 100%; height: 600px;   z-index: 1000; display: none; color: rgb(255, 0, 0); font-size: 80px; text-align: center; font-weight: bold;">
-            <h1>Tempo Esgotado !!!</h1>
-      </div>
+    </div>
+    <div id="acabouTempo" class="acabouTempo"
+        style="width: 100%; height: 600px;   z-index: 1000; display: none; color: rgb(255, 0, 0); font-size: 80px; text-align: center; font-weight: bold;">
+        <h1>Tempo Esgotado !!!</h1>
+    </div>
     <section id="section_quiz" style="display: block;">
         <div class="quiz-container">
-            <div class="div-quiz">
+            <div class="div-quiz" style="display: block;">
                 <p>1. Quem criou o Minecraft?</p>
 
                 <input type="radio" id="opcao1a" name="resposta1" value="1">
@@ -58,7 +59,7 @@
                 <label for="opcao1c">Rasmus Lerdorf</label><br>
 
                 <button style="margin-left: 420px;" onclick="proximaPergunta(2)">
-                    <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="" >
+                    <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
 
                 </button>
             </div>
@@ -75,13 +76,9 @@
                 <input type="radio" id="opcao2c" name="resposta2" value="0">
                 <label for="opcao2c">MineBlocks</label><br>
 
-                <!-- <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(2)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
-                    <button onclick="proximaPergunta(3)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+                <button onclick="proximaPergunta(3)">
+                    <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                </button>
                 </span>
             </div>
 
@@ -98,13 +95,9 @@
                 <input type="radio" id="opcao3c" name="resposta3" value="0">
                 <label for="opcao3c">The Void, The Nether, Overworld</label><br>
 
-                <!-- <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(2)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
-                    <button onclick="proximaPergunta(4)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+                <button onclick="proximaPergunta(4)">
+                    <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                </button>
                 </span>
             </div>
 
@@ -121,9 +114,7 @@
                 <label for="opcao4a">Enderman</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <!-- <button onclick="perguntaAnterior(3)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
+
                     <button onclick="proximaPergunta(5)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -143,9 +134,7 @@
                 <label for="opcao5c">Dragão das Sombras</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <!-- <button onclick="perguntaAnterior(4)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
+
                     <button onclick="proximaPergunta(6)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -165,9 +154,7 @@
                 <label for="opcao6c">End City</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <!-- <button onclick="perguntaAnterior(5)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
+
                     <button onclick="proximaPergunta(7)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -188,8 +175,7 @@
                 <label for="opcao7c">Wither Skeleton</label><br>
 
                 <span style="display: flex; justify-content: space-between;">
-                    <!-- <button onclick="perguntaAnterior(6)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt=""></button> -->
+                 
                     <button onclick="proximaPergunta(8)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -197,7 +183,7 @@
             </div>
 
             <div class="div-quiz" style="display: none;">
-                <!--Rever-->
+               
                 <p>8.Qual é a altura máxima do mundo no jogo?</p>
 
                 <input type="radio" id="opcao8a" name="resposta8" value="1">
@@ -208,13 +194,10 @@
 
                 <input type="radio" id="opcao8c" name="resposta8" value="1">
                 <label for="opcao8c">512 blocos</label><br>
-                <!-- <span style="display: flex; justify-content: space-between;">
-                    <button onclick="perguntaAnterior(7)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
-                    <button onclick="proximaPergunta(9)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
-                    </button>
+               
+                <button onclick="proximaPergunta(9)">
+                    <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
+                </button>
                 </span>
             </div>
 
@@ -231,9 +214,7 @@
                 <input type="radio" id="opcao9c" name="resposta9" value="1">
                 <label for="opcao9c"> 2009</label><br>
                 <span style="display: flex; justify-content: space-between;">
-                    <!-- <button onclick="perguntaAnterior(8)">
-                        <img width="35px" height="35px" src="../assets/imgs/seta-esquerda.png" alt="">
-                    </button> -->
+                   
                     <button onclick="proximaPergunta(10)">
                         <img width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt="">
                     </button>
@@ -242,7 +223,6 @@
 
 
             <div class="div-quiz" style="display: none;">
-    
 
                 <p>10. Item raro para criar poções poderosas?</p>
 
@@ -256,8 +236,9 @@
                 <label for="opcao10c">Coração de Netherite</label><br>
 
                 <span style="display: flex; justify-content: center; align-items: center;">
-                   
-                    <button style="display: flex; justify-content: center;" onclick="enviarRespostas()" class="button">Enviar</button>
+         
+                    <button style="display: flex; justify-content: center; " onclick="enviarRespostas()"><img
+                            width="35px" height="35px" src="../assets/imgs/seta-direita.png" alt=""></button>
                 </span>
             </div>
         </div>
@@ -280,13 +261,3 @@
 </body>
 
 </html>
-
-<script>
-    function rodarQuiz() {
-        const quiz = document.getElementById('section_quiz');
-        const intrucoes = document.getElementById('section_entrada');
-        alert('quiz')
-        intrucoes.style.display = "none"
-        quiz.style.display = "block"
-    }
-</script>

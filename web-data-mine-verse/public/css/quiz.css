@@ -84,6 +84,7 @@ nav .title {
     backdrop-filter: blur(5px);
     width: 520px;
     height: 315px;
+    /* height: auto; */
     background-color: #FFDEAD;
     border: 10px solid saddlebrown;
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.5);
@@ -92,6 +93,7 @@ nav .title {
 .div-quiz {
     margin-bottom: 20px;
     /* padding: 10px; */
+   
 }
 
 .divQuiz span {

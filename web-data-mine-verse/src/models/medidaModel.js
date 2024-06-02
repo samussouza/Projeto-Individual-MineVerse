@@ -21,7 +21,7 @@ function mediaAcertos() {
     SELECT 
     AVG(CAST(qtd_acertos AS DECIMAL(4,2))) AS media_acertos_total, 
     AVG(CAST( pontuacao_total AS DECIMAL(4,2))) AS media_pontuacao_total,
-    TIME_FORMAT(SEC_TO_TIME(ROUND(AVG(TIME_TO_SEC(STR_TO_DATE(tempo_gasto, '%i:%s'))))), '%i:%s') AS media_tempo_gasto
+    TIME_FORMAT(SEC_TO_TIME(AVG(TIME_TO_SEC(tempo_gasto))), '%i:%s') AS media_tempo_gasto 
 FROM 
     quiz_resultado;`;
 
@@ -38,38 +38,31 @@ function buscarUltimasMedidas(email, limite_linhas) {
 }
 function graficoPizza() {
 
-    var instrucaoSql = `SELECT
+    var instrucaoSql = `
+    SELECT
     CASE
       WHEN pontuacao_total <= 12 THEN 'Até 12 pontos'
-      WHEN pontuacao_total BETWEEN 15 AND 21 THEN 'De 15 a 21 pontos'
-      ELSE 'Mais de 24 pontos'
+      WHEN pontuacao_total BETWEEN 13 AND 21 THEN 'De 13 a 21 pontos'
+      ELSE 'Mais de 21 pontos'
     END AS faixa,
-    COUNT(*) AS total_usuarios
-  FROM quiz_resultado
-  GROUP BY CASE
-        WHEN pontuacao_total <= 12 THEN 'Até 12 pontos'
-        WHEN pontuacao_total BETWEEN 15 AND 21 THEN 'De 15 a 21 pontos'
-        ELSE 'Mais de 24 pontos'
-      END;`
+    COUNT(DISTINCT fk_user) AS total_usuarios
+FROM quiz_resultado
+GROUP BY faixa;`
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 function buscarMedidasEmTempoReal() {
 
-  var instrucaoSql = `SELECT
+  var instrucaoSql = ` SELECT
   CASE
     WHEN pontuacao_total <= 12 THEN 'Até 12 pontos'
-    WHEN pontuacao_total BETWEEN 15 AND 21 THEN 'De 15 a 21 pontos'
-    ELSE 'Mais de 24 pontos'
+    WHEN pontuacao_total BETWEEN 13 AND 21 THEN 'De 13 a 21 pontos'
+    ELSE 'Mais de 21 pontos'
   END AS faixa,
-  COUNT(*) AS total_usuarios
+  COUNT(DISTINCT fk_user) AS total_usuarios
 FROM quiz_resultado
-GROUP BY CASE
-      WHEN pontuacao_total <= 12 THEN 'Até 12 pontos'
-      WHEN pontuacao_total BETWEEN 15 AND 21 THEN 'De 15 a 21 pontos'
-      ELSE 'Mais de 24 pontos'
-    END;`;
+GROUP BY faixa;`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
