@@ -137,9 +137,25 @@ function proximaPergunta(proxima) {
         }
     }
 }
+function corrigir10(){
+    const resposta10 = document.querySelector('input[name="resposta10"]:checked').value;
+    if (resposta10 == "1") {
+        mostrarAcertou()
+        setTimeout(() => {
+            ocultarAcertou();
 
+        }, 2000);
+    } else {
+        mostrarErrou()
+        setTimeout(() => {
+            ocultarErrou();
+
+        }, 2000);
+    }
+}
 
 function enviarRespostas() {
+    corrigir10();
     clearInterval(tempoInterval); // Para o cronômetro
     if (!validarRespostas()) {
         return;

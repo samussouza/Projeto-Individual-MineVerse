@@ -18,15 +18,13 @@
 </head>
 
 <body>
-    <audio   id="background-audio"  loop>
+    <audio id="background-audio" loop>
         <source src="./assets/minecraft-1-20-trails-and-tales-ost.mp3" type="audio/mpeg">
         Seu navegador não suporta a tag de áudio.
     </audio>
     <div class="divEntrdas">
-        
-            <button  id="play-button"><img src="./assets/icons8-fones-de-ouvido-30.png" alt=""></button>
-   
 
+        <button id="play-button"><img src="./assets/icons8-fones-de-ouvido-30.png" alt=""></button>
 
         <span style="margin-right: 40px;">
             <a href="sobre.html">Sobre Mim</a>
@@ -38,7 +36,7 @@
             <a href="cadastro.html">Cadastro</a>
         </span>
 
-      <a href="dashboard/dashboard.html">aaaaaaaaaa</a>
+
 
     </div>
     <nav>
@@ -61,7 +59,7 @@
                     </span>
                     <p>
                         <button class="buttonQuiz" id="buttonQuiz">Play</button>
-                    
+
                     </p>
                 </div>
             </div>
@@ -239,8 +237,10 @@
             <div class="divTextoProjetos">
                 <h1>Meus projetos</h1>
                 <p>
-                    Bem-vindos ao nosso espaço dedicado aos projetos de Minecraft! Eu e meu irmão temos nos divertido muito criando e explorando juntos este incrível mundo virtual. Cada projeto que desenvolvemos é uma combinação de criatividade, esforço e muita diversão. 
-                    Esperamos que vocês gostem de explorar nossos projetos tanto quanto nós gostamos de criá-los. 
+                    Bem-vindos ao nosso espaço dedicado aos projetos de Minecraft! Eu e meu irmão temos nos divertido
+                    muito criando e explorando juntos este incrível mundo virtual. Cada projeto que desenvolvemos é uma
+                    combinação de criatividade, esforço e muita diversão.
+                    Esperamos que vocês gostem de explorar nossos projetos tanto quanto nós gostamos de criá-los.
                 </p>
             </div>
             <div class="divApresentacao">
@@ -255,7 +255,7 @@
                             <input type="radio" name="radio-btm" id="radio6">
 
                             <div class="slide first">
-                                <img src="./assets/imgs/minecraft-minecraft-dungeons-ocean-view-minecraft-dungeons-hidden-depths-4k-hd-wallpaper-previe.jpg"
+                                <img src="./assets/Screenshot_20240602-213725.png"
                                     alt="">
                             </div>
                             <div class="slide">
@@ -352,7 +352,7 @@
                         <div class="footer-card">
                             <h4>Contato</h4>
                             <ul>
-                                
+
                                 <li>+55 969871234</li>
                                 <li>mineverse@hotmail.com</li>
 
@@ -380,17 +380,17 @@
 
 </html>
 <script>
-      document.addEventListener('DOMContentLoaded', function() {
-            var audio = document.getElementById('background-audio');
-            audio.volume = 0.1;
+    document.addEventListener('DOMContentLoaded', function () {
+        var audio = document.getElementById('background-audio');
+        audio.volume = 0.1;
+    });
+    document.getElementById('play-button').addEventListener('click', function () {
+        var audio = document.getElementById('background-audio');
+        audio.play().catch(function (error) {
+            console.log('Falha ao reproduzir o áudio:', error);
         });
-        document.getElementById('play-button').addEventListener('click', function() {
-            var audio = document.getElementById('background-audio');
-            audio.play().catch(function(error) {
-                console.log('Falha ao reproduzir o áudio:', error);
-            });
-            this.style.display = 'none'; // Esconde o botão após o clique
-        });
+        this.style.display = 'none'; // Esconde o botão após o clique
+    });
     /*evento para fixação da barra de navegação ao rolar a pagina*/
     window.addEventListener('scroll', function () {
         const nav = document.querySelector('nav');
